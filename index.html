@@ -242,7 +242,7 @@ $.get("AllCountries.csv", function(csvString) {
   Mapbutton3.style.background = "#F5A623"
 
   $(window).resize(function() {
-    dashboard.draw(data[current]);
+    dashboard.draw(filterdata);
   });
   
 })
