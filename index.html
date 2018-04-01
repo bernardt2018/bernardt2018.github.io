@@ -115,36 +115,6 @@ $.get("AllCountries.csv", function(csvString) {
       onParseValue: $.csv.hooks.castToScalar
    });
 
-
-  // transform the CSV string into a 2-dimensional array
-  var DataB = ([
-    ['Country', 'Time', 'Popularity', 'ÁssetClass'],
-    ['Germany', 'YTD', 200, 'Bonds'],
-    ['United States', 'YTD', 300, 'Bonds'],
-    ['Brazil', 'YTD', 400, 'Bonds'],
-    ['Canada', 'YTD', 500, 'Bonds'],
-    ['France', 'YTD', 600, 'Bonds'],
-    ['RU', 'YTD', 700, 'Bonds'],
-    ['Germany', 'YTD', 120, 'Equity'],
-    ['United States', 'YTD', 130, 'Equity'],
-    ['Brazil', 'YTD', 140, 'Equity'],
-    ['Canada', 'YTD', 150, 'Equity'],
-    ['France', 'YTD', 160, 'Equity'],
-    ['RU', 'YTD', 170, 'Equity'],
-    ['Germany', 'MTD', 120, 'Bonds'],
-    ['United States', 'MTD', 130, 'Bonds'],
-    ['Brazil', 'MTD', 740, 'Bonds'],
-    ['Canada', 'MTD', 250, 'Bonds'],
-    ['France', 'MTD', 360, 'Bonds'],
-    ['RU', 'MTD', 170, 'Bonds'],
-    ['Germany', 'MTD', 2, 'Equity'],
-    ['United States', 'MTD', 12, 'Equity'],
-    ['Brazil', 'MTD', 2, 'Equity'],
-    ['Canada', 'MTD', 6.5, 'Equity'],
-    ['France', 'MTD', 3, 'Equity'],
-    ['RU', 'MTD', 9, 'Equity']
-  ]);
-
   var dashboard = new google.visualization.Dashboard(
     document.getElementById('programmatic_dashboard_div_Map'));
 
