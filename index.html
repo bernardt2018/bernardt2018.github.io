@@ -306,7 +306,7 @@ function Init() {
         //column: (1,0), value: ('MTD','All Cap')
       }])
       filterdataBar.setRows(aBar)
-      filterdataBar.setColumns([0, 2, 3, 4, 5])
+      filterdataBar.setColumns([0, 2])
 
       dashboardBar.bind(programmaticFilterBar, chartBar);
 
@@ -495,6 +495,7 @@ function Init() {
       //references should refer to the view which has time (second column in Data) removed
       function CheckWhatsTicked() {
         var ColArray = [0]
+        var RowArray = []
         if (USDCheckBox.checked) {
           ColArray.push(2) //adds US colum reference to the collum re array if ticked
         }
@@ -511,11 +512,14 @@ function Init() {
           ColArray.push(1)
         }
 
-        // sets the chart view  to the appriopriate curriencies
-        chartBar.setView({
-          'columns': ColArray,
-        })
+        var aBar = dataBar.getFilteredRows([{
+          column: (1,2,2),
+          value: ('MTD','USD','CHF')
+        }])
+
+        chartBar.setRows(aBar)
         drawBarChart();
+
       }
 
 
