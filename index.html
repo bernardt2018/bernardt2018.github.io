@@ -244,7 +244,7 @@ google.charts.setOnLoadCallback(Init);
 function Init() {
   $.get("AllCountries6.csv", function(csvString1) {
 
-    $.get("MarketReturns.csv", function(csvString2) {
+    $.get("MarketReturns2.csv", function(csvString2) {
       // transform the CSV string into a 2-dimensional array
       var DataABar = $.csv.toArrays(csvString2, {
         onParseValue: $.csv.hooks.castToScalar
