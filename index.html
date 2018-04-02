@@ -210,6 +210,11 @@ body {
   <span class="checkmark"></span>
 </label>
 
+<label class="container">CHF
+  <input type="checkbox" id="CHFCheck">
+  <span class="checkmark"></span>
+</label>
+
                 <label class="container">LC
                 <input type="checkbox" id="LCCheck">
                   <span class="checkmark"></span>
@@ -307,7 +312,7 @@ function Init() {
         //column: 1, value: ('MTD','All Cap')
       }])
       filterdataBar.setRows(aBar)
-      filterdataBar.setColumns([0,2,3,4,6]) //we don't include the CHF
+      filterdataBar.setColumns([0,2,3,4,5,6]) 
 
       dashboardBar.bind(programmaticFilterBar, chartBar);
 
@@ -488,6 +493,7 @@ function Init() {
       var GBPCheckBox = document.getElementById("GBPCheck");
       var USDCheckBox = document.getElementById("USDCheck");
       var EURCheckBox = document.getElementById("EURCheck");
+var CHFCheckBox = document.getElementById("CHFCheck");
       var LCCheckBox = document.getElementById("LCCheck");
 
       GBPCheckBox.checked = true //by default GBP is returns
@@ -506,8 +512,11 @@ function Init() {
         if (EURCheckBox.checked) {
           ColArray.push(3) //adds EU colum reference to the collum re array if ticked
         }
+        if (CHFCheckBox.checked) {
+          ColArray.push(4) //adds CHF colum reference to the collum re array if ticked
+        }
         if (LCCheckBox.checked) {
-          ColArray.push(4) //adds LC colum reference to the collum re array if ticked
+          ColArray.push(5) //adds LC colum reference to the collum re array if ticked
         }
         if (ColArray.length == 1) {
           ColArray.push(1)
