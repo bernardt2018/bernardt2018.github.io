@@ -216,7 +216,7 @@ $.get("AllCountries6.csv", function(csvString) {
     Mapbutton3.style.background = "#F5A623"
     filterdata.setRows(data.getFilteredRows([{
       column: 1,
-      value: 'YTD' // yTD is the starting filter
+      value: 'YTD' // yTD
     }]))
     drawChart();
     Mapbutton2.disabled = true;
@@ -230,7 +230,7 @@ $.get("AllCountries6.csv", function(csvString) {
     Mapbutton2.style.background = "#F5A623"
     filterdata.setRows(data.getFilteredRows([{
       column: 1,
-      value: '2017' // 2017 is the starting filter
+      value: 'Year2017' 
     }]))
     drawChart();
     Mapbutton3.disabled = true;
