@@ -115,7 +115,7 @@ $.get("AllCountries6.csv", function(csvString) {
     var DataA = $.csv.toArrays(csvString, {
       onParseValue: $.csv.hooks.castToScalar
    });
-
+})
   var dashboard = new google.visualization.Dashboard(
     document.getElementById('programmatic_dashboard_div_Map'));
 
@@ -246,7 +246,7 @@ $.get("AllCountries6.csv", function(csvString) {
     dashboard.draw(filterdata);
   });
   
-})
+
 
 }
 
