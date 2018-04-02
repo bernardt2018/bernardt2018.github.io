@@ -243,7 +243,7 @@ google.charts.setOnLoadCallback(Init);
 function Init() {
   $.get("AllCountries6.csv", function(csvString1) {
 
-    $.get("MarketReturns2.csv", function(csvString2) {
+    $.get("MarketReturns.csv", function(csvString2) {
       // transform the CSV string into a 2-dimensional array
       var DataABar = $.csv.toArrays(csvString2, {
         onParseValue: $.csv.hooks.castToScalar
@@ -301,8 +301,8 @@ function Init() {
       // this filters the data to YTD. Leaves all other columns in place
       var filterdataBar = new google.visualization.DataView(dataBar)
       var aBar = dataBar.getFilteredRows([{
-        column: 1,
-        value: 'MTD', // filter for both chart type and time horizon from single CSV
+        column: (1,3),
+        value: ('MTD','GBP') // filter for both chart type and time horizon from single CSV
         //column: (1,0), value: ('MTD','All Cap')
       }])
       filterdataBar.setRows(aBar)
