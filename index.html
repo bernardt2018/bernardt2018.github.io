@@ -282,7 +282,7 @@ function Init() {
       //state: initState
 
 
-      var dataBar = google.visualization.arrayToDataTable(DataABar); //YTD = 0
+      var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
 
       var chartBar = new google.visualization.ChartWrapper({
         'chartType': 'ColumnChart',
@@ -305,6 +305,12 @@ function Init() {
       })
 
       // this filters the data to YTD. Leaves all other columns in place
+    var view = new google.visualization.DataView(dataBarInitial);
+    var rowIndexes = view.getFilteredRows([{column: 2, value: 0}]); //get rows with 0 values
+    view.hideRows(rowIndexes); //hide empty rows
+    dataBar= view.toDataTable();
+
+
       var filterdataBar = new google.visualization.DataView(dataBar)
       var aBar = dataBar.getFilteredRows([{
         column: 1,
@@ -314,8 +320,7 @@ function Init() {
       filterdataBar.setRows(aBar)
       filterdataBar.setColumns([0,2,3,4,5,6]) 
 
-     var rowIndexes = dataBar.getFilteredRows([{column: 1, value: 0}]); //get rows with 0 values
-    filterdataBar.hideRows(rowIndexes); //hide empty rows
+     
 
 
       dashboardBar.bind(programmaticFilterBar, chartBar);
