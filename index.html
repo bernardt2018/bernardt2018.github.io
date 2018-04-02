@@ -314,6 +314,10 @@ function Init() {
       filterdataBar.setRows(aBar)
       filterdataBar.setColumns([0,2,3,4,5,6]) 
 
+     var rowIndexes = filterdataBar.getFilteredRows([{column: 1, value: 0}]); //get rows with 0 values
+    filterdataBar.hideRows(rowIndexes); //hide empty rows
+
+
       dashboardBar.bind(programmaticFilterBar, chartBar);
 
       var dashboard = new google.visualization.Dashboard(
