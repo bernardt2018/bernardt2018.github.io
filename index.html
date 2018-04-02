@@ -231,6 +231,7 @@ body {
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
     <script type="text/javascript">
 
+
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {
   'packages': ['corechart', 'geochart', 'controls'],
@@ -306,7 +307,7 @@ function Init() {
         //column: (1,0), value: ('MTD','All Cap')
       }])
       filterdataBar.setRows(aBar)
-      filterdataBar.setColumns([0, 2])
+      filterdataBar.setColumns([0,1, 2,3])
 
       dashboardBar.bind(programmaticFilterBar, chartBar);
 
@@ -619,7 +620,6 @@ function Init() {
     })
   })
 }
-
 
 
     </script>
