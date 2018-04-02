@@ -306,7 +306,7 @@ function Init() {
 
       // this filters the data to YTD. Leaves all other columns in place
     var view = new google.visualization.DataView(dataBarInitial);
-    var rowIndexes = view.getFilteredRows([{column: 2, value: 0}]); //get rows with 0 values
+    var rowIndexes = view.getFilteredRows([{column: 2, value: ''}]); //get rows with 0 values
     view.hideRows(rowIndexes); //hide empty rows
     dataBar= view.toDataTable();
 
