@@ -244,7 +244,7 @@ google.charts.setOnLoadCallback(Init);
 function Init() {
   $.get("AllCountries6.csv", function(csvString1) {
 
-    $.get("MarketReturns2.csv", function(csvString2) {
+    $.get("MarketReturns.csv", function(csvString2) {
       // transform the CSV string into a 2-dimensional array
       var DataABar = $.csv.toArrays(csvString2, {
         onParseValue: $.csv.hooks.castToScalar
@@ -296,18 +296,18 @@ function Init() {
       });
 
       chartBar.setView({
-        'columns': [0, 2],
+        'columns': [0, 1], // GBP initial
       })
 
       // this filters the data to YTD. Leaves all other columns in place
       var filterdataBar = new google.visualization.DataView(dataBar)
       var aBar = dataBar.getFilteredRows([{
-        column: (1,3),
-        value: ('MTD','GBP') // filter for both chart type and time horizon from single CSV
-        //column: (1,0), value: ('MTD','All Cap')
+        column: 1,
+        value: 'MTD' // filter for both chart type and time horizon from single CSV
+        //column: 1, value: ('MTD','All Cap')
       }])
       filterdataBar.setRows(aBar)
-      filterdataBar.setColumns([0,1, 2,3])
+      filterdataBar.setColumns([0,2,3,4,5])
 
       dashboardBar.bind(programmaticFilterBar, chartBar);
 
@@ -496,7 +496,7 @@ function Init() {
       //references should refer to the view which has time (second column in Data) removed
       function CheckWhatsTicked() {
         var ColArray = [0]
-        var RowArray = []
+      
         if (USDCheckBox.checked) {
           ColArray.push(2) //adds US colum reference to the collum re array if ticked
         }
@@ -513,12 +513,9 @@ function Init() {
           ColArray.push(1)
         }
 
-        var aBar = dataBar.getFilteredRows([{
-          column: (1,2,2),
-          value: ('MTD','USD','CHF')
-        }])
-
-        chartBar.setRows(aBar)
+        chartBar.setView({
+          'columns': ColArray,
+        })
         drawBarChart();
 
       }
