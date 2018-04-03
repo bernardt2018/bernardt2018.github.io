@@ -149,8 +149,8 @@ body {
 
 
     <div class="tab">
-      <button id="chartab1" class="tablinks">Market Map</button>
-      <button id="chartab2" class="tablinks">Asset Class Chart</button>
+      <button id="chartab1" class="charttablinks">Market Map</button>
+      <button id="chartab2" class="charttablinks">Asset Class Chart</button>
     </div>
 
 
@@ -389,7 +389,7 @@ function Init() {
         var tabcontent = document.getElementById("AssetClassChart"); //hides bar content
         tabcontent.style.display = "none";
 
-        var tablinks = document.getElementsByClassName('tablinks'); //unactivates map link
+        var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
         tablinks[0].className = tablinks[0].className.replace(" active", "");
         tablinks[1].className = tablinks[1].className.replace(" active", "");
 
@@ -407,7 +407,7 @@ function Init() {
         var tabcontent = document.getElementById("Map"); //hides map content
         tabcontent.style.display = "none";
 
-        var tablinks = document.getElementsByClassName('tablinks'); //unactivates map link
+        var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
         tablinks[0].className = tablinks[0].className.replace(" active", "");
         tablinks[1].className = tablinks[1].className.replace(" active", "");
 
@@ -420,7 +420,7 @@ function Init() {
         tab1.disabled = false;
       }
 
-      document.getElementsByClassName('tablinks')[0].click() //activates tab 1
+      document.getElementsByClassName('charttablinks')[0].click() //activates tab 1
 
 
       //Area covers button interactions
