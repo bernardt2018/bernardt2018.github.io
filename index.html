@@ -382,10 +382,10 @@ function Init() {
       dashboard.bind(programmaticFilter, chart);
 
 
-      var tab1 = document.getElementById("chartab1");
-      var tab2 = document.getElementById("chartab2");
+      var charttab1var = document.getElementById("chartab1");
+      var charttab2var = document.getElementById("chartab2");
 
-      tab1.onclick = function() {
+      charttab1var.onclick = function() {
         var charttabcontentvar = document.getElementById("AssetClassChart"); //hides bar content
         charttabcontentvar.style.display = "none";
 
@@ -395,15 +395,15 @@ function Init() {
 
         document.getElementById("Map").style.display = "block"; //unhides bar content
         document.getElementById("chartab1").className += " active"; // makes button two look activated
-        tab2.disabled = true;
-        tab1.disabled = true;
+        charttab2.disabled = true;
+        charttab1.disabled = true;
         dashboard.draw(filterdata);
-        tab2.disabled = false;
-        tab1.disabled = false;
+        charttab2.disabled = false;
+        charttab1.disabled = false;
       }
 
 
-      tab2.onclick = function() {
+      charttab2var.onclick = function() {
         var charttabcontentvar = document.getElementById("Map"); //hides map content
         charttabcontentvar.style.display = "none";
 
@@ -413,11 +413,11 @@ function Init() {
 
         document.getElementById("AssetClassChart").style.display = "block"; //unhides bar content
         document.getElementById("chartab2").className += " active"; // makes button two look activated
-        tab2.disabled = true;
-        tab1.disabled = true;
+        charttab2.disabled = true;
+        chartab1.disabled = true;
         dashboardBar.draw(filterdataBar);
-        tab2.disabled = false;
-        tab1.disabled = false;
+        charttab2.disabled = false;
+        charttab1.disabled = false;
       }
 
       document.getElementsByClassName('charttablinks')[0].click() //activates tab 1
