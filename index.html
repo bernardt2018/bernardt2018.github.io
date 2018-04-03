@@ -395,11 +395,11 @@ function Init() {
 
         document.getElementById("Map").style.display = "block"; //unhides bar content
         document.getElementById("chartab1").className += " active"; // makes button two look activated
-        charttab2.disabled = true;
-        charttab1.disabled = true;
+        charttab2var.disabled = true;
+        charttab1var.disabled = true;
         dashboard.draw(filterdata);
-        charttab2.disabled = false;
-        charttab1.disabled = false;
+        charttab2var.disabled = false;
+        charttab1var.disabled = false;
       }
 
 
@@ -413,11 +413,11 @@ function Init() {
 
         document.getElementById("AssetClassChart").style.display = "block"; //unhides bar content
         document.getElementById("chartab2").className += " active"; // makes button two look activated
-        charttab2.disabled = true;
-        chartab1.disabled = true;
+        charttab2var.disabled = true;
+        chartab1var.disabled = true;
         dashboardBar.draw(filterdataBar);
-        charttab2.disabled = false;
-        charttab1.disabled = false;
+        charttab2var.disabled = false;
+        charttab1var.disabled = false;
       }
 
       document.getElementsByClassName('charttablinks')[0].click() //activates tab 1
