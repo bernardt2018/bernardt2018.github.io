@@ -11,7 +11,7 @@ body {
 
 /* Style the tab */
 
-.tab {
+.charttab {
   overflow: hidden;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
@@ -19,7 +19,7 @@ body {
 
 /* Style the buttons inside the tab */
 
-.tab button {
+.charttab button {
   background-color: inherit;
   float: left;
   border: none;
@@ -32,19 +32,19 @@ body {
 
 /* Change background color of buttons on hover */
 
-.tab button:hover {
+.charttab button:hover {
   background-color: #ddd;
 }
 
 /* Create an active/current tablink class */
 
-.tab button.active {
+.charttab button.active {
   background-color: #ccc;
 }
 
 /* Style the tab content */
 
-.tabcontent {
+.charttabcontent {
   display: none;
   padding: 6px 12px;
   border: 1px solid #ccc;
@@ -148,13 +148,13 @@ body {
     <title> Data Visualisations </title>
 
 
-    <div class="tab">
+    <div class="charttab">
       <button id="chartab1" class="charttablinks">Market Map</button>
       <button id="chartab2" class="charttablinks">Asset Class Chart</button>
     </div>
 
 
-    <div id="Map" class="tabcontent">
+    <div id="Map" class="charttabcontent">
 
       <div id="programmatic_dashboard_div_Map" style="border: 1px solid #ccc; height:100%">
         <table class="columns" style="height: 50px">
@@ -180,7 +180,7 @@ body {
       </div>
     </div>
 
-    <div id="AssetClassChart" class="tabcontent">
+    <div id="AssetClassChart" class="charttabcontent">
       <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
         <table class="columns" style="height: 50px">
           <tr>
@@ -386,8 +386,8 @@ function Init() {
       var tab2 = document.getElementById("chartab2");
 
       tab1.onclick = function() {
-        var tabcontent = document.getElementById("AssetClassChart"); //hides bar content
-        tabcontent.style.display = "none";
+        var charttabcontentvar = document.getElementById("AssetClassChart"); //hides bar content
+        charttabcontentvar.style.display = "none";
 
         var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
         tablinks[0].className = tablinks[0].className.replace(" active", "");
@@ -404,8 +404,8 @@ function Init() {
 
 
       tab2.onclick = function() {
-        var tabcontent = document.getElementById("Map"); //hides map content
-        tabcontent.style.display = "none";
+        var charttabcontentvar = document.getElementById("Map"); //hides map content
+        charttabcontentvar.style.display = "none";
 
         var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
         tablinks[0].className = tablinks[0].className.replace(" active", "");
