@@ -524,6 +524,10 @@ var CHFCheckBox = document.getElementById("CHFCheck");
         dashboardBar.draw(filterdataBar)
         dashboard.draw(filterdata)
       });
+	    
+	    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+  window.dispatchEvent(new Event('resize'));
+});
 
     })
   })
