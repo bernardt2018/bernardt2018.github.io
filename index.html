@@ -244,9 +244,9 @@ google.charts.load('current', {
 });
 
 // Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(Init);
+google.charts.setOnLoadCallback(Init2);
 
-function Init() {
+function Init2() {
   $.get("AllCountries6.csv", function(csvString1) {
 
     $.get("MarketReturns.csv", function(csvString2) {
