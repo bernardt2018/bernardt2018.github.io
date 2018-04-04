@@ -1,59 +1,132 @@
-<!DOCTYPE html>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body {font-family: Arial;}
+
+  <head>
+
+
+    <style>
+body {
+  font-family: Arial;
+}
 /* Style the tab */
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+.charttab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
 }
 /* Style the buttons inside the tab */
-.tab input {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
+.charttab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
 }
 /* Change background color of buttons on hover */
-.tab input:hover {
-    background-color: #ddd;
+.charttab button:hover {
+  background-color: #ddd;
 }
 /* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
+.charttab button.active {
+  background-color: #ccc;
 }
 /* Style the tab content */
-.tabcontent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
+.charttabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
 }
-</style>
-</head>
-<body>
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 23px;
+  padding-right: 20px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #bebebe;
+}
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: #2196F3;
+}
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+    </style>
+  </head>
 
-<p>Click on the buttons inside the tabbed menu:</p>
-
-<div class="tab">
-  <input type="button" id="Londonbutton" class="tablinks" onclick="openCity(event, 'London')" value="London"/>
-  <input type="button" id="Parisbutton" class="tablinks" onclick="openCity(event, 'Paris')" value ="Paris"/>
-  <input type="button" class="tablinks" onclick="openCity(event, 'Tokyo')" value="Tokyo" />
-</div>
-
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+  <body>
+    <title> Data Visualisations </title>
 
 
-<div id="programmatic_dashboard_div_Map" style="border: 1px solid #ccc; height:100%">
+    <div class="charttab">
+      <button id="chartab1" class="charttablinks">Market Map</button>
+      <button id="chartab2" class="charttablinks">Asset Class Chart</button>
+    </div>
+
+
+    <div id="Map" class="charttabcontent">
+
+      <div id="programmatic_dashboard_div_Map" style="border: 1px solid #ccc; height:100%">
         <table class="columns" style="height: 50px">
           <tr>
             <td>
@@ -71,24 +144,13 @@ body {font-family: Arial;}
             </td>
           </tr>
         </table>
-        <div style="width: 100%; overflow:hidden; height: 500px;" id="Outer">
-          <div style="margin-top:-20%; height: 500px;" id="programmatic_chart_divMap"></div>
+        <div style="width: 100%; overflow:hidden;" id="Outer">
+          <div style="margin-top:-20%;" id="programmatic_chart_divMap"></div>
         </div>
       </div>
+    </div>
 
-
-
-
-
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-	    <div id="AssetClassChart" class="charttabcontent">
-    <p>
-tst bar
-</p>
+    <div id="AssetClassChart" class="charttabcontent">
       <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
         <table class="columns" style="height: 50px">
           <tr>
@@ -139,14 +201,6 @@ tst bar
 
     </div>
 
-
-
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
@@ -268,12 +322,38 @@ function Init2() {
       filterdata.setRows(a)
       filterdata.setColumns([0, 2, 3]) // data set is country label, returns, and asset class
       dashboard.bind(programmaticFilter, chart);
-	    
-      document.getElementById('Londonbutton').click() //activates tab 1
+      var charttab1var = document.getElementById("chartab1");
+      var charttab2var = document.getElementById("chartab2");
+      charttab1var.onclick = function() {
+        var charttabcontentvar = document.getElementById("AssetClassChart"); //hides bar content
+        charttabcontentvar.style.display = "none";
+        var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
+        tablinks[0].className = tablinks[0].className.replace(" active", "");
+        tablinks[1].className = tablinks[1].className.replace(" active", "");
+        document.getElementById("Map").style.display = "block"; //unhides bar content
+        document.getElementById("chartab1").className += " active"; // makes button two look activated
+        charttab2var.disabled = true;
+        charttab1var.disabled = true;
+        dashboard.draw(filterdata);
+        charttab2var.disabled = false;
+        charttab1var.disabled = false;
+      }
+      charttab2var.onclick = function() {
+        var charttabcontentvar = document.getElementById("Map"); //hides map content
+        charttabcontentvar.style.display = "none";
+        var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
+        tablinks[0].className = tablinks[0].className.replace(" active", "");
+        tablinks[1].className = tablinks[1].className.replace(" active", "");
+        document.getElementById("AssetClassChart").style.display = "block"; //unhides bar content
+        document.getElementById("chartab2").className += " active"; // makes button two look activated
+        charttab2var.disabled = true;
+        chartab1var.disabled = true;
+        dashboardBar.draw(filterdataBar);
+        charttab2var.disabled = false;
+        charttab1var.disabled = false;
+      }
+      document.getElementsByClassName('charttablinks')[0].click() //activates tab 1
       //Area covers button interactions
-dashboardBar.draw(filterdataBar);
-dashboard.draw(filterdata);
-	    
       var button1 = document.getElementById("b1");
       var button2 = document.getElementById("b2");
       var button3 = document.getElementById("b3");
@@ -457,26 +537,11 @@ var CHFCheckBox = document.getElementById("CHFCheck");
         dashboardBar.draw(filterdataBar)
         dashboard.draw(filterdata)
       });
-	    
     })
   })
 }
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-    Init2();
-	//drawBarChart()
-}
-</script>
-     
-</body>
-</html> 
+    </script>
+
+  </body>
+
+</html>
