@@ -522,11 +522,6 @@ var CHFCheckBox = document.getElementById("CHFCheck");
         dashboard.draw(filterdata)
       });
 	    
-	$('Parisbutton').click(function(){
-        dashboardBar.draw(filterdataBar)
-        dashboard.draw(filterdata)
-   
-});
 
     })
   })
@@ -548,7 +543,8 @@ function openCity(evt, cityName) {
     }
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
-    Init2();
+    //Init2();
+	drawBarChart()
 }
 </script>
      
