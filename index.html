@@ -347,7 +347,7 @@ function Init2() {
         document.getElementById("AssetClassChart").style.display = "block"; //unhides bar content
         document.getElementById("chartab2").className += " active"; // makes button two look activated
         charttab2var.disabled = true;
-        chartab1var.disabled = true;
+        charttab1var.disabled = true;
         dashboardBar.draw(filterdataBar);
         charttab2var.disabled = false;
         charttab1var.disabled = false;
@@ -539,9 +539,7 @@ var CHFCheckBox = document.getElementById("CHFCheck");
       });
 
 
-$('a[data-toggle="charttab"]').on('shown.bs.tab', function (e) {
-  window.dispatchEvent(new Event('resize'));
-});
+
 
 
     })
