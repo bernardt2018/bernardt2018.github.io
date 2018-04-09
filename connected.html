@@ -80,6 +80,91 @@
       </table>
       <div id="programmatic_chart_div" style="width: 100%; height: 500px; "></div>
     </div>
+	  
+	   <div class="charttab">
+      <input type="button" id="chartab1" class="charttablinks" value="Market Map"/>
+      <input type="button" id="chartab2" class="charttablinks" value="Asset Class Chart"/>
+    </div>
+
+
+    <div id="Map" class="charttabcontent">
+
+      <div id="programmatic_dashboard_div_Map" style="border: 1px solid #ccc; height:100%">
+        <table class="columns" style="height: 50px">
+          <tr>
+            <td>
+              <p> Select:
+                <input type="button" value="MTD" id="b1Map" class="button" style="margin: 0px 0px;" />
+                <input type="button" value="YTD" id="b2Map" class="button" style="margin: 0px 0px;" />
+                <input type="button" value="2017" id="b3Map" class="button" style="margin: 0px 0px;" />
+              </p>
+            </td>
+            <td>
+
+              <div id="programmatic_control_Map"></div>
+
+
+            </td>
+          </tr>
+        </table>
+        <div style="width: 100%; overflow:hidden;" id="Outer">
+          <div style="margin-top:-20%;" id="programmatic_chart_divMap"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="AssetClassChart" class="charttabcontent">
+      <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
+        <table class="columns" style="height: 80px">
+          <tr>
+            <td>
+              <p> Select:
+                <input type="button" value="MTD" id="b1" class="button" style="margin: 0px 0px;" />
+                <input type="button" value="YTD" id="b2" class="button" style="margin: 0px 0px;" />
+                <input type="button" value="2017" id="b3" class="button" style="margin: 0px 0px;" />
+              </p>
+            </td>
+            <td>
+
+              <div style="position:absolute; right:5px; top: 70px;">
+                <label class="container">USD
+  <input type="checkbox" id="USDCheck" onchange="testfunction()">
+  <span class="checkmark"></span>
+              </label>
+
+                <label class="container">GBP
+  <input type="checkbox" id="GBPCheck">
+  <span class="checkmark"></span>
+</label>
+
+                <label class="container">EUR
+  <input type="checkbox" id="EURCheck">
+  <span class="checkmark"></span>
+</label>
+
+<label class="container">CHF
+  <input type="checkbox" id="CHFCheck">
+  <span class="checkmark"></span>
+</label>
+
+                <label class="container">LC
+                <input type="checkbox" id="LCCheck">
+                  <span class="checkmark"></span>
+</label>
+
+                <div id="programmatic_control_divBar"></div>
+
+              </div>
+            </td>
+          </tr>
+        </table>
+        <div id="programmatic_chart_divBar" style="width: 100%; height: 500px; "></div>
+      </div>
+
+    </div>
+	  
+	  
+	  
   </body>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
