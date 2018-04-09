@@ -310,11 +310,9 @@ function Init2() {
       button2Bubble.style.background = "#F5A623"
       button3Bubble.style.background = "#F5A623"
       dashboardBubble.bind(programmaticFilterBubble, chartBubble);
-      dashboardBubble.draw(data[current]);
+      dashboardBubble.draw(dataBubble[current]);
 
       $(window).resize(function() {
-        dashboardBar.draw(filterdataBar)
-        dashboard.draw(filterdata)
         dashboardBubble.draw(dataBubble[current]);
       });
 
