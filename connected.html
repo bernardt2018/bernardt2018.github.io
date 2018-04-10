@@ -157,9 +157,9 @@
           </tr>
 		  
 		  <tr>
-		  <td>
-		  <div id="programmatic_control_divBar"></div>
-		  </td>
+			<td>
+				<div id="programmatic_control_divBar"></div>
+			</td>
 		  </tr>
         </table>
         <div id="programmatic_chart_divBar" style="width: 100%; height: 500px; "></div>
@@ -190,9 +190,15 @@ function Init2() {
   $.get("AllCountries6.csv", function(csvString1) {
 
     $.get("MarketReturns.csv", function(csvString2) {
-
-	          // transform the CSV string into a 2-dimensional array
-      var DataABar = $.csv.toArrays(csvString2, {
+		
+		$.get("RelativePerformance.csv", function(csvString3) {
+	  
+	  // transform the CSV string into a 2-dimensional array
+      var RelativeData = $.csv.toArrays(csvString3, {
+        onParseValue: $.csv.hooks.castToScalar
+      });
+	  
+	  var DataABar = $.csv.toArrays(csvString2, {
         onParseValue: $.csv.hooks.castToScalar
       });
 
@@ -219,7 +225,6 @@ function Init2() {
         }
       });
       //state: initState
-
 
       var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
 
@@ -258,7 +263,6 @@ function Init2() {
       view.hideRows(rowIndexes); //hide empty rows
       dataBar = view.toDataTable();
 
-
       var filterdataBar = new google.visualization.DataView(dataBar)
       var aBar = dataBar.getFilteredRows([{
         column: 1,
@@ -267,9 +271,6 @@ function Init2() {
       }])
       filterdataBar.setRows(aBar)
       filterdataBar.setColumns([0, 2, 3, 4, 5, 6])
-
-
-
 
       dashboardBar.bind(programmaticFilterBar, chartBar);
 
@@ -319,7 +320,7 @@ function Init2() {
         'columns': [0, 1], // chart view is only the country names and returns
       })
 
-      // this filters the data to YTD. Leaves all other columns in place
+      // this filters the data to MTD. Leaves all other columns in place
       var filterdata = new google.visualization.DataView(data)
       var a = data.getFilteredRows([{
         column: 1,
@@ -328,7 +329,6 @@ function Init2() {
       filterdata.setRows(a)
       filterdata.setColumns([0, 2, 3]) // data set is country label, returns, and asset class
       dashboard.bind(programmaticFilter, chart);
-
 
       var charttab1var = document.getElementById("chartab1");
       var charttab2var = document.getElementById("chartab2");
@@ -345,11 +345,9 @@ function Init2() {
         document.getElementById("chartab1").className += " active"; // makes button two look activated
         charttab2var.disabled = true;
         charttab1var.disabled = true;
-        dashboard.draw(filterdata);
         charttab2var.disabled = false;
         charttab1var.disabled = false;
       }
-
 
       charttab2var.onclick = function() {
         var charttabcontentvar = document.getElementById("Map"); //hides map content
@@ -370,11 +368,7 @@ function Init2() {
 
       document.getElementsByClassName('charttablinks')[0].click() //activates tab 1
 
-
       //Area covers button interactions
-
-
-
       var button1 = document.getElementById("b1Bar");
       var button2 = document.getElementById("b2Bar");
       var button3 = document.getElementById("b3Bar");
@@ -395,8 +389,6 @@ function Init2() {
 
         dashboardBar.draw(filterdataBar);
       }
-
-
 
       //runs if the MTD button is clicked
       button1.onclick = function() {
@@ -486,7 +478,6 @@ function Init2() {
 
       }
 
-
       // runs functions if USD tick box is changed
       USDCheckBox.onchange = function() {
         CheckWhatsTicked()
@@ -528,8 +519,6 @@ function Init2() {
 
         dashboard.draw(filterdata);
       }
-
-
 
       //runs if the MTD button is clicked
       Mapbutton1.onclick = function() {
@@ -604,92 +593,15 @@ function Init2() {
         },
         state: initStateBubble
       });
-
-      var DataABubble = [
-        ['ID', 'Rel SAA %', 'Rel ARC %', 'Group', 'AUM £m'],
-        ['Def', -0.56, -0.48, 'CMAF UK', 128],
-        ['Bal', -0.40, -0.60, 'CMAF UK', 1011],
-        ['Gro', -0.26, -0.83, 'CMAF UK', 535],
-        ['Eq Gro', 0.00, -0.77, 'CMAF UK', 221],
-        ['Def', -0.27, -0.20, 'CMAF Global', 37],
-        ['Bal', -0.39, -0.59, 'CMAF Global', 176],
-        ['Gro', -0.26, -0.63, 'CMAF Global', 194],
-        ['Preserve', -0.68, -0.27, 'Opes GBP', 78],
-        ['Enhance MT', -0.75, -0.39, 'Opes GBP', 418],
-        ['Enhance LT', -0.37, -0.29, 'Opes GBP', 753],
-        ['Generate', -0.12, -0.43, 'Opes GBP', 265],
-        ['Div Bond', 0.24, -0.37, 'Opes GBP', 7],
-        ['Def', -0.33, -0.14, 'TPS GBP', 129],
-        ['Bal', -0.16, 0.16, 'TPS GBP', 3211],
-        ['Gro', 0.02, 0.29, 'TPS GBP', 1175],
-        ['Def', -0.54, -0.37, 'DPS', 18],
-        ['Bal', -0.18, -0.06, 'DPS', 135],
-        ['Gro', 0.00, -0.06, 'DPS', 114],
-        ['Lower Risk', -0.01, 0.25, 'PPF', 11],
-        ['Lower/Med Risk', 0.08, 0.01, 'PPF', 18],
-        ['Med Risk', 0.18, 0.26, 'PPF', 48],
-        ['Med/Higher Risk', 0.28, 0.31, 'PPF', 34],
-        ['Higher Risk', 0.36, 0.56, 'PPF', 30]
-      ];
-      var DataBBubble = [
-        ['ID', 'Rel SAA %', 'Rel ARC %', 'Group', 'AUM £m'],
-        ['Def', 1.29, -0.17, 'CMAF UK', 128],
-        ['Bal', 1.66, 0.28, 'CMAF UK', 1011],
-        ['Gro', 1.33, 0.03, 'CMAF UK', 535],
-        ['Eq Gro', 0.76, -0.53, 'CMAF UK', 221],
-        ['Def', 0.37, -0.30, 'CMAF Global', 37],
-        ['Bal', 0.63, 0.40, 'CMAF Global', 176],
-        ['Gro', 0.26, 0.78, 'CMAF Global', 194],
-        ['Preserve', 2.03, 0.41, 'Opes GBP', 78],
-        ['Enhance MT', 2.26, 0.73, 'Opes GBP', 418],
-        ['Enhance LT', 1.95, 0.50, 'Opes GBP', 753],
-        ['Generate', 1.53, 0.15, 'Opes GBP', 265],
-        ['Div Bond', 1.82, 0.73, 'Opes GBP', 7],
-        ['Def', 0.97, 0.19, 'TPS GBP', 129],
-        ['Bal', 1.34, 0.68, 'TPS GBP', 3211],
-        ['Gro', 1.09, 0.63, 'TPS GBP', 1175],
-        ['Def', 1.45, 0.40, 'DPS', 18],
-        ['Bal', 1.63, 0.71, 'DPS', 135],
-        ['Gro', 1.25, 0.52, 'DPS', 114],
-        ['Lower Risk', 0.10, -0.75, 'PPF', 11],
-        ['Lower/Med Risk', 0.04, -0.55, 'PPF', 18],
-        ['Med Risk', -0.01, -0.41, 'PPF', 48],
-        ['Med/Higher Risk', -0.01, -0.21, 'PPF', 34],
-        ['Higher Risk', -0.07, -0.13, 'PPF', 30]
-      ];
-
-      var DataCBubble = [
-        ['ID', 'SAA', 'ARC', 'Group', 'AUM'],
-        ['Def', 1.73, 2.31, 'CMAF UK', 128],
-        ['Bal', 2.16, 2.69, 'CMAF UK', 1011],
-        ['Gro', 1.84, 1.84, 'CMAF UK', 535],
-        ['Eq Gro', 1.35, 1.39, 'CMAF UK', 221],
-        ['Def', 1.29, 2.89, 'CMAF Global', 37],
-        ['Bal', 2.51, 4.92, 'CMAF Global', 176],
-        ['Gro', 1.16, 4.47, 'CMAF Global', 194],
-        ['Preserve', 2.11, 1.28, 'Opes GBP', 78],
-        ['Enhance MT', 1.85, 2.13, 'Opes GBP', 418],
-        ['Enhance LT', 1.97, 2.59, 'Opes GBP', 753],
-        ['Generate', 1.09, 1.53, 'Opes GBP', 265],
-        ['Div Bond', -1.07, -0.13, 'Opes GBP', 7],
-        ['Def', 0.19, 1.49, 'TPS GBP', 129],
-        ['Bal', 1.26, 2.30, 'TPS GBP', 3211],
-        ['Gro', 1.79, 2.26, 'TPS GBP', 1175],
-        ['Def', 1.50, 2.47, 'DPS', 18],
-        ['Bal', 1.40, 2.43, 'DPS', 135],
-        ['Gro', 1.62, 2.29, 'DPS', 114],
-        ['Lower Risk', -0.53, -0.69, 'PPF', 11],
-        ['Lower/Med Risk', -0.68, 1.88, 'PPF', 18],
-        ['Med Risk', -0.62, 1.66, 'PPF', 48],
-        ['Med/Higher Risk', -0.39, 1.36, 'PPF', 34],
-        ['Higher Risk', 0.22, 2.18, 'PPF', 30]
-      ];
-
-      var dataBubble = [];
-      dataBubble[0] = google.visualization.arrayToDataTable(DataABubble); //YTD = 0
-      dataBubble[1] = google.visualization.arrayToDataTable(DataBBubble); //3yr = 1
-      dataBubble[2] = google.visualization.arrayToDataTable(DataCBubble); //5yr = 2
-      var current = 0;
+     
+var dataBubble = google.visualization.arrayToDataTable(RelativeData)
+      var filterdataBubble = new google.visualization.DataView(dataBubble)
+      var aBubble = data.getFilteredRows([{
+        column: 5,
+        value: 'MTD'
+      }])
+      filterdataBubble.setRows(aBubble)
+      filterdatabubble.setColumns([0,1,2,3,4]) // data set is ID, SAA, ARC,Group, AUM
 
       var chartBubble = new google.visualization.ChartWrapper({
         'chartType': 'BubbleChart',
@@ -739,35 +651,44 @@ function Init2() {
             button2Bubble.disabled = false;
             button3Bubble.disabled = false;
           });
-        dashboardBubble.draw(dataBubble[current]);
+        dashboardBubble.draw(filterdatabubble);
       }
-
+//MT
       button1Bubble.onclick = function() {
-        current = 0
         button1Bubble.style.background = buttoncolour
         button1Bubble.style.color = "white";
         button2Bubble.style.background = "#F5A623"
         button3Bubble.style.background = "#F5A623"
+		filterdataBubble.setRows(data.getFilteredRows([{
+          column: 5,
+          value: 'MTD' // yTD is the starting filter
+        }]))
         drawChartBubble();
         button1Bubble.disabled = true;
       };
-
+// YTD
       button2Bubble.onclick = function() {
-        current = 1
         button2Bubble.style.background = buttoncolour
         button2Bubble.style.color = "white";
         button1Bubble.style.background = "#F5A623"
         button3Bubble.style.background = "#F5A623"
+		filterdataBubble.setRows(data.getFilteredRows([{
+          column: 5,
+          value: 'YTD' // yTD is the starting filter
+        }]))
         drawChartBubble();
         button2Bubble.disabled = true;
       };
-
+//2017
       button3Bubble.onclick = function() {
-        current = 2
         button3Bubble.style.background = buttoncolour
         button3Bubble.style.color = "white";
         button1Bubble.style.background = "#F5A623"
         button2.style.background = "#F5A623"
+		filterdataBubble.setRows(data.getFilteredRows([{
+          column: 5,
+          value: 'Year2017' // yTD is the starting filter
+        }]))
         drawChartBubble();
         button3Bubble.disabled = true;
       };
@@ -778,11 +699,12 @@ function Init2() {
       button2Bubble.style.background = "#F5A623"
       button3Bubble.style.background = "#F5A623"
       dashboardBubble.bind(programmaticFilterBubble, chartBubble);
-      dashboardBubble.draw(dataBubble[current]);
+      dashboardBubble.draw(filterdataBubble);
 
       $(window).resize(function() {
-        dashboardBubble.draw(dataBubble[current]);
+        dashboardBubble.draw(filterdataBubble);
       });
+})
 
     })
   })
