@@ -608,12 +608,12 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
         'chartType': 'BubbleChart',
         'containerId': 'programmatic_chart_div',
         'options': {
-          title: 'Product Performance Relative to ARC and SAA',
+          title: 'Product Performance Relative to Peers and SAA',
           hAxis: {
             title: '(%) Relative to SAA'
           },
           vAxis: {
-            title: '(%) Relative to ARC'
+            title: '(%) Relative to Peers'
           },
           bubble: {
             textStyle: {
@@ -704,6 +704,8 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
 
       $(window).resize(function() {
         dashboardBubble.draw(filterdataBubble);
+		dashboard.draw(filterdata);
+		dashboardBar.draw(filterdataBar);
       });
 })
 
