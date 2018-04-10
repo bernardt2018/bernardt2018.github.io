@@ -596,7 +596,7 @@ function Init2() {
      
 var dataBubble = google.visualization.arrayToDataTable(RelativeData)
       var filterdataBubble = new google.visualization.DataView(dataBubble)
-      var aBubble = data.getFilteredRows([{
+      var aBubble = dataBubble.getFilteredRows([{
         column: 5,
         value: 'MTD'
       }])
@@ -659,7 +659,7 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
         button1Bubble.style.color = "white";
         button2Bubble.style.background = "#F5A623"
         button3Bubble.style.background = "#F5A623"
-		filterdataBubble.setRows(data.getFilteredRows([{
+		filterdataBubble.setRows(dataBubble.getFilteredRows([{
           column: 5,
           value: 'MTD' // yTD is the starting filter
         }]))
@@ -672,7 +672,7 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
         button2Bubble.style.color = "white";
         button1Bubble.style.background = "#F5A623"
         button3Bubble.style.background = "#F5A623"
-		filterdataBubble.setRows(data.getFilteredRows([{
+		filterdataBubble.setRows(dataBubble.getFilteredRows([{
           column: 5,
           value: 'YTD' // yTD is the starting filter
         }]))
@@ -685,7 +685,7 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
         button3Bubble.style.color = "white";
         button1Bubble.style.background = "#F5A623"
         button2.style.background = "#F5A623"
-		filterdataBubble.setRows(data.getFilteredRows([{
+		filterdataBubble.setRows(dataBubble.getFilteredRows([{
           column: 5,
           value: 'Year2017' // yTD is the starting filter
         }]))
