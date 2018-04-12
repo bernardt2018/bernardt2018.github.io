@@ -1,70 +1,70 @@
-ID,Rel SAA %,Rel ARC %,Group,AUM Â£m,Time
-Def,-0.56,-0.48,CMAF UK,128,MTD
-Bal,-0.4,-0.6,CMAF UK,1011,MTD
-Gro,-0.26,-0.83,CMAF UK,535,MTD
-Eq Gro,0,-0.77,CMAF UK,221,MTD
-Def,-0.27,-0.2,CMAF Global,37,MTD
-Bal,-0.39,-0.59,CMAF Global,176,MTD
-Gro,-0.26,-0.63,CMAF Global,194,MTD
-Preserve,-0.68,-0.27,Opes GBP,78,MTD
-Enhance MT,-0.75,-0.39,Opes GBP,418,MTD
-Enhance LT,-0.37,-0.29,Opes GBP,753,MTD
-Generate,-0.12,-0.43,Opes GBP,265,MTD
-Div Bond,0.24,-0.37,Opes GBP,7,MTD
-Def,-0.33,-0.14,TPS GBP,129,MTD
-Bal,-0.16,0.16,TPS GBP,3211,MTD
-Gro,0.02,0.29,TPS GBP,1175,MTD
-Def,-0.54,-0.37,DPS,18,MTD
-Bal,-0.18,-0.06,DPS,135,MTD
-Gro,0,-0.06,DPS,114,MTD
-Lower Risk,-0.01,0.25,PPF,11,MTD
-Lower/Med Risk,0.08,0.01,PPF,18,MTD
-Med Risk,0.18,0.26,PPF,48,MTD
-Med/Higher Risk,0.28,0.31,PPF,34,MTD
-Higher Risk,0.36,0.56,PPF,30,MTD
-Def,1.29,-0.17,CMAF UK,128,YTD
-Bal,1.66,0.28,CMAF UK,1011,YTD
-Gro,1.33,0.03,CMAF UK,535,YTD
-Eq Gro,0.76,-0.53,CMAF UK,221,YTD
-Def,0.37,-0.3,CMAF Global,37,YTD
-Bal,0.63,0.4,CMAF Global,176,YTD
-Gro,0.26,0.78,CMAF Global,194,YTD
-Preserve,2.03,0.41,Opes GBP,78,YTD
-Enhance MT,2.26,0.73,Opes GBP,418,YTD
-Enhance LT,1.95,0.5,Opes GBP,753,YTD
-Generate,1.53,0.15,Opes GBP,265,YTD
-Div Bond,1.82,0.73,Opes GBP,7,YTD
-Def,0.97,0.19,TPS GBP,129,YTD
-Bal,1.34,0.68,TPS GBP,3211,YTD
-Gro,1.09,0.63,TPS GBP,1175,YTD
-Def,1.45,0.4,DPS,18,YTD
-Bal,1.63,0.71,DPS,135,YTD
-Gro,1.25,0.52,DPS,114,YTD
-Lower Risk,0.1,-0.75,PPF,11,YTD
-Lower/Med Risk,0.04,-0.55,PPF,18,YTD
-Med Risk,-0.01,-0.41,PPF,48,YTD
-Med/Higher Risk,-0.01,-0.21,PPF,34,YTD
-Higher Risk,-0.07,-0.13,PPF,30,YTD
-Def,1.73,2.31,CMAF UK,128,Year2017
-Bal,2.16,2.69,CMAF UK,1011,Year2017
-Gro,1.84,1.84,CMAF UK,535,Year2017
-Eq Gro,1.35,1.39,CMAF UK,221,Year2017
-Def,1.29,2.89,CMAF Global,37,Year2017
-Bal,2.51,4.92,CMAF Global,176,Year2017
-Gro,1.16,4.47,CMAF Global,194,Year2017
-Preserve,2.11,1.28,Opes GBP,78,Year2017
-Enhance MT,1.85,2.13,Opes GBP,418,Year2017
-Enhance LT,1.97,2.59,Opes GBP,753,Year2017
-Generate,1.09,1.53,Opes GBP,265,Year2017
-Div Bond,-1.07,-0.13,Opes GBP,7,Year2017
-Def,0.19,1.49,TPS GBP,129,Year2017
-Bal,1.26,2.3,TPS GBP,3211,Year2017
-Gro,1.79,2.26,TPS GBP,1175,Year2017
-Def,1.5,2.47,DPS,18,Year2017
-Bal,1.4,2.43,DPS,135,Year2017
-Gro,1.62,2.29,DPS,114,Year2017
-Lower Risk,-0.53,-0.69,PPF,11,Year2017
-Lower/Med Risk,-0.68,1.88,PPF,18,Year2017
-Med Risk,-0.62,1.66,PPF,48,Year2017
-Med/Higher Risk,-0.39,1.36,PPF,34,Year2017
-Higher Risk,0.22,2.18,PPF,30,Year2017
+ID,Rel SAA %,Rel ARC %,Group,AUM £m,Time
+Def,-4%,-3%,CMAF UK,-33.58,MTD
+Bal,4%,-5%,CMAF UK,74.38,MTD
+Gro,6%,2%,CMAF UK,-3.18,MTD
+Eq Gro,-5%,1%,CMAF UK,87.52,MTD
+Def,0%,-3%,CMAF Global,-91.31,MTD
+Bal,6%,-7%,CMAF Global,140.72,MTD
+Gro,-1%,4%,CMAF Global,47.87,MTD
+Preserve,-6%,-5%,Opes GBP,84.44,MTD
+Enhance MT,0%,-5%,Opes GBP,84.86,MTD
+Enhance LT,5%,3%,Opes GBP,-36.21,MTD
+Generate,-3%,-10%,Opes GBP,81.41,MTD
+Div Bond,2%,5%,Opes GBP,-21.63,MTD
+Def,0%,-2%,TPS GBP,38.71,MTD
+Bal,-4%,3%,TPS GBP,84.26,MTD
+Gro,-6%,-3%,TPS GBP,17.35,MTD
+Def,2%,-1%,DPS,122.58,MTD
+Bal,4%,5%,DPS,-29.72,MTD
+Gro,3%,-6%,DPS,-74.14,MTD
+Lower Risk,-4%,0%,PPF,-55.84,MTD
+Lower/Med Risk,0%,4%,PPF,52.51,MTD
+Med Risk,2%,3%,PPF,-60.76,MTD
+Med/Higher Risk,6%,-3%,PPF,44.32,MTD
+Higher Risk,1%,-1%,PPF,253.33,MTD
+Def,-2%,-2%,CMAF UK,-93.15,YTD
+Bal,-1%,-2%,CMAF UK,-206.30,YTD
+Gro,-4%,0%,CMAF UK,-146.73,YTD
+Eq Gro,2%,9%,CMAF UK,-137.85,YTD
+Def,1%,2%,CMAF Global,-97.86,YTD
+Bal,-6%,8%,CMAF Global,-17.84,YTD
+Gro,0%,-1%,CMAF Global,-2.22,YTD
+Preserve,-10%,-2%,Opes GBP,-21.53,YTD
+Enhance MT,4%,6%,Opes GBP,46.19,YTD
+Enhance LT,4%,-7%,Opes GBP,120.62,YTD
+Generate,2%,0%,Opes GBP,146.47,YTD
+Div Bond,2%,-1%,Opes GBP,9.07,YTD
+Def,12%,-1%,TPS GBP,-46.90,YTD
+Bal,0%,-4%,TPS GBP,-69.33,YTD
+Gro,-4%,-1%,TPS GBP,90.22,YTD
+Def,3%,-2%,DPS,-159.48,YTD
+Bal,10%,2%,DPS,119.26,YTD
+Gro,5%,3%,DPS,116.40,YTD
+Lower Risk,6%,2%,PPF,-92.93,YTD
+Lower/Med Risk,2%,-7%,PPF,117.92,YTD
+Med Risk,2%,-2%,PPF,141.01,YTD
+Med/Higher Risk,5%,6%,PPF,-71.79,YTD
+Higher Risk,-6%,0%,PPF,-69.11,YTD
+Def,-12%,1%,CMAF UK,-8.59,Year2017
+Bal,3%,3%,CMAF UK,-113.55,Year2017
+Gro,0%,2%,CMAF UK,-157.63,Year2017
+Eq Gro,3%,7%,CMAF UK,55.24,Year2017
+Def,-4%,-3%,CMAF Global,116.29,Year2017
+Bal,0%,4%,CMAF Global,-218.08,Year2017
+Gro,-2%,-6%,CMAF Global,-19.32,Year2017
+Preserve,-5%,-5%,Opes GBP,32.87,Year2017
+Enhance MT,3%,-1%,Opes GBP,-22.61,Year2017
+Enhance LT,-1%,0%,Opes GBP,-49.89,Year2017
+Generate,4%,1%,Opes GBP,75.57,Year2017
+Div Bond,-2%,-1%,Opes GBP,-179.47,Year2017
+Def,-1%,1%,TPS GBP,-175.80,Year2017
+Bal,-1%,-6%,TPS GBP,52.12,Year2017
+Gro,10%,-5%,TPS GBP,-13.11,Year2017
+Def,2%,10%,DPS,28.73,Year2017
+Bal,5%,3%,DPS,130.42,Year2017
+Gro,-9%,2%,DPS,-164.65,Year2017
+Lower Risk,-2%,2%,PPF,155.70,Year2017
+Lower/Med Risk,0%,-8%,PPF,108.94,Year2017
+Med Risk,-2%,-4%,PPF,169.40,Year2017
+Med/Higher Risk,0%,0%,PPF,-162.81,Year2017
+Higher Risk,8%,5%,PPF,-140.06,Year2017
