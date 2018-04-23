@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv9</P>
+	<p>testv10</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -460,7 +460,7 @@ function Init2() {
       column: 0,
       value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
     }])
-    var TestColumns = chartBar.getViewColumns()
+    var TestColumns = chartBar.getView().getViewColumns()
     chartBar.setView({
     'columns': TestColumns,
     'rows': aBar // GBP initial
@@ -479,7 +479,8 @@ function Init2() {
       column: 0,
       value: 'Change3M' // filter for both chart type and time horizon from single CSV
     }])
-    var TestColumns = chartBar.getViewColumns()
+     var TestView = chartBar.getView()
+    var TestColumns = TestView.getViewColumns()
     chartBar.setView({
     'columns': TestColumns,
     'rows': aBar // GBP initial
@@ -586,6 +587,7 @@ function Init2() {
 
 }
 
+	
 
 
 </script>
