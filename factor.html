@@ -266,7 +266,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 <script type="text/javascript">
 
-	// Load the Visualization API and the corechart package.
+// Load the Visualization API and the corechart package.
 google.charts.load('current', {
   'packages': ['corechart', 'geochart', 'controls'],
   'mapsApiKey': 'AIzaSyAkxpo-VSfUXL2i5nP5MC0Y2RYaEz5iDsI'
@@ -404,10 +404,16 @@ function Init2() {
     var BaseRow = 1
     var AllRows = BaseRow.concat(Activerows)
 
-    chartBar.setView({
-      'columns': AllRows,
 
-    })
+    if (state.selectedValues.length > 0) {
+      chartBar.setView({
+        'columns': AllRows,
+
+      })
+    } else {
+
+      //do nothing if no selection
+    }
 
     chartBar.draw()
 
@@ -564,6 +570,4 @@ function Init2() {
 
 }
 
-
-	
 </script>
