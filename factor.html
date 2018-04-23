@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv7</P>
+	<p>testv8</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -290,7 +290,10 @@ function Init2() {
     ["CurrentLevel", "High Yield", 1600, 1610, 1620],
     ["Change3M", "UK Treasury", 900, 910, 920],
     ["Change3M", "Global Credit", 300, 310, 320],
-    ["Change3M", "High Yield", 1927, 1937, 1947]
+    ["Change3M", "High Yield", 1927, 1937, 1947],
+    ["Change1yr", "UK Treasury", 300, 10, 90],
+    ["Change1yr", "Global Credit", 100, 10, 30],
+    ["Change1yr", "High Yield", 927, 937, 197]
   ];
 
 
@@ -304,10 +307,11 @@ function Init2() {
 
 
   // Create the data table.
+  var dataBTable = google.visualization.arrayToDataTable(DataBBar); //YTD = 0
+  var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
+
   var dashboardBar = new google.visualization.Dashboard(
     document.getElementById('programmatic_dashboard_divBar'));
-
-  var dataBTable = google.visualization.arrayToDataTable(DataBBar); //YTD = 0
 
   var programmaticFilterBar = new google.visualization.ControlWrapper({
     'controlType': 'CategoryFilter',
@@ -327,10 +331,6 @@ function Init2() {
     }
   });
   //state: initState
-
-  var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
-
-
 
   var chartBar = new google.visualization.ChartWrapper({
     'chartType': 'ColumnChart',
@@ -386,37 +386,36 @@ function Init2() {
   //dashboardBar.draw(filterdataBar);
 
   //chartBar.draw(filterdataBar);
-
+  var columnsToShow
 
   //does the category filter for the portfolios
   google.visualization.events.addListener(programmaticFilterBar, 'statechange', function() {
 
     var state = programmaticFilterBar.getState();
     var Activerows
-    var columnsToShow = [1]
+    columnsToShow = [1]
 
     var test = state.selectedValues.length;
     var test2 = dataBarInitial.getNumberOfColumns()
-//document.getElementById("demo").innerHTML = dataBarInitial.getColumnLabel(2) ;
-
-if (state.selectedValues.length > 0) {
-
-    for (var i = 0; i < state.selectedValues.length; i++) {
 
 
-    // loops through each of the column in the factor data table
-      for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-	      test1a = dataBarInitial.getColumnLabel(k)
-	      test2a = state.selectedValues[i]
-        if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) {
-          columnsToShow.concat(k)
+    if (state.selectedValues.length > 0) {
+
+      for (var i = 0; i < state.selectedValues.length; i++) {
+
+
+        // loops through each of the column in the factor data table
+        for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
+          if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) {
+            columnsToShow.push(k)
+          }
         }
       }
-    }
 
-    
+
       chartBar.setView({
         'columns': columnsToShow,
+        'rows': aBar // GBP initial
       })
     } else {
 
@@ -442,13 +441,13 @@ if (state.selectedValues.length > 0) {
     button1.disabled = true;
     button2.disabled = true;
     button3.disabled = true;
-    google.visualization.events.addListener(dashboardBar, 'ready',
+    google.visualization.events.addListener(chartBar, 'ready',
       function() {
         button1.disabled = false;
         button2.disabled = false;
         button3.disabled = false;
       });
-    dashboardBar.draw(filterdataBar);
+    chartBar.draw()
   }
 
   //runs if the 1M button is clicked
@@ -457,10 +456,10 @@ if (state.selectedValues.length > 0) {
     button1.style.color = "white";
     button2.style.background = "#F5A623"
     button3.style.background = "#F5A623"
-    filterdataBar.setRows(dataBar.getFilteredRows([{
-      column: 0,
-      value: 'CurrentLevel' // MTD is the starting filter
-    }]))
+    chartBar.setView({
+      'columns': columnsToShow,
+      'rows': aBar // GBP initial
+    })
     drawBarChart();
     button1.disabled = true;
   };
@@ -471,10 +470,13 @@ if (state.selectedValues.length > 0) {
     button2.style.color = "white";
     button1.style.background = "#F5A623"
     button3.style.background = "#F5A623"
-    filterdataBar.setRows(dataBar.getFilteredRows([{
+    aBar = dataBarInitial.getFilteredRows([{
       column: 0,
-      value: 'Change3M' // yTD is the starting filter
-    }]))
+      value: 'Change3M' // filter for both chart type and time horizon from single CSV
+    }])
+    chartBar.setView({
+      'rows': aBar // GBP initial
+    })
     drawBarChart();
     button2.disabled = true;
   };
@@ -485,7 +487,7 @@ if (state.selectedValues.length > 0) {
     button3.style.color = "white";
     button1.style.background = "#F5A623"
     button2.style.background = "#F5A623"
-    filterdataBar.setRows(dataBar.getFilteredRows([{
+    filterdataBar.setRows(dataBarInitial.getFilteredRows([{
       column: 0,
       value: 'Change1yr' // 2017 is the starting filter
     }]))
