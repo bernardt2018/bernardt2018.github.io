@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv6</P>
+	<p>testv7</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -406,10 +406,10 @@ if (state.selectedValues.length > 0) {
 
     // loops through each of the column in the factor data table
       for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-	      test1a = dataBarInitial.getColumnLabel[k]
+	      test1a = dataBarInitial.getColumnLabel(k)
 	      test2a = state.selectedValues[i]
-        if (dataBarInitial.getColumnLabel[k] == state.selectedValues[i]) {
-          columnsToShow.concat[k]
+        if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) {
+          columnsToShow.concat(k)
         }
       }
     }
