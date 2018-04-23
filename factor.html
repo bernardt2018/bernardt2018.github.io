@@ -393,22 +393,24 @@ function Init2() {
 
     var state = programmaticFilterBar.getState();
     var Activerows
+    var columnsToShow = [1]
+
+    var test = state.selectedValues.length;
+var test2 = dataBTable.length
 
     for (var i = 0; i < state.selectedValues.length; i++) {
-      Activerows[i] = dataBTable.getFilteredRows([{
-        column: 0,
-        value: state.selectedValues[i]
-      }]);
+
+    // loops through each of the column in the factor data table
+      for (var k = 2; k < dataBTable.length; k++) {
+        if (dataBTable.getColumnLabel(k) == state.selectedValues[i]) {
+          columnsToShow.concat(k)
+        }
+      }
     }
-
-    var BaseRow = 1
-    var AllRows = BaseRow.concat(Activerows)
-
 
     if (state.selectedValues.length > 0) {
       chartBar.setView({
-        'columns': AllRows,
-
+        'columns': columnsToShow,
       })
     } else {
 
@@ -440,7 +442,6 @@ function Init2() {
         button2.disabled = false;
         button3.disabled = false;
       });
-
     dashboardBar.draw(filterdataBar);
   }
 
@@ -569,5 +570,6 @@ function Init2() {
 
 
 }
+
 
 </script>
