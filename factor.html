@@ -456,9 +456,14 @@ function Init2() {
     button1.style.color = "white";
     button2.style.background = "#F5A623"
     button3.style.background = "#F5A623"
+    aBar = dataBarInitial.getFilteredRows([{
+      column: 0,
+      value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
+    }])
+    var TestColumns = chartBar.getViewColumns()
     chartBar.setView({
-      'columns': columnsToShow,
-      'rows': aBar // GBP initial
+    'columns': TestColumns,
+    'rows': aBar // GBP initial
     })
     drawBarChart();
     button1.disabled = true;
@@ -474,8 +479,10 @@ function Init2() {
       column: 0,
       value: 'Change3M' // filter for both chart type and time horizon from single CSV
     }])
+    var TestColumns = chartBar.getViewColumns()
     chartBar.setView({
-      'rows': aBar // GBP initial
+    'columns': TestColumns,
+    'rows': aBar // GBP initial
     })
     drawBarChart();
     button2.disabled = true;
@@ -578,6 +585,7 @@ function Init2() {
 
 
 }
+
 
 
 </script>
