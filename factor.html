@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv11</P>
+	<p>testv12</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -268,8 +268,8 @@
 
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {
-  'packages': ['corechart', 'geochart', 'controls'],
-  'mapsApiKey': 'AIzaSyAkxpo-VSfUXL2i5nP5MC0Y2RYaEz5iDsI'
+  'packages': ['corechart', 'controls'],
+
 });
 
 // Set a callback to run when the Google Visualization API is loaded.
@@ -297,14 +297,13 @@ function Init2() {
   ];
 
 
-  // order in DataBBar must match
+//portfolio names in here must match whaats in top line of the previous data object
   var DataBBar = [
     ["PortfolioNames"],
     ["PortA"],
     ["PortB"],
     ["PortC"]
   ];
-
 
   // Create the data table.
   var dataBTable = google.visualization.arrayToDataTable(DataBBar); //YTD = 0
@@ -373,61 +372,58 @@ function Init2() {
   }])
   filterdataBar.setRows(aBar)
   filterdataBar.setColumns([1, 2])
-testa = filterdataBar.getViewRows()
-testb = filterdataBar.getViewColumns()
-  //chartBar.setView({
-   // 'columns': [1, 2],
-   // 'rows': aBar // GBP initial
-  //})
+  testa = filterdataBar.getViewRows()
+  testb = filterdataBar.getViewColumns()
+  chartBar.setView({
+    'columns': [1, 2],
+    'rows': aBar // GBP initial
+  })
 
-  chartBar.setView(filterdataBar)
+  // chartBar.setView(filterdataBar)
   chartBar.draw()
   programmaticFilterBar.draw()
   //dashboardBar.bind(programmaticFilterBar, chartBar);
   //dashboardBar.draw(filterdataBar);
 
   //chartBar.draw(filterdataBar);
-  var columnsToShow
+  var columnsToShow = [1, 2] // default of this variable unless modidifed by funciton below
 
   //does the category filter for the portfolios
   google.visualization.events.addListener(programmaticFilterBar, 'statechange', function() {
 
     var state = programmaticFilterBar.getState();
-    var Activerows
+    
     columnsToShow = [1]
-
-    var test = state.selectedValues.length;
-    var test2 = dataBarInitial.getNumberOfColumns()
-
 
     if (state.selectedValues.length > 0) {
 
       for (var i = 0; i < state.selectedValues.length; i++) {
 
-
         // loops through each of the column in the factor data table
         for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-          if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) {
+        
+          if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) { //we look for colum label that is equal to a selected item
             columnsToShow.push(k)
           }
         }
       }
 
+    } else {
 
-      chartBar.setView({
+      // if no selection revert to default
+       // need to add the default column to columns to show if all portfolios unticked
+      columnsToShow = [1,2]
+
+    }
+    
+          chartBar.setView({
         'columns': columnsToShow,
         'rows': aBar // GBP initial
       })
-    } else {
-
-      //do nothing if no selection
-    }
 
     chartBar.draw()
 
   });
-
-
 
 
   //Area covers button interactions
@@ -461,10 +457,9 @@ testb = filterdataBar.getViewColumns()
       column: 0,
       value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
     }])
-    var TestColumns = chartBar.getView().getViewColumns()
     chartBar.setView({
-    'columns': TestColumns,
-    'rows': aBar // GBP initial
+      'columns': columnsToShow,
+      'rows': aBar // GBP initial
     })
     drawBarChart();
     button1.disabled = true;
@@ -480,11 +475,9 @@ testb = filterdataBar.getViewColumns()
       column: 0,
       value: 'Change3M' // filter for both chart type and time horizon from single CSV
     }])
-     var TestView = chartBar.getView()
-    var TestColumns = TestView.getViewColumns()
     chartBar.setView({
-    'columns': TestColumns,
-    'rows': aBar // GBP initial
+      'rows': aBar, // GBP initial
+      'columns': columnsToShow
     })
     drawBarChart();
     button2.disabled = true;
@@ -496,10 +489,14 @@ testb = filterdataBar.getViewColumns()
     button3.style.color = "white";
     button1.style.background = "#F5A623"
     button2.style.background = "#F5A623"
-    filterdataBar.setRows(dataBarInitial.getFilteredRows([{
+    aBar = dataBarInitial.getFilteredRows([{
       column: 0,
-      value: 'Change1yr' // 2017 is the starting filter
-    }]))
+      value: 'Change1yr' // filter for both chart type and time horizon from single CSV
+    }])
+    chartBar.setView({
+      'rows': aBar, // GBP initial
+      'columns': columnsToShow
+    })
     drawBarChart();
     button3.disabled = true;
   };
@@ -510,70 +507,8 @@ testb = filterdataBar.getViewColumns()
   button2.style.background = "#F5A623"
   button3.style.background = "#F5A623"
 
-  // creates tick box variables
-  var GBPCheckBox = document.getElementById("GBPCheck");
-  var USDCheckBox = document.getElementById("USDCheck");
-  var EURCheckBox = document.getElementById("EURCheck");
-  var CHFCheckBox = document.getElementById("CHFCheck");
-  var LCCheckBox = document.getElementById("LCCheck");
-
-  GBPCheckBox.checked = true //by default GBP is returns
-
-  //the function which is run if a tick box 
-  //references should refer to the view which has time (second column in Data) removed
-  function CheckWhatsTicked() {
-    var ColArray = [0]
-
-    if (USDCheckBox.checked) {
-      ColArray.push(2) //adds US colum reference to the collum re array if ticked
-    }
-    if (GBPCheckBox.checked) {
-      ColArray.push(1) //adds GBP colum reference to the collum re array if ticked
-    }
-    if (EURCheckBox.checked) {
-      ColArray.push(3) //adds EU colum reference to the collum re array if ticked
-    }
-    if (CHFCheckBox.checked) {
-      ColArray.push(4) //adds CHF colum reference to the collum re array if ticked
-    }
-    if (LCCheckBox.checked) {
-      ColArray.push(5) //adds LC colum reference to the collum re array if ticked
-    }
-    if (ColArray.length == 1) {
-      ColArray.push(1)
-    }
-
-    chartBar.setView({
-      'columns': ColArray,
-    })
-    drawBarChart();
-
-  }
-
-  // runs functions if USD tick box is changed
-  USDCheckBox.onchange = function() {
-    CheckWhatsTicked()
-  };
-  // runs functions if GBP tick box is changed
-  GBPCheckBox.onchange = function() {
-    CheckWhatsTicked()
-  };
-  // runs functions if EUR tick box is changed
-  EURCheckBox.onchange = function() {
-    CheckWhatsTicked()
-  };
-  // runs functions if CHF tick box is changed
-  CHFCheckBox.onchange = function() {
-    CheckWhatsTicked()
-  };
-  // runs functions if LC tick box is changed
-  LCCheckBox.onchange = function() {
-    CheckWhatsTicked()
-  };
-
-
   $(window).resize(function() {
-    dashboardBar.draw(filterdataBar);
+    drawBarChart();
   });
 
 
