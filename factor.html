@@ -224,7 +224,7 @@ color: white !important;
       </div>
 
     </div>
-	<p><b>This text is bold</b></p>
+
 </body>
 	
 	
@@ -235,8 +235,7 @@ color: white !important;
 	
 	// Load the Visualization API and the corechart package.
 	google.charts.load('current', {
-	  'packages': ['corechart', 'geochart', 'controls'],
-	  'mapsApiKey': 'AIzaSyAkxpo-VSfUXL2i5nP5MC0Y2RYaEz5iDsI'
+	  'packages': ['corechart', 'controls'],
 	});
 
 	// Set a callback to run when the Google Visualization API is loaded.
@@ -244,7 +243,7 @@ color: white !important;
 
 	function Init2() {
 
-	  $.get("MarketReturns.csv", function(csvString2) {
+	  $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/MarketReturns.csv", function(csvString2) {
 
 	    var DataABar = $.csv.toArrays(csvString2, {
 	      onParseValue: $.csv.hooks.castToScalar
