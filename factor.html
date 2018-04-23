@@ -266,7 +266,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 <script type="text/javascript">
 
-// Load the Visualization API and the corechart package.
+	// Load the Visualization API and the corechart package.
 google.charts.load('current', {
   'packages': ['corechart', 'geochart', 'controls'],
   'mapsApiKey': 'AIzaSyAkxpo-VSfUXL2i5nP5MC0Y2RYaEz5iDsI'
@@ -395,7 +395,7 @@ function Init2() {
     var Activerows
 
     for (var i = 0; i < state.selectedValues.length; i++) {
-      Activerows[i] = DataBBar.getFilteredRows([{
+      Activerows[i] = dataBTable.getFilteredRows([{
         column: 0,
         value: state.selectedValues[i]
       }]);
