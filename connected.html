@@ -1,6 +1,5 @@
 <html>
   <style>
-
 .button {
   background-color: #555555;
   border: none;
@@ -13,11 +12,9 @@
   margin: 0px 0px;
   cursor: pointer;
 }
-
 .LiveProducts {
   font-size: 12px;
 }
-
 .filter .google-visualization-controls-categoryfilter-selected li {
   background-color: #C0C0C0;
   border: 2px solid white;
@@ -29,7 +26,6 @@
   right: 0px;
  
 }
-
 .filter .goog-link-button {
   cursor: pointer;
   float: left;
@@ -37,7 +33,6 @@
   color: #555555;
   font-size: 12px;
 }
-
 .filter .goog-combobox input {
   background-color: #fff;
   border: 0;
@@ -49,8 +44,6 @@
   vertical-align: bottom;
   width: 80px;
 }
-
-
   </style>
 
   <head>
@@ -113,8 +106,7 @@
       </div>
     </div>
 
-    <div id="AssetClassChart">
-      
+    <div id="AssetClassChart" class="charttabcontent">
       <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
         <table class="columns" style="height: 80px">
           <tr>
@@ -125,18 +117,51 @@
                 <input type="button" value="2017" id="b3Bar" class="button" style="margin: 0px 0px;" />
               </p>
             </td>
+            <td>
+
+              <div style="position:absolute; right:5px; top: 70px;">
+					<label class="container">USD
+					<input type="checkbox" id="USDCheck" onchange="testfunction()">
+				<span class="checkmark"></span>
+				</label>
+
+                <label class="container">GBP
+					<input type="checkbox" id="GBPCheck">
+					<span class="checkmark"></span>
+				</label>
+
+                <label class="container">EUR
+					<input type="checkbox" id="EURCheck">
+					<span class="checkmark"></span>
+				</label>
+
+				<label class="container">CHF
+					<input type="checkbox" id="CHFCheck">
+					<span class="checkmark"></span>
+				</label>
+
+                <label class="container">LC
+					<input type="checkbox" id="LCCheck">
+					<span class="checkmark"></span>
+				</label>
+
+               </div>
+            </td>
           </tr>
-	  <tr>
-	      <td>
-		<div id="programmatic_control_divBar"></div>
-	       </td>
-           </tr>
-        </table>	      
+		  
+		  <tr>
+			<td>
+				<div id="programmatic_control_divBar"></div>
+			</td>
+		  </tr>
+        </table>
         <div id="programmatic_chart_divBar" style="width: 100%; height: 500px; "></div>
       </div>
 
     </div>
-	  	  	  
+	  
+	  
+	  
   </body>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -150,13 +175,10 @@ google.charts.load('current', {
   'packages': ['corechart', 'geochart', 'controls'],
   'mapsApiKey': 'AIzaSyAkxpo-VSfUXL2i5nP5MC0Y2RYaEz5iDsI'
 });
-
 // Set a callback to run when the Google Visualization API is loaded.
 google.charts.setOnLoadCallback(Init2);
-
 function Init2() {
   $.get("AllCountries6.csv", function(csvString1) {
-
     $.get("MarketReturns.csv", function(csvString2) {
 		
 		$.get("RelativePerformance.csv", function(csvString3) {
@@ -169,16 +191,12 @@ function Init2() {
 	  var DataABar = $.csv.toArrays(csvString2, {
         onParseValue: $.csv.hooks.castToScalar
       });
-
       var DataA = $.csv.toArrays(csvString1, {
         onParseValue: $.csv.hooks.castToScalar
-
       });
-
       // Create the data table.
       var dashboardBar = new google.visualization.Dashboard(
         document.getElementById('programmatic_dashboard_divBar'));
-
       var programmaticFilterBar = new google.visualization.ControlWrapper({
         'controlType': 'CategoryFilter',
         'containerId': 'programmatic_control_divBar',
@@ -193,9 +211,7 @@ function Init2() {
         }
       });
       //state: initState
-
       var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
-
       var chartBar = new google.visualization.ChartWrapper({
         'chartType': 'ColumnChart',
         'containerId': 'programmatic_chart_divBar',
@@ -217,11 +233,9 @@ function Init2() {
           },
         }
       });
-
       chartBar.setView({
         'columns': [0, 1], // GBP initial
       })
-
       // this filters the data to YTD. Leaves all other columns in place
       var view = new google.visualization.DataView(dataBarInitial);
       var rowIndexes = view.getFilteredRows([{
@@ -230,7 +244,6 @@ function Init2() {
       }]); //get rows with 0 values
       view.hideRows(rowIndexes); //hide empty rows
       dataBar = view.toDataTable();
-
       var filterdataBar = new google.visualization.DataView(dataBar)
       var aBar = dataBar.getFilteredRows([{
         column: 1,
@@ -239,17 +252,13 @@ function Init2() {
       }])
       filterdataBar.setRows(aBar)
       filterdataBar.setColumns([0, 2, 3, 4, 5, 6])
-
       dashboardBar.bind(programmaticFilterBar, chartBar);
-
       var dashboard = new google.visualization.Dashboard(
         document.getElementById('programmatic_dashboard_div_Map'));
-
       var initState = {
         selectedValues: []
       };
       initState.selectedValues.push('Equity');
-
       var programmaticFilter = new google.visualization.ControlWrapper({
         'controlType': 'CategoryFilter',
         'containerId': 'programmatic_control_Map',
@@ -266,9 +275,7 @@ function Init2() {
         },
         state: initState // sets the initial map to equities
       });
-
       var data = google.visualization.arrayToDataTable(DataA); //YTD = 0
-
       var chart = new google.visualization.ChartWrapper({
         'chartType': 'GeoChart',
         'containerId': 'programmatic_chart_divMap',
@@ -283,11 +290,9 @@ function Init2() {
           },
         }
       });
-
       chart.setView({
         'columns': [0, 1], // chart view is only the country names and returns
       })
-
       // this filters the data to MTD. Leaves all other columns in place
       var filterdata = new google.visualization.DataView(data)
       var a = data.getFilteredRows([{
@@ -297,18 +302,14 @@ function Init2() {
       filterdata.setRows(a)
       filterdata.setColumns([0, 2, 3]) // data set is country label, returns, and asset class
       dashboard.bind(programmaticFilter, chart);
-
       var charttab1var = document.getElementById("chartab1");
       var charttab2var = document.getElementById("chartab2");
-
       charttab1var.onclick = function() {
         var charttabcontentvar = document.getElementById("AssetClassChart"); //hides bar content
         charttabcontentvar.style.display = "none";
-
         var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
         tablinks[0].className = tablinks[0].className.replace(" active", "");
         tablinks[1].className = tablinks[1].className.replace(" active", "");
-
         document.getElementById("Map").style.display = "block"; //unhides bar content
         document.getElementById("chartab1").className += " active"; // makes button two look activated
         charttab2var.disabled = true;
@@ -317,15 +318,12 @@ function Init2() {
         charttab2var.disabled = false;
         charttab1var.disabled = false;
       }
-
       charttab2var.onclick = function() {
         var charttabcontentvar = document.getElementById("Map"); //hides map content
         charttabcontentvar.style.display = "none";
-
         var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
         tablinks[0].className = tablinks[0].className.replace(" active", "");
         tablinks[1].className = tablinks[1].className.replace(" active", "");
-
         document.getElementById("AssetClassChart").style.display = "block"; //unhides bar content
         document.getElementById("chartab2").className += " active"; // makes button two look activated
         charttab2var.disabled = true;
@@ -334,15 +332,12 @@ function Init2() {
         charttab2var.disabled = false;
         charttab1var.disabled = false;
       }
-
       document.getElementsByClassName('charttablinks')[0].click() //activates tab 1
-
       //Area covers button interactions
       var button1 = document.getElementById("b1Bar");
       var button2 = document.getElementById("b2Bar");
       var button3 = document.getElementById("b3Bar");
       var buttoncolour = "#555555"
-
       //function runs on button click
       function drawBarChart() {
         // Disabling the button while the chart is drawing.
@@ -355,10 +350,8 @@ function Init2() {
             button2.disabled = false;
             button3.disabled = false;
           });
-
         dashboardBar.draw(filterdataBar);
       }
-
       //runs if the MTD button is clicked
       button1.onclick = function() {
         button1.style.background = buttoncolour
@@ -372,7 +365,6 @@ function Init2() {
         drawBarChart();
         button1.disabled = true;
       };
-
       //runs if the YTD button is clicked
       button2.onclick = function() {
         button2.style.background = buttoncolour
@@ -386,7 +378,6 @@ function Init2() {
         drawBarChart();
         button2.disabled = true;
       };
-
       // runs if 2017 is clicked
       button3.onclick = function() {
         button3.style.background = buttoncolour
@@ -400,27 +391,22 @@ function Init2() {
         drawBarChart();
         button3.disabled = true;
       };
-
       // sets default button colours
       button1.style.background = buttoncolour
       button1.style.color = "white";
       button2.style.background = "#F5A623"
       button3.style.background = "#F5A623"
-
       // creates tick box variables
       var GBPCheckBox = document.getElementById("GBPCheck");
       var USDCheckBox = document.getElementById("USDCheck");
       var EURCheckBox = document.getElementById("EURCheck");
       var CHFCheckBox = document.getElementById("CHFCheck");
       var LCCheckBox = document.getElementById("LCCheck");
-
       GBPCheckBox.checked = true //by default GBP is returns
-
       //the function which is run if a tick box 
       //references should refer to the view which has time (second column in Data) removed
       function CheckWhatsTicked() {
         var ColArray = [0]
-
         if (USDCheckBox.checked) {
           ColArray.push(2) //adds US colum reference to the collum re array if ticked
         }
@@ -439,14 +425,11 @@ function Init2() {
         if (ColArray.length == 1) {
           ColArray.push(1)
         }
-
         chartBar.setView({
           'columns': ColArray,
         })
         drawBarChart();
-
       }
-
       // runs functions if USD tick box is changed
       USDCheckBox.onchange = function() {
         CheckWhatsTicked()
@@ -467,12 +450,10 @@ function Init2() {
       LCCheckBox.onchange = function() {
         CheckWhatsTicked()
       };
-
       //Area covers button interactions
       var Mapbutton1 = document.getElementById("b1Map");
       var Mapbutton2 = document.getElementById("b2Map");
       var Mapbutton3 = document.getElementById("b3Map");
-
       //function runs on button click
       function drawMapChart() {
         // Disabling the button while the chart is drawing.
@@ -485,10 +466,8 @@ function Init2() {
             Mapbutton2.disabled = false;
             Mapbutton3.disabled = false;
           });
-
         dashboard.draw(filterdata);
       }
-
       //runs if the MTD button is clicked
       Mapbutton1.onclick = function() {
         Mapbutton1.style.background = buttoncolour
@@ -502,7 +481,6 @@ function Init2() {
         drawMapChart();
         Mapbutton1.disabled = true;
       };
-
       //runs if the YTD button is clicked
       Mapbutton2.onclick = function() {
         Mapbutton2.style.background = buttoncolour
@@ -516,7 +494,6 @@ function Init2() {
         drawMapChart();
         Mapbutton2.disabled = true;
       };
-
       // runs if 2017 is clicked
       Mapbutton3.onclick = function() {
         Mapbutton3.style.background = buttoncolour
@@ -530,22 +507,18 @@ function Init2() {
         drawMapChart();
         Mapbutton3.disabled = true;
       };
-
       // sets default button colours
       Mapbutton1.style.background = buttoncolour
       Mapbutton1.style.color = "white";
       Mapbutton2.style.background = "#F5A623"
       Mapbutton3.style.background = "#F5A623"
-
       // Create the data table.
       var dashboardBubble = new google.visualization.Dashboard(
         document.getElementById('programmatic_dashboard_div'));
-
       var initStateBubble = {
         selectedValues: []
       };
       initStateBubble.selectedValues.push('CMAF UK', 'CMAF Global', 'TPS GBP', 'Opes GBP', 'PPF');
-
       var programmaticFilterBubble = new google.visualization.ControlWrapper({
         'controlType': 'CategoryFilter',
         'containerId': 'programmatic_control_div',
@@ -571,7 +544,6 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
       }])
       filterdataBubble.setRows(aBubble)
       filterdataBubble.setColumns([0,1,2,3,4]) // data set is ID, SAA, ARC,Group, AUM
-
       var chartBubble = new google.visualization.ChartWrapper({
         'chartType': 'BubbleChart',
         'containerId': 'programmatic_chart_div',
@@ -603,7 +575,6 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
           }
         }
       });
-
       var button1Bubble = document.getElementById("b1");
       var button2Bubble = document.getElementById("b2");
       var button3Bubble = document.getElementById("b3");
@@ -661,7 +632,6 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
         drawChartBubble();
         button3Bubble.disabled = true;
       };
-
       button1Bubble.disabled = true;
       button1Bubble.style.background = buttoncolour
       button1Bubble.style.color = "white";
@@ -669,17 +639,14 @@ var dataBubble = google.visualization.arrayToDataTable(RelativeData)
       button3Bubble.style.background = "#F5A623"
       dashboardBubble.bind(programmaticFilterBubble, chartBubble);
       dashboardBubble.draw(filterdataBubble);
-
       $(window).resize(function() {
         dashboardBubble.draw(filterdataBubble);
 		dashboard.draw(filterdata);
 		dashboardBar.draw(filterdataBar);
       });
 })
-
     })
   })
 }
-
 </script>
-</html>
+</html
