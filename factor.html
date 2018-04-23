@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>test2</P>
+	<p>testv4</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -396,19 +396,23 @@ function Init2() {
     var columnsToShow = [1]
 
     var test = state.selectedValues.length;
-var test2 = dataBTable.length
+    var test2 = dataBarInitial.getNumberOfColumns()
+document.getElementById("demo").innerHTML = dataBarInitial.getColumnLabel(2) ;
+
+if (state.selectedValues.length > 0) {
 
     for (var i = 0; i < state.selectedValues.length; i++) {
 
+
     // loops through each of the column in the factor data table
-      for (var k = 2; k < dataBTable.length; k++) {
-        if (dataBTable.getColumnLabel(k) == state.selectedValues[i]) {
+      for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
+        if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) {
           columnsToShow.concat(k)
         }
       }
     }
 
-    if (state.selectedValues.length > 0) {
+    
       chartBar.setView({
         'columns': columnsToShow,
       })
