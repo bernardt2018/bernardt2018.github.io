@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv10</P>
+	<p>testv11</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -372,14 +372,15 @@ function Init2() {
 
   }])
   filterdataBar.setRows(aBar)
-  //filterdataBar.setColumns([1, 2])
+  filterdataBar.setColumns([1, 2])
+testa = filterdataBar.getViewRows()
+testb = filterdataBar.getViewColumns()
+  //chartBar.setView({
+   // 'columns': [1, 2],
+   // 'rows': aBar // GBP initial
+  //})
 
-  chartBar.setView({
-    'columns': [1, 2],
-    'rows': aBar // GBP initial
-  })
-
-
+  chartBar.setView(filterdataBar)
   chartBar.draw()
   programmaticFilterBar.draw()
   //dashboardBar.bind(programmaticFilterBar, chartBar);
@@ -586,7 +587,6 @@ function Init2() {
 
 
 }
-
 	
 
 
