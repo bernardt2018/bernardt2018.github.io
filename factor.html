@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv14</P>
+	<p>testv15</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -300,235 +300,232 @@
 
     var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
 
-    var DataBBar = []
     //reads in the portfolio names
+    var dataBTable = new google.visualization.DataTable()
+    dataBTable.addColumn('string', 'Portfolio Name')
 
     for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
       var test = dataBarInitial.getColumnLabel(k)
-      DataBBar.push(dataBarInitial.getColumnLabel(k))
+      dataBTable.addRows([dataBarInitial.getColumnLabel(k)])
 
     }
-    var dataBTable = google.visualization.arrayToDataTable(DataBBar); //YTD = 0
-
-    var dashboardBar = new google.visualization.Dashboard(
-      document.getElementById('programmatic_dashboard_divBar'));
-
-    var initStateBubble = {
-      selectedValues: []
-    };
 
 
-    initStateBubble.selectedValues.push("PortA", "PortB");
+   
 
-    var programmaticFilterBar = new google.visualization.ControlWrapper({
-      'controlType': 'CategoryFilter',
-      'containerId': 'programmatic_control_divBar',
-      'dataTable': dataBTable,
-      'options': {
-        'filterColumnIndex': 0,
-        'ui': {
-          'labelStacking': 'vertical',
-          'label': '',
-          'caption': 'Select Product',
-          'allowTyping': true,
-          'allowMultiple': true,
-          'cssClass': 'filter',
-          'sortValues': 'true'
-        }
-      },
-      state: initStateBubble
-    });
-    //state: initState
+      var dashboardBar = new google.visualization.Dashboard(
+        document.getElementById('programmatic_dashboard_divBar'));
 
-    var chartBar = new google.visualization.ChartWrapper({
-      'chartType': 'ColumnChart',
-      'containerId': 'programmatic_chart_divBar',
-      'dataTable': dataBarInitial,
-      'options': {
-        'pieSliceText': 'label',
-        'fontName': 'Gill Sans',
-        'colors': ['#838c83', '#ffe075', '#006084', '#bde3dc', '#006964', '#70c7ad', '#89774d', '#f2c257'],
-        chartArea: {
-          left: 50,
-          bottom: 120,
-          width: "80%",
-          height: "74%"
-        },
-        vAxis: {
-          format: '#,###.00%',
-          baseline: 0
-        },
-        hAxis: {
-          slantedText: true,
-          slantedTextAngle: 90
-        },
-        animation: {
-          duration: 1000,
-          easing: 'out',
-          startup: false
-        },
-      }
-    });
+      var initStateBubble = {
+        selectedValues: []
+      };
 
-    // this filters the data to YTD. Leaves all other columns in place
-    var filterdataBar = new google.visualization.DataView(dataBarInitial)
-    var aBar = dataBarInitial.getFilteredRows([{
-      column: 0,
-      value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
 
-    }])
-    filterdataBar.setRows(aBar)
-    filterdataBar.setColumns([1, 3, 19, 25, 34])
-    testa = filterdataBar.getViewRows()
-    testb = filterdataBar.getViewColumns()
-    chartBar.setView({
-      'columns': [1, 3, 19, 25, 34],
-      'rows': aBar // GBP initial
-    })
+      initStateBubble.selectedValues.push("PortA", "PortB");
 
-    // chartBar.setView(filterdataBar)
-    // chartBar.draw()
-    programmaticFilterBar.draw()
-    //dashboardBar.bind(programmaticFilterBar, chartBar);
-    //dashboardBar.draw(filterdataBar);
-
-    //chartBar.draw(filterdataBar);
-    var columnsToShow = [1, 3, 19, 25, 34]; // default of this variable unless modidifed by funciton below
-
-    //does the category filter for the portfolios
-    google.visualization.events.addListener(programmaticFilterBar, 'statechange', function() {
-
-      var state = programmaticFilterBar.getState();
-
-      columnsToShow = [1]
-
-      if (state.selectedValues.length > 0) {
-
-        for (var i = 0; i < state.selectedValues.length; i++) {
-
-          // loops through each of the column in the factor data table
-          for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-
-            if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) { //we look for colum label that is equal to a selected item
-              columnsToShow.push(k)
-            }
+      var programmaticFilterBar = new google.visualization.ControlWrapper({
+        'controlType': 'CategoryFilter',
+        'containerId': 'programmatic_control_divBar',
+        'dataTable': DataBBar,
+        'options': {
+          'filterColumnIndex': 0,
+          'ui': {
+            'labelStacking': 'vertical',
+            'label': '',
+            'caption': 'Select Product',
+            'allowTyping': true,
+            'allowMultiple': true,
+            'cssClass': 'filter',
+            'sortValues': 'true'
           }
+        },
+        state: initStateBubble
+      });
+      //state: initState
+
+      var chartBar = new google.visualization.ChartWrapper({
+        'chartType': 'ColumnChart',
+        'containerId': 'programmatic_chart_divBar',
+        'dataTable': dataBarInitial,
+        'options': {
+          'pieSliceText': 'label',
+          'fontName': 'Gill Sans',
+          'colors': ['#838c83', '#ffe075', '#006084', '#bde3dc', '#006964', '#70c7ad', '#89774d', '#f2c257'],
+          chartArea: {
+            left: 50,
+            bottom: 120,
+            width: "80%",
+            height: "74%"
+          },
+          vAxis: {
+            format: '#,###.00%',
+            baseline: 0
+          },
+          hAxis: {
+            slantedText: true,
+            slantedTextAngle: 90
+          },
+          animation: {
+            duration: 1000,
+            easing: 'out',
+            startup: false
+          },
         }
+      });
 
-      } else {
-
-        // if no selection revert to default
-        // need to add the default column to columns to show if all portfolios unticked
-        columnsToShow = [1, 3, 19, 25, 34]
-
-      }
-
-      chartBar.setView({
-        'columns': columnsToShow,
-        'rows': aBar // GBP initial
-      })
-
-      chartBar.draw()
-
-    });
-
-
-    //Area covers button interactions
-    var button1 = document.getElementById("b1Bar");
-    var button2 = document.getElementById("b2Bar");
-    var button3 = document.getElementById("b3Bar");
-    var buttoncolour = "#555555"
-
-    //function runs on button click
-    function drawBarChart() {
-      // Disabling the button while the chart is drawing.
-      button1.disabled = true;
-      button2.disabled = true;
-      button3.disabled = true;
-      google.visualization.events.addListener(chartBar, 'ready',
-        function() {
-          button1.disabled = false;
-          button2.disabled = false;
-          button3.disabled = false;
-        });
-      chartBar.draw()
-    }
-
-    //runs if the 1M button is clicked
-    button1.onclick = function() {
-      button1.style.background = buttoncolour
-      button1.style.color = "white";
-      button2.style.background = "#F5A623"
-      button3.style.background = "#F5A623"
-      aBar = dataBarInitial.getFilteredRows([{
+      // this filters the data to YTD. Leaves all other columns in place
+      var filterdataBar = new google.visualization.DataView(dataBarInitial)
+      var aBar = dataBarInitial.getFilteredRows([{
         column: 0,
         value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
+
       }])
-      chartBar.setView({
-        'columns': columnsToShow,
+      filterdataBar.setRows(aBar) filterdataBar.setColumns([1, 3, 19, 25, 34]) testa = filterdataBar.getViewRows() testb = filterdataBar.getViewColumns() chartBar.setView({
+        'columns': [1, 3, 19, 25, 34],
         'rows': aBar // GBP initial
       })
-      drawBarChart();
-      button1.disabled = true;
-    };
 
-    //runs if the YTD button is clicked
-    button2.onclick = function() {
-      button2.style.background = buttoncolour
-      button2.style.color = "white";
-      button1.style.background = "#F5A623"
+      // chartBar.setView(filterdataBar)
+      // chartBar.draw()
+      programmaticFilterBar.draw()
+      //dashboardBar.bind(programmaticFilterBar, chartBar);
+      //dashboardBar.draw(filterdataBar);
+
+      //chartBar.draw(filterdataBar);
+      var columnsToShow = [1, 3, 19, 25, 34]; // default of this variable unless modidifed by funciton below
+
+      //does the category filter for the portfolios
+      google.visualization.events.addListener(programmaticFilterBar, 'statechange', function() {
+
+        var state = programmaticFilterBar.getState();
+
+        columnsToShow = [1]
+
+        if (state.selectedValues.length > 0) {
+
+          for (var i = 0; i < state.selectedValues.length; i++) {
+
+            // loops through each of the column in the factor data table
+            for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
+
+              if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) { //we look for colum label that is equal to a selected item
+                columnsToShow.push(k)
+              }
+            }
+          }
+
+        } else {
+
+          // if no selection revert to default
+          // need to add the default column to columns to show if all portfolios unticked
+          columnsToShow = [1, 3, 19, 25, 34]
+
+        }
+
+        chartBar.setView({
+          'columns': columnsToShow,
+          'rows': aBar // GBP initial
+        })
+
+        chartBar.draw()
+
+      });
+
+
+      //Area covers button interactions
+      var button1 = document.getElementById("b1Bar");
+      var button2 = document.getElementById("b2Bar");
+      var button3 = document.getElementById("b3Bar");
+      var buttoncolour = "#555555"
+
+      //function runs on button click
+      function drawBarChart() {
+        // Disabling the button while the chart is drawing.
+        button1.disabled = true;
+        button2.disabled = true;
+        button3.disabled = true;
+        google.visualization.events.addListener(chartBar, 'ready',
+          function() {
+            button1.disabled = false;
+            button2.disabled = false;
+            button3.disabled = false;
+          });
+        chartBar.draw()
+      }
+
+      //runs if the 1M button is clicked
+      button1.onclick = function() {
+        button1.style.background = buttoncolour
+        button1.style.color = "white";
+        button2.style.background = "#F5A623"
+        button3.style.background = "#F5A623"
+        aBar = dataBarInitial.getFilteredRows([{
+          column: 0,
+          value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
+        }])
+        chartBar.setView({
+          'columns': columnsToShow,
+          'rows': aBar // GBP initial
+        })
+        drawBarChart();
+        button1.disabled = true;
+      };
+
+      //runs if the YTD button is clicked
+      button2.onclick = function() {
+        button2.style.background = buttoncolour
+        button2.style.color = "white";
+        button1.style.background = "#F5A623"
+        button3.style.background = "#F5A623"
+        aBar = dataBarInitial.getFilteredRows([{
+          column: 0,
+          value: 'Change3M' // filter for both chart type and time horizon from single CSV
+        }])
+        chartBar.setView({
+          'rows': aBar, // GBP initial
+          'columns': columnsToShow
+        })
+        drawBarChart();
+        button2.disabled = true;
+      };
+
+      // runs if YTD is clicked
+      button3.onclick = function() {
+        button3.style.background = buttoncolour
+        button3.style.color = "white";
+        button1.style.background = "#F5A623"
+        button2.style.background = "#F5A623"
+        aBar = dataBarInitial.getFilteredRows([{
+          column: 0,
+          value: 'Change1yr' // filter for both chart type and time horizon from single CSV
+        }])
+        chartBar.setView({
+          'rows': aBar, // GBP initial
+          'columns': columnsToShow
+        })
+        drawBarChart();
+        button3.disabled = true;
+      };
+
+      // sets default button colours
+      button1.style.background = buttoncolour button1.style.color = "white"; button2.style.background = "#F5A623"
       button3.style.background = "#F5A623"
-      aBar = dataBarInitial.getFilteredRows([{
-        column: 0,
-        value: 'Change3M' // filter for both chart type and time horizon from single CSV
-      }])
-      chartBar.setView({
-        'rows': aBar, // GBP initial
-        'columns': columnsToShow
-      })
-      drawBarChart();
-      button2.disabled = true;
-    };
 
-    // runs if YTD is clicked
-    button3.onclick = function() {
-      button3.style.background = buttoncolour
-      button3.style.color = "white";
-      button1.style.background = "#F5A623"
-      button2.style.background = "#F5A623"
-      aBar = dataBarInitial.getFilteredRows([{
-        column: 0,
-        value: 'Change1yr' // filter for both chart type and time horizon from single CSV
-      }])
-      chartBar.setView({
-        'rows': aBar, // GBP initial
-        'columns': columnsToShow
-      })
-      drawBarChart();
-      button3.disabled = true;
-    };
-
-    // sets default button colours
-    button1.style.background = buttoncolour
-    button1.style.color = "white";
-    button2.style.background = "#F5A623"
-    button3.style.background = "#F5A623"
-
-    $(window).resize(function() {
-      drawBarChart();
-    });
+      $(window).resize(function() {
+        drawBarChart();
+      });
 
 
-    var UIOverviewtab = document.getElementById("ui-id-3");
+      var UIOverviewtab = document.getElementById("ui-id-3");
 
-    UIOverviewtab.onclick = function() {
-      chartBar.draw()
+      UIOverviewtab.onclick = function() {
+        chartBar.draw()
+      }
+
+      // })
+
+
     }
-
-    // })
-
-
-  }
 
 	
 </script>
