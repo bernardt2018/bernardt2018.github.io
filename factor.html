@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv13</P>
+	<p>testv14</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -272,44 +272,43 @@
 
   });
 
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(Init2);
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.charts.setOnLoadCallback(Init2);
 
-function Init2() {
+  function Init2() {
 
- // $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/FactorData.csv", function(csvString2) {
+    // $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/FactorData.csv", function(csvString2) {
 
     //var DataABar = $.csv.toArrays(csvString2, {
     //  onParseValue: $.csv.hooks.castToScalar
-   // });
+    // });
 
     var DataABar = [
-    ["Day", "AssetClass", "PortA", "PortB", "PortC"],
-    ["CurrentLevel", "UK Treasury", 1800, 1810, 1820],
-    ["CurrentLevel", "Global Credit", 1300, 1310, 1320],
-     ["CurrentLevel", "High Yield", 1600, 1610, 1620],
-     ["Change3M", "UK Treasury", 900, 910, 920],
-     ["Change3M", "Global Credit", 300, 310, 320],
+      ["Day", "AssetClass", "PortA", "PortB", "PortC"],
+      ["CurrentLevel", "UK Treasury", 1800, 1810, 1820],
+      ["CurrentLevel", "Global Credit", 1300, 1310, 1320],
+      ["CurrentLevel", "High Yield", 1600, 1610, 1620],
+      ["Change3M", "UK Treasury", 900, 910, 920],
+      ["Change3M", "Global Credit", 300, 310, 320],
       ["Change3M", "High Yield", 1927, 1937, 1947],
-     ["Change1yr", "UK Treasury", 300, 10, 90],
-     ["Change1yr", "Global Credit", 100, 10, 30],
-     ["Change1yr", "High Yield", 927, 937, 197]
-     ];
+      ["Change1yr", "UK Treasury", 300, 10, 90],
+      ["Change1yr", "Global Credit", 100, 10, 30],
+      ["Change1yr", "High Yield", 927, 937, 197]
+    ];
 
     // Create the data table.
-    var dataBTable = google.visualization.arrayToDataTable(DataBBar); //YTD = 0
+
     var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
 
     var DataBBar = []
-
-   //reads in the portfolio names
+    //reads in the portfolio names
 
     for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-        var test = dataBarInitial.getColumnLabel(k)
+      var test = dataBarInitial.getColumnLabel(k)
       DataBBar.push(dataBarInitial.getColumnLabel(k))
 
     }
-
+    var dataBTable = google.visualization.arrayToDataTable(DataBBar); //YTD = 0
 
     var dashboardBar = new google.visualization.Dashboard(
       document.getElementById('programmatic_dashboard_divBar'));
@@ -319,7 +318,7 @@ function Init2() {
     };
 
 
-    initStateBubble.selectedValues.push("CMAFPORTBAL", "PPF 3 TAA", "TPSPORTBAL", "ARC £ BAL");
+    initStateBubble.selectedValues.push("PortA", "PortB");
 
     var programmaticFilterBar = new google.visualization.ControlWrapper({
       'controlType': 'CategoryFilter',
@@ -526,11 +525,10 @@ function Init2() {
       chartBar.draw()
     }
 
- // })
+    // })
 
 
-}
+  }
 
-
-
+	
 </script>
