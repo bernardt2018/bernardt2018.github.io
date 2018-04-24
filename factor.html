@@ -304,7 +304,7 @@
     var dataBTable = new google.visualization.DataTable()
     dataBTable.addColumn('string', 'Portfolio Name')
     for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-     
+     var test = dataBarInitial.getColumnLabel[k]
      dataBTable.addRow(dataBarInitial.getColumnLabel[k])
  
     }
