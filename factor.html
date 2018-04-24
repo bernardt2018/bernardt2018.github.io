@@ -300,12 +300,14 @@
 
     var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
 
-    //reads in the portfolio names
+    //reads in the portfolio names from the colum headers of the CSV
     var dataBTable = new google.visualization.DataTable()
     dataBTable.addColumn('string', 'Portfolio Name')
+    dataBTable.addColumn('number', 'Portfolio No') // just an aribtary
+    
     for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-     var test = dataBarInitial.getColumnLabel[k]
-     dataBTable.addRow(dataBarInitial.getColumnLabel[k])
+     var test = dataBarInitial.getColumnLabel(k)
+     dataBTable.addRow([test,1])
  
     }
   
@@ -337,7 +339,6 @@
         },
         state: initStateBubble
       });
-      //state: initState
 
       var chartBar = new google.visualization.ChartWrapper({
         'chartType': 'ColumnChart',
@@ -369,27 +370,20 @@
         }
       });
 
-      // this filters the data to YTD. Leaves all other columns in place
-      var filterdataBar = new google.visualization.DataView(dataBarInitial)
+      // this filters the data to Current level
       var aBar = dataBarInitial.getFilteredRows([{
         column: 0,
         value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
 
       }])
-      filterdataBar.setRows(aBar) 
-      filterdataBar.setColumns([1, 2, 3]) 
-      testa = filterdataBar.getViewRows() 
-      testb = filterdataBar.getViewColumns() 
+   
+    //default is CurrentLevel and deefault colums set here too
       chartBar.setView({
         'columns': [1,2, 3],
         'rows': aBar // GBP initial
       })
-
-      // chartBar.setView(filterdataBar)
-      // chartBar.draw()
       programmaticFilterBar.draw()
-      //dashboardBar.bind(programmaticFilterBar, chartBar);
-      //dashboardBar.draw(filterdataBar);
+ 
 
       //chartBar.draw(filterdataBar);
       var columnsToShow = [1,2, 3]; // default of this variable unless modidifed by funciton below
@@ -528,6 +522,7 @@
 
 
     }
+
 
 	
 </script>
