@@ -199,7 +199,7 @@
 </head>
 
 <body>
-	<p>testv20</P>
+	<p>testv21</P>
   <div id="AssetClassChart">
 
     <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
@@ -303,17 +303,11 @@
     //reads in the portfolio names
     var dataBTable = new google.visualization.DataTable()
     dataBTable.addColumn('string', 'Portfolio Name')
-
-   // for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
-    //  var test = dataBarInitial.getColumnLabel(k)
-      //dataBTable.addRow(test)
-    //   dataBTable.setCell(k-2, 0,'Mushrooms');
-   // }
-
-dataBTable.setCell(0, 0, 'PortA');
-dataBTable.setCell(1, 0, 'PortfB');
-
-
+    for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
+     
+     dataBTable.addRow(dataBarInitial.getColumnLabel[k])
+ 
+    }
   
       var dashboardBar = new google.visualization.Dashboard(
         document.getElementById('programmatic_dashboard_divBar'));
