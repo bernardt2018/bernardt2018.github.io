@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test4 </p>
+	  <p> test5 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -531,7 +531,7 @@ function Init2() {
         // changes  map change for asset class
         google.visualization.events.addListener(programmaticFilter, 'statechange', function() {
           var state = programmaticFilter.getState();
-          ActiveMapAsset = state.selectedvalues();
+          ActiveMapAsset = state.selectedValues();
         });
 
         //function runs on button click
