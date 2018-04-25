@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test11 </p>
+	  <p> test12 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -180,11 +180,11 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(Init2);
 
 function Init2() {
-  $.get("AllCountries6.csv", function(csvString1) {
+  $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/AllCountries6.csv", function(csvString1) {
 
-    $.get("MarketReturns.csv", function(csvString2) {
+    $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/MarketReturns.csv", function(csvString2) {
 
-      $.get("RelativePerformance.csv", function(csvString3) {
+      $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/RelativePerformance.csv", function(csvString3) {
 
         // transform the CSV string into a 2-dimensional array
         var RelativeData = $.csv.toArrays(csvString3, {
@@ -311,7 +311,7 @@ function Init2() {
           value: 'Bond'
         }])
         bonddataview.setRows(aB)
-        bonddataview.setColumns([0, 2, 3]) // data set is country label, returns, and asset class
+        bonddataview.setColumns([0,1, 2, 3]) // data set is country label,time, returns, and asset class
 
         //creates a view just for equitites
         var equitydataview = new google.visualization.DataView(data)
@@ -320,7 +320,7 @@ function Init2() {
           value: 'Equity'
         }])
         equitydataview.setRows(aEq)
-        equitydataview.setColumns([0, 2, 3]) // data set is country label, returns, and asset class 
+        equitydataview.setColumns([0,1,2, 3]) // data set is country label,time, returns, and asset class 
 
 
         var ChartRange = filterdata.getColumnRange(1) //gets the range of values in the column for formatting
@@ -528,7 +528,7 @@ function Init2() {
         //sets default values for legend (equity and month to date)
         var ActiveAssetClassView = equitydataview
         ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
-          column: 1,
+          column: 1,  //country lables,time,returns,asset class
           value: 'MTD' // MTD is the starting filter
         }]))
 
@@ -538,10 +538,10 @@ function Init2() {
           ActiveMapAsset = state.selectedValues;
           test2a = ActiveMapAsset[0]
           if (ActiveMapAsset[0] == "Equity") {
-            ChartRange = equitydataview.getColumnRange(1);
+            ChartRange = equitydataview.getColumnRange(2);
             ActiveAssetClassView = equitydataview
           } else {
-            ChartRange = bonddataview.getColumnRange(1);
+            ChartRange = bonddataview.getColumnRange(2);
             ActiveAssetClassView = bonddataview
           }
           chart.setOptions({
@@ -569,7 +569,7 @@ function Init2() {
               Mapbutton3.disabled = false;
             });
           // changes the min/max on the legend
-          ChartRange = ActiveAssetClassView.getColumnRange(1)
+          ChartRange = ActiveAssetClassView.getColumnRange(2)
           chart.setOptions({
             'colorAxis': {
               colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
