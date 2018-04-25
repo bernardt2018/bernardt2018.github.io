@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test7 </p>
+	  <p> test8 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -170,7 +170,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 <script type="text/javascript">
 
-	// Load the Visualization API and the corechart package.
+// Load the Visualization API and the corechart package.
 google.charts.load('current', {
   'packages': ['corechart', 'geochart', 'controls'],
   'mapsApiKey': 'AIzaSyAkxpo-VSfUXL2i5nP5MC0Y2RYaEz5iDsI'
@@ -529,7 +529,7 @@ function Init2() {
         // changes  map change for asset class
         google.visualization.events.addListener(programmaticFilter, 'statechange', function() {
           var state = programmaticFilter.getState();
-          ActiveMapAsset = state.selectedvalues();
+          ActiveMapAsset = state.selectedValues;
           test2a = ActiveMapAsset[0]
           if (ActiveMapAsset[0] == "Equity") {
             ChartRange = equitydataview.getColumnRange(1);
@@ -770,7 +770,6 @@ function Init2() {
   })
 }
 
-	
 
 </script>
 </html
