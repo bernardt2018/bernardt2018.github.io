@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test9 </p>
+	  <p> test10 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -180,11 +180,11 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(Init2);
 
 function Init2() {
-  $.get("AllCountries6.csv", function(csvString1) {
+  $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/AllCountries6.csv", function(csvString1) {
 
-    $.get("MarketReturns.csv", function(csvString2) {
+    $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/MarketReturns.csv", function(csvString2) {
 
-      $.get("RelativePerformance.csv", function(csvString3) {
+      $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/RelativePerformance.csv", function(csvString3) {
 
         // transform the CSV string into a 2-dimensional array
         var RelativeData = $.csv.toArrays(csvString3, {
@@ -331,7 +331,7 @@ function Init2() {
           'options': {
             'colorAxis': {
               colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
-              values: [ChartRange.min, -0.001, 0.01, ChartRange.max]
+              values: [ChartRange.min, -0.001, 0.001, ChartRange.max]
             },
             backgroundColor: '#b1e3f9',
             datalessRegionColor: 'white',
@@ -491,12 +491,10 @@ function Init2() {
           if (ColArray.length == 1) {
             ColArray.push(1)
           }
-
           chartBar.setView({
             'columns': ColArray,
           })
           drawBarChart();
-
         }
 
         // runs functions if USD tick box is changed
@@ -526,17 +524,26 @@ function Init2() {
         var Mapbutton3 = document.getElementById("b3Map");
 
         var ActiveMapAsset = "Equity"
-        // changes  map change for asset class
+
+        //sets default values for legend (equity and month to date)
+        var ActiveAssetClassView = equitydataview
+        ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
+          column: 1,
+          value: 'MTD' // MTD is the starting filter
+        }]))
+
+        // when we change asset class we have to change the min and max for the map legend
         google.visualization.events.addListener(programmaticFilter, 'statechange', function() {
           var state = programmaticFilter.getState();
           ActiveMapAsset = state.selectedValues;
           test2a = ActiveMapAsset[0]
           if (ActiveMapAsset[0] == "Equity") {
             ChartRange = equitydataview.getColumnRange(1);
+            ActiveAssetClassView = equitydataview
           } else {
             ChartRange = bonddataview.getColumnRange(1);
+            ActiveAssetClassView = bonddataview
           }
-
           chart.setOptions({
             'colorAxis': {
               colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
@@ -547,7 +554,6 @@ function Init2() {
             defaultColor: '#f5f5f5'
           });
           dashboard.draw(filterdata);
-
         });
 
         //function runs on button click
@@ -562,11 +568,12 @@ function Init2() {
               Mapbutton2.disabled = false;
               Mapbutton3.disabled = false;
             });
-
+          // changes the min/max on the legend
+          ChartRange = ActiveAssetClassView.getColumnRange(1)
           chart.setOptions({
             'colorAxis': {
               colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
-              values: [ChartRange.min, -0.001, 0.01, ChartRange.max]
+              values: [ChartRange.min, -0.001, 0.001, ChartRange.max]
             },
             backgroundColor: '#b1e3f9',
             datalessRegionColor: 'white',
@@ -581,6 +588,10 @@ function Init2() {
           Mapbutton1.style.color = "white";
           Mapbutton2.style.background = "#F5A623"
           Mapbutton3.style.background = "#F5A623"
+          ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
+            column: 1,
+            value: 'MTD' // MTD is the starting filter
+          }]))
           filterdata.setRows(data.getFilteredRows([{
             column: 1,
             value: 'MTD' // MTD is the starting filter
@@ -595,6 +606,10 @@ function Init2() {
           Mapbutton2.style.color = "white";
           Mapbutton1.style.background = "#F5A623"
           Mapbutton3.style.background = "#F5A623"
+          ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
+            column: 1,
+            value: 'YTD' // MTD is the starting filter
+          }]))
           filterdata.setRows(data.getFilteredRows([{
             column: 1,
             value: 'YTD' // yTD is the starting filter
@@ -609,6 +624,10 @@ function Init2() {
           Mapbutton3.style.color = "white";
           Mapbutton1.style.background = "#F5A623"
           Mapbutton2.style.background = "#F5A623"
+          ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
+            column: 1,
+            value: 'OneYear' // MTD is the starting filter
+          }]))
           filterdata.setRows(data.getFilteredRows([{
             column: 1,
             value: 'OneYear' // 2017 is the starting filter
@@ -779,6 +798,7 @@ function Init2() {
     })
   })
 }
+
 
 
 
