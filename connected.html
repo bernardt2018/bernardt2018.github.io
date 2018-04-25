@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test12 </p>
+	  <p> test13 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -180,11 +180,11 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(Init2);
 
 function Init2() {
-  $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/AllCountries6.csv", function(csvString1) {
+  $.get("AllCountries6.csv", function(csvString1) {
 
-    $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/MarketReturns.csv", function(csvString2) {
+    $.get("MarketReturns.csv", function(csvString2) {
 
-      $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/RelativePerformance.csv", function(csvString3) {
+      $.get("RelativePerformance.csv", function(csvString3) {
 
         // transform the CSV string into a 2-dimensional array
         var RelativeData = $.csv.toArrays(csvString3, {
