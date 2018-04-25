@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test6 </p>
+	  <p> test7 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -169,8 +169,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 <script type="text/javascript">
-	
-// Load the Visualization API and the corechart package.
+
+	// Load the Visualization API and the corechart package.
 google.charts.load('current', {
   'packages': ['corechart', 'geochart', 'controls'],
   'mapsApiKey': 'AIzaSyAkxpo-VSfUXL2i5nP5MC0Y2RYaEz5iDsI'
@@ -265,8 +265,6 @@ function Init2() {
         filterdataBar.setRows(aBar)
         filterdataBar.setColumns([0, 2, 3, 4, 5, 6])
         dashboardBar.bind(programmaticFilterBar, chartBar);
-
-
 
         //MAP
         var dashboard = new google.visualization.Dashboard(
@@ -531,18 +529,20 @@ function Init2() {
         // changes  map change for asset class
         google.visualization.events.addListener(programmaticFilter, 'statechange', function() {
           var state = programmaticFilter.getState();
-          ActiveMapAsset = state.selectedValues;
-        });
-
-        //function runs on button click
-        function drawMapChart() {
-          //checks whether bonds or equitiues are selected
-          if (ActiveMapAsset == "Equity") {
+          ActiveMapAsset = state.selectedvalues();
+          test2a = ActiveMapAsset[0]
+          if (ActiveMapAsset[0] == "Equity") {
             ChartRange = equitydataview.getColumnRange(1);
           } else {
             ChartRange = bonddataview.getColumnRange(1);
           }
 
+
+        });
+
+        //function runs on button click
+        function drawMapChart() {
+          //checks whether bonds or equitiues are selected
           Mapbutton1.disabled = true; // Disabling the button while the chart is drawing.
           Mapbutton2.disabled = true;
           Mapbutton3.disabled = true;
@@ -764,16 +764,12 @@ function Init2() {
         }
 
 
-
-
-
-
-
       })
 
     })
   })
 }
+
 	
 
 </script>
