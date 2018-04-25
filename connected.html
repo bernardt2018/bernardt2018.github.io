@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test8 </p>
+	  <p> test9 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -537,6 +537,16 @@ function Init2() {
             ChartRange = bonddataview.getColumnRange(1);
           }
 
+          chart.setOptions({
+            'colorAxis': {
+              colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
+              values: [ChartRange.min, -0.001, 0.01, ChartRange.max]
+            },
+            backgroundColor: '#b1e3f9',
+            datalessRegionColor: 'white',
+            defaultColor: '#f5f5f5'
+          });
+          dashboard.draw(filterdata);
 
         });
 
@@ -769,6 +779,7 @@ function Init2() {
     })
   })
 }
+
 
 
 </script>
