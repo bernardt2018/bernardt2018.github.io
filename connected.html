@@ -51,7 +51,7 @@
   </head>
 
   <body>
-	  <p> test13 </p>
+	  <p> test14 </p>
     <div id="programmatic_dashboard_div" style="border: 1px solid #ccc">
       <table class="columns">
         <tr>
@@ -180,11 +180,11 @@ google.charts.load('current', {
 google.charts.setOnLoadCallback(Init2);
 
 function Init2() {
-  $.get("AllCountries6.csv", function(csvString1) {
+  $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/AllCountries6.csv", function(csvString1) {
 
-    $.get("MarketReturns.csv", function(csvString2) {
+    $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/MarketReturns.csv", function(csvString2) {
 
-      $.get("RelativePerformance.csv", function(csvString3) {
+      $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/RelativePerformance.csv", function(csvString3) {
 
         // transform the CSV string into a 2-dimensional array
         var RelativeData = $.csv.toArrays(csvString3, {
@@ -311,7 +311,7 @@ function Init2() {
           value: 'Bond'
         }])
         bonddataview.setRows(aB)
-        bonddataview.setColumns([0,1, 2, 3]) // data set is country label,time, returns, and asset class
+        bonddataview.setColumns([0, 1, 2, 3]) // data set is country label,time, returns, and asset class
 
         //creates a view just for equitites
         var equitydataview = new google.visualization.DataView(data)
@@ -320,8 +320,7 @@ function Init2() {
           value: 'Equity'
         }])
         equitydataview.setRows(aEq)
-        equitydataview.setColumns([0,1,2, 3]) // data set is country label,time, returns, and asset class 
-
+        equitydataview.setColumns([0, 1, 2, 3]) // data set is country label,time, returns, and asset class 
 
         var ChartRange = filterdata.getColumnRange(1) //gets the range of values in the column for formatting
 
@@ -526,35 +525,14 @@ function Init2() {
         var ActiveMapAsset = "Equity"
 
         //sets default values for legend (equity and month to date)
-        var ActiveAssetClassView = equitydataview
-        ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
-          column: 1,  //country lables,time,returns,asset class
-          value: 'MTD' // MTD is the starting filter
-        }]))
+        var AllDatesAssetClassView = equitydataview
+        var ActiveDatesAssetClassView = AllDatesAssetClassView
+        var ActiveTime = "MTD"
 
-        // when we change asset class we have to change the min and max for the map legend
-        google.visualization.events.addListener(programmaticFilter, 'statechange', function() {
-          var state = programmaticFilter.getState();
-          ActiveMapAsset = state.selectedValues;
-          test2a = ActiveMapAsset[0]
-          if (ActiveMapAsset[0] == "Equity") {
-            ChartRange = equitydataview.getColumnRange(2);
-            ActiveAssetClassView = equitydataview
-          } else {
-            ChartRange = bonddataview.getColumnRange(2);
-            ActiveAssetClassView = bonddataview
-          }
-          chart.setOptions({
-            'colorAxis': {
-              colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
-              values: [ChartRange.min, -0.001, 0.01, ChartRange.max]
-            },
-            backgroundColor: '#b1e3f9',
-            datalessRegionColor: 'white',
-            defaultColor: '#f5f5f5'
-          });
-          dashboard.draw(filterdata);
-        });
+        ActiveDatesAssetClassView.setRows(AllDatesAssetClassView.getFilteredRows([{
+          column: 1, //country lables,time,returns,asset class
+          value: ActiveTime // MTD is the starting filter
+        }]))
 
         //function runs on button click
         function drawMapChart() {
@@ -569,7 +547,12 @@ function Init2() {
               Mapbutton3.disabled = false;
             });
           // changes the min/max on the legend
-          ChartRange = ActiveAssetClassView.getColumnRange(2)
+          ActiveDatesAssetClassView = AllDatesAssetClassView
+          ActiveDatesAssetClassView.setRows(AllDatesAssetClassView.getFilteredRows([{
+            column: 1,
+            value: ActiveTime // MTD is the starting filter
+          }]))
+          ChartRange = ActiveDatesAssetClassView.getColumnRange(2)
           chart.setOptions({
             'colorAxis': {
               colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
@@ -582,19 +565,44 @@ function Init2() {
           dashboard.draw(filterdata);
         }
 
+        // when we change asset class we have to change the min and max for the map legend
+        google.visualization.events.addListener(programmaticFilter, 'statechange', function() {
+          var state = programmaticFilter.getState();
+          ActiveMapAsset = state.selectedValues;
+
+          if (ActiveMapAsset[0] == "Equity") {
+            AllDatesAssetClassView = equitydataview   
+          } else {
+            AllDatesAssetClassView = bonddataview
+          }
+          ActiveDatesAssetClassView = AllDatesAssetClassView
+          ActiveDatesAssetClassView.setRows(AllDatesAssetClassView.getFilteredRows([{
+            column: 1,
+            value: ActiveTime // MTD is the starting filter
+          }]))
+          ChartRange = ActiveDatesAssetClassView.getColumnRange(2);
+          chart.setOptions({
+            'colorAxis': {
+              colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
+              values: [ChartRange.min, -0.001, 0.01, ChartRange.max]
+            },
+            backgroundColor: '#b1e3f9',
+            datalessRegionColor: 'white',
+            defaultColor: '#f5f5f5'
+          });
+          dashboard.draw(filterdata);
+        });
+
         //runs if the MTD button is clicked
         Mapbutton1.onclick = function() {
           Mapbutton1.style.background = buttoncolour
           Mapbutton1.style.color = "white";
           Mapbutton2.style.background = "#F5A623"
           Mapbutton3.style.background = "#F5A623"
-          ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
-            column: 1,
-            value: 'MTD' // MTD is the starting filter
-          }]))
+          ActiveTime = "MTD"
           filterdata.setRows(data.getFilteredRows([{
             column: 1,
-            value: 'MTD' // MTD is the starting filter
+            value: ActiveTime // MTD is the starting filter
           }]))
           drawMapChart();
           Mapbutton1.disabled = true;
@@ -606,13 +614,10 @@ function Init2() {
           Mapbutton2.style.color = "white";
           Mapbutton1.style.background = "#F5A623"
           Mapbutton3.style.background = "#F5A623"
-          ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
-            column: 1,
-            value: 'YTD' // MTD is the starting filter
-          }]))
+          ActiveTime = "YTD"
           filterdata.setRows(data.getFilteredRows([{
             column: 1,
-            value: 'YTD' // yTD is the starting filter
+            value: ActiveTime // yTD is the starting filter
           }]))
           drawMapChart();
           Mapbutton2.disabled = true;
@@ -624,13 +629,10 @@ function Init2() {
           Mapbutton3.style.color = "white";
           Mapbutton1.style.background = "#F5A623"
           Mapbutton2.style.background = "#F5A623"
-          ActiveAssetClassView.setRows(ActiveAssetClassView.getFilteredRows([{
-            column: 1,
-            value: 'OneYear' // MTD is the starting filter
-          }]))
+          ActiveTime = "OneYear"
           filterdata.setRows(data.getFilteredRows([{
             column: 1,
-            value: 'OneYear' // 2017 is the starting filter
+            value: ActiveTime // 2017 is the starting filter
           }]))
           drawMapChart();
           Mapbutton3.disabled = true;
