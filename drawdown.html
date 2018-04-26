@@ -1,196 +1,6 @@
 <html>
   <style>
 
-.button {
-  background-color: #555555;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 0px 0px;
-  cursor: pointer;
-}
-
-.LiveProducts {
-  font-size: 12px;
-}
-
-.filter .google-visualization-controls-categoryfilter-selected li {
-  background-color: #C0C0C0;
-  border: 2px solid white;
-  color: #ffffff;
-  padding: 5px;
-  font-size: 12px;
-  color: rgb(0, 0, 0);
-  position: relative;
-  right: 0px;
-}
-
-.filter .goog-link-button {
-  cursor: pointer;
-  float: left;
-  margin-right: 5px;
-  color: #555555;
-  font-size: 12px;
-}
-
-.filter .goog-combobox input {
-  background-color: #fff;
-  border: 0;
-  border-right: 1px solid #b5b6b5;
-  color: #000;
-  font: normal small arial, sans-serif;
-  margin: 0;
-  padding: 0 0 0 2px;
-  vertical-align: bottom;
-  width: 100px;
-}
-
-.goog-menu-vertical {
-  overflow: scroll;
-  max-height: 250px
-}
-
-body {
-  font-family: Arial;
-}
-
-/* Style the tab */
-
-.charttab {
-  overflow: hidden;
-  border: 1px solid #ccc !important;
-  background-color: #f1f1f1 !important;
-}
-
-/* Style the buttons inside the tab */
-
-.charttab input {
-  background-color: #f1f1f1 !important;
-  float: left !important;
-  border: none !important;
-  outline: none !important;
-  cursor: pointer !important;
-  padding: 7px 8px !important;
-  transition: 0.3s !important;
-  font-size: 17px !important;
-  color: #666 !important;
-}
-
-/* Change background color of buttons on hover */
-
-.charttab input:hover {
-  background-color: #ddd !important;
-}
-
-/* Create an active/current tablink class */
-
-.charttab input.active {
-  background-color: #666 !important;
-  color: white !important;
-}
-
-/* Style the tab content */
-
-.charttabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
-
-.button {
-  background-color: #555555;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
-  margin: 0px 0px;
-  cursor: pointer;
-}
-
-/* Customize the label (the container) */
-
-.container {
-  display: block;
-  position: relative;
-  padding-left: 23px;
-  padding-right: 20px;
-  margin-bottom: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  float: left;
-}
-
-/* Hide the browser's default checkbox */
-
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Create a custom checkbox */
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #bebebe;
-}
-
-/* On mouse-over, add a grey background color */
-
-.container:hover input~.checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-
-.container input:checked~.checkmark {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-
-.container input:checked~.checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-
-.container .checkmark:after {
-  left: 5px;
-  top: 3px;
-  width: 5px;
-  height: 8px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
 
   </style>
 
@@ -200,26 +10,13 @@ body {
 
   <body>
 
-    <div id="AssetClassChart">
+    <div id="DrawdownChart">
 
-      <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
-        <table class="columns" style="height: 80px">
+      <div id="programmatic_dashboard_divLine" style="border: 1px solid #ccc">
+        <table class="columns" style="height: 30px">
           <tr>
             <td>
-              <p> Select:
-                <input type="button" value="Current Betas" id="b1Bar" class="button" style="margin: 0px 0px;" />
-                <input type="button" value="3M Change" id="b2Bar" class="button" style="margin: 0px 0px;" />
-                <input type="button" value="12M Change" id="b3Bar" class="button" style="margin: 0px 0px;" />
-              </p>
-            </td>
-            <td>
-
-            </td>
-
-          </tr>
-          <tr>
-            <td>
-              <div id="programmatic_control_divBar" style="position:absolute; right:15px; top: 40px; z-index: 20;"></div>
+              <div id="programmatic_control_divLine" style="position:absolute; right:15px; top: 0px; z-index: 20;"></div>
             </td>
           </tr>
         </table>
@@ -230,41 +27,63 @@ body {
 
   </body>
 
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
-<script type="text/javascript">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+  <script type="text/javascript">
+
 
   // Load the Visualization API and the corechart package.
   google.charts.load('current', {
     'packages': ['corechart', 'controls'],
   });
-  // Set a callback to run when the Google Visualization API is loaded.
-  google.charts.setOnLoadCallback(Init2);
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(Init2);
 
-  function Init2() {
-
+function Init2() {
+  //$.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/FactorData.csv", function(csvString2) {
+ //   var DataABar = $.csv.toArrays(csvString2, {
+   //   onParseValue: $.csv.hooks.castToScalar
+  //  });
+    
     var DataABar = [
-      ["Day", "ExcessReturn"],
-      ["12/04/2017", 100],
-      ["13/04/2017", 110],
-      ["14/04/2017", 160],
-      ["17/04/2017", 120],
-      ["18/04/2017", 110],
-      ["19/04/2017", 131],
-      ["20/04/2017", 137],
-      ["21/04/2017", 139],
-      ["24/04/2017", 150]
-    ];
-
+     ["Day", "AssetClass", "PortA", "PortB", "PortC"],
+    ["CurrentLevel", "UK Treasury", 1800, 1810, 1820],
+    ["CurrentLevel", "Global Credit", 1300, 1310, 1320],
+     ["CurrentLevel", "High Yield", 1600, 1610, 1620],
+     ["Change3M", "UK Treasury", 900, 910, 920],
+     ["Change3M", "Global Credit", 300, 310, 320],
+     ["Change3M", "High Yield", 1927, 1937, 1947],
+      ["Change1yr", "UK Treasury", 300, 10, 90],
+      ["Change1yr", "Global Credit", 100, 10, 30],
+     ["Change1yr", "High Yield", 927, 937, 197]
+     ];
+     
+    // Create the data table.
     var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
+    //reads in the portfolio names from the colum headers of the CSV
+    var dataBTable = new google.visualization.DataTable()
+    dataBTable.addColumn('string', 'Portfolio Name')
+    dataBTable.addColumn('number', 'Portfolio No') // just an aribtary
+
+    for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
+      var test = dataBarInitial.getColumnLabel(k)
+      dataBTable.addRow([test, 1])
+
+    }
 
     var dashboardBar = new google.visualization.Dashboard(
       document.getElementById('programmatic_dashboard_divBar'));
+    var initStateBubble = {
+      selectedValues: []
+    };
 
+
+    initStateBubble.selectedValues.push("CMAFPORTBAL", "PPF 3 TAA", "TPSPORTBAL", "ARC GBP BAL");
     var programmaticFilterBar = new google.visualization.ControlWrapper({
       'controlType': 'CategoryFilter',
       'containerId': 'programmatic_control_divBar',
+      'dataTable': dataBTable,
       'options': {
         'filterColumnIndex': 0,
         'ui': {
@@ -277,11 +96,12 @@ body {
           'sortValues': 'true'
         }
       }
+      // state: initStateBubble
     });
-
     var chartBar = new google.visualization.ChartWrapper({
-      'chartType': 'LineChart',
+      'chartType': 'ColumnChart',
       'containerId': 'programmatic_chart_divBar',
+      'dataTable': dataBarInitial,
       'options': {
         'pieSliceText': 'label',
         'fontName': 'Gill Sans',
@@ -307,13 +127,247 @@ body {
         },
       }
     });
+    // this filters the data to Current level
+    var aBar = dataBarInitial.getFilteredRows([{
+      column: 0,
+      value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
+    }])
 
-    dashboardBar.bind(programmaticFilterBar, chartBar);
-    dashboardBar.draw(dataBarInitial);
 
-  }
+    var columnsToShowDefault = [1, 3, 11, 17, 23];
+
+    //default is CurrentLevel and deefault colums set here too
+    chartBar.setView({
+      'columns': columnsToShowDefault,
+      'rows': aBar // GBP initial
+    })
+    programmaticFilterBar.draw()
+
+    //chartBar.draw(filterdataBar);
+    var columnsToShow = columnsToShowDefault; // default of this variable unless modidifed by funciton below
+    //does the category filter for the portfolios
+    google.visualization.events.addListener(programmaticFilterBar, 'statechange', function() {
+      var state = programmaticFilterBar.getState();
+      columnsToShow = [1]
+      if (state.selectedValues.length > 0) {
+        for (var i = 0; i < state.selectedValues.length; i++) {
+          // loops through each of the column in the factor data table
+          for (var k = 2; k < dataBarInitial.getNumberOfColumns(); k++) {
+            if (dataBarInitial.getColumnLabel(k) == state.selectedValues[i]) { //we look for colum label that is equal to a selected item
+              columnsToShow.push(k)
+            }
+          }
+        }
+      } else {
+        // if no selection revert to default
+        // need to add the default column to columns to show if all portfolios unticked
+        columnsToShow = columnsToShowDefault //these are the cols that show if nothing selected
+      }
+      chartBar.setView({
+        'columns': columnsToShow,
+        'rows': aBar // GBP initial
+      })
+      chartBar.draw()
+    });
+    //Area covers button interactions
+    var button1 = document.getElementById("b1Bar");
+    var button2 = document.getElementById("b2Bar");
+    var button3 = document.getElementById("b3Bar");
+    var buttoncolour = "#555555"
+    //function runs on button click
+    function drawBarChart() {
+      // Disabling the button while the chart is drawing.
+      button1.disabled = true;
+      button2.disabled = true;
+      button3.disabled = true;
+      google.visualization.events.addListener(chartBar, 'ready',
+        function() {
+          button1.disabled = false;
+          button2.disabled = false;
+          button3.disabled = false;
+        });
+      chartBar.draw()
+    }
+    //runs if the 1M button is clicked
+    button1.onclick = function() {
+      button1.style.background = buttoncolour
+      button1.style.color = "white";
+      button2.style.background = "#F5A623"
+      button3.style.background = "#F5A623"
+      aBar = dataBarInitial.getFilteredRows([{
+        column: 0,
+        value: 'CurrentLevel' // filter for both chart type and time horizon from single CSV
+      }])
+      chartBar.setView({
+        'columns': columnsToShow,
+        'rows': aBar // GBP initial
+      })
+      drawBarChart();
+      button1.disabled = true;
+    };
+    //runs if the YTD button is clicked
+    button2.onclick = function() {
+      button2.style.background = buttoncolour
+      button2.style.color = "white";
+      button1.style.background = "#F5A623"
+      button3.style.background = "#F5A623"
+      aBar = dataBarInitial.getFilteredRows([{
+        column: 0,
+        value: 'Change3M' // filter for both chart type and time horizon from single CSV
+      }])
+      chartBar.setView({
+        'rows': aBar, // GBP initial
+        'columns': columnsToShow
+      })
+      drawBarChart();
+      button2.disabled = true;
+    };
+    // runs if YTD is clicked
+    button3.onclick = function() {
+      button3.style.background = buttoncolour
+      button3.style.color = "white";
+      button1.style.background = "#F5A623"
+      button2.style.background = "#F5A623"
+      aBar = dataBarInitial.getFilteredRows([{
+        column: 0,
+        value: 'Change1yr' // filter for both chart type and time horizon from single CSV
+      }])
+      chartBar.setView({
+        'rows': aBar, // GBP initial
+        'columns': columnsToShow
+      })
+      drawBarChart();
+      button3.disabled = true;
+    };
+    // sets default button colours
+    button1.style.background = buttoncolour
+    button1.style.color = "white";
+    button2.style.background = "#F5A623"
+    button3.style.background = "#F5A623"
+    $(window).resize(function() {
+      drawBarChart();
+    });
+
+    var UIOverviewtab = document.getElementById("ui-id-3");
+    UIOverviewtab.onclick = function() {
+
+      //draws chart
+      chartBar.draw()
+
+    }
+
+
+    var DataLine = [
+      ["Day", "Excess Return", "Trigger 1", "Trigger 2", "theme"],
+      ["2017/04/12", 100, 150, 140, 'TPS'],
+      ["2017/04/13", 110, 150, 140, 'TPS'],
+      ["2017/04/14", 160, 150, 140, 'TPS'],
+      ["2017/04/17", 120, 150, 140, 'TPS'],
+      ["2017/04/18", 110, 150, 140, 'TPS'],
+      ["2017/04/19", 131, 150, 140, 'TPS'],
+      ["2017/04/20", 137, 150, 140, 'TPS'],
+      ["2017/04/21", 139, 150, 140, 'TPS'],
+      ["2017/04/24", 150, 150, 140, 'TPS']
+    ];
+
+    var dataLineInitial = google.visualization.arrayToDataTable(DataLine); //YTD = 0
+
+    dataLineInitial.insertColumn(0, 'date', dataLineInitial.getColumnLabel(0));
+    // copy values from column 1 (old column 0) to column 0, converted to numbers
+    for (var i = 0; i < dataLineInitial.getNumberOfRows(); i++) {
+
+      val = dataLineInitial.getValue(i, 1);
+      //document.write(new Date(val));
+
+      dataLineInitial.setValue(i, 0, new Date(val));
+    }
+    // remove column 1 (the old column 0)
+    dataLineInitial.removeColumn(1);
+
+    var dashboardLine = new google.visualization.Dashboard(
+      document.getElementById('programmatic_dashboard_divLine'));
+
+    var programmaticFilterLineChart = new google.visualization.ControlWrapper({
+      'controlType': 'CategoryFilter',
+      'containerId': 'programmatic_control_divLine',
+      'options': {
+        'filterColumnIndex': 4,
+        'ui': {
+          'labelStacking': 'vertical',
+          'label': '',
+          'caption': 'Select Product',
+          'allowTyping': true,
+          'allowMultiple': true,
+          'cssClass': 'filter',
+          'sortValues': 'true'
+        }
+      }
+    });
+
+    var chartLine = new google.visualization.ChartWrapper({
+      'chartType': 'LineChart',
+      'containerId': 'programmatic_chart_divBar',
+      'options': {
+        'pieSliceText': 'label',
+        'pointSize': 8,
+        'pointShape': 'square',
+        'fontName': 'Gill Sans',
+        'series': {
+          1: {
+            lineDashStyle: [2, 2],
+            type: "steppedArea",
+            areaOpacity: 0.15,
+            enableInteractivity: false
+          },
+          2: {
+            lineDashStyle: [2, 2],
+            type: "steppedArea",
+            areaOpacity: 0.15,
+            enableInteractivity: false
+          }
+        },
+        'colors': ['blue', 'orange', 'red'],
+        chartArea: {
+          left: 50,
+          bottom: 120,
+          width: "75%",
+          height: "74%"
+        },
+        vAxis: {
+          format: '#,###.00',
+          baseline: 0
+        },
+        hAxis: {
+          slantedText: false,
+          slantedTextAngle: 45,
+          format: 'dd MMM yyyy'
+          //type: 'category'
+        },
+        animation: {
+          duration: 1000,
+          easing: 'out',
+          startup: false
+        },
+      }
+    });
+
+    chartLine.setView({
+      'columns': [0, 1, 2, 3]
+    })
+
+    dashboardLine.bind(programmaticFilterLineChart, chartLine);
+    dashboardLine.draw(dataLineInitial);
+
+    $(window).resize(function() {
+      dashboardLine.draw(dataLineInitial);
+    });
+
+
+ // })
+}
 
 
 </script>
 
 </html>
+
