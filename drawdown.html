@@ -1,0 +1,319 @@
+<html>
+  <style>
+
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+
+.LiveProducts {
+  font-size: 12px;
+}
+
+.filter .google-visualization-controls-categoryfilter-selected li {
+  background-color: #C0C0C0;
+  border: 2px solid white;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  position: relative;
+  right: 0px;
+}
+
+.filter .goog-link-button {
+  cursor: pointer;
+  float: left;
+  margin-right: 5px;
+  color: #555555;
+  font-size: 12px;
+}
+
+.filter .goog-combobox input {
+  background-color: #fff;
+  border: 0;
+  border-right: 1px solid #b5b6b5;
+  color: #000;
+  font: normal small arial, sans-serif;
+  margin: 0;
+  padding: 0 0 0 2px;
+  vertical-align: bottom;
+  width: 100px;
+}
+
+.goog-menu-vertical {
+  overflow: scroll;
+  max-height: 250px
+}
+
+body {
+  font-family: Arial;
+}
+
+/* Style the tab */
+
+.charttab {
+  overflow: hidden;
+  border: 1px solid #ccc !important;
+  background-color: #f1f1f1 !important;
+}
+
+/* Style the buttons inside the tab */
+
+.charttab input {
+  background-color: #f1f1f1 !important;
+  float: left !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 7px 8px !important;
+  transition: 0.3s !important;
+  font-size: 17px !important;
+  color: #666 !important;
+}
+
+/* Change background color of buttons on hover */
+
+.charttab input:hover {
+  background-color: #ddd !important;
+}
+
+/* Create an active/current tablink class */
+
+.charttab input.active {
+  background-color: #666 !important;
+  color: white !important;
+}
+
+/* Style the tab content */
+
+.charttabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+
+/* Customize the label (the container) */
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 23px;
+  padding-right: 20px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+
+/* Hide the browser's default checkbox */
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #bebebe;
+}
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.container input:checked~.checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.container .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+  </style>
+
+  <head>
+
+  </head>
+
+  <body>
+
+    <div id="AssetClassChart">
+
+      <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
+        <table class="columns" style="height: 80px">
+          <tr>
+            <td>
+              <p> Select:
+                <input type="button" value="Current Betas" id="b1Bar" class="button" style="margin: 0px 0px;" />
+                <input type="button" value="3M Change" id="b2Bar" class="button" style="margin: 0px 0px;" />
+                <input type="button" value="12M Change" id="b3Bar" class="button" style="margin: 0px 0px;" />
+              </p>
+            </td>
+            <td>
+
+            </td>
+
+          </tr>
+          <tr>
+            <td>
+              <div id="programmatic_control_divBar" style="position:absolute; right:15px; top: 40px; z-index: 20;"></div>
+            </td>
+          </tr>
+        </table>
+        <div id="programmatic_chart_divBar" style="width: 100%; height: 500px; "></div>
+      </div>
+
+    </div>
+
+  </body>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+<script type="text/javascript">
+
+  // Load the Visualization API and the corechart package.
+  google.charts.load('current', {
+    'packages': ['corechart', 'controls'],
+  });
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.charts.setOnLoadCallback(Init2);
+
+  function Init2() {
+
+    var DataABar = [
+      ["Day", "ExcessReturn"],
+      ["12/04/2017", 100],
+      ["13/04/2017", 110],
+      ["14/04/2017", 160],
+      ["17/04/2017", 120],
+      ["18/04/2017", 110],
+      ["19/04/2017", 131],
+      ["20/04/2017", 137],
+      ["21/04/2017", 139],
+      ["24/04/2017", 150]
+    ];
+
+    var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
+
+    var dashboardBar = new google.visualization.Dashboard(
+      document.getElementById('programmatic_dashboard_divBar'));
+
+    var programmaticFilterBar = new google.visualization.ControlWrapper({
+      'controlType': 'CategoryFilter',
+      'containerId': 'programmatic_control_divBar',
+      'options': {
+        'filterColumnIndex': 0,
+        'ui': {
+          'labelStacking': 'vertical',
+          'label': '',
+          'caption': 'Select Product',
+          'allowTyping': true,
+          'allowMultiple': true,
+          'cssClass': 'filter',
+          'sortValues': 'true'
+        }
+      }
+    });
+
+    var chartBar = new google.visualization.ChartWrapper({
+      'chartType': 'LineChart',
+      'containerId': 'programmatic_chart_divBar',
+      'options': {
+        'pieSliceText': 'label',
+        'fontName': 'Gill Sans',
+        'colors': ['#838c83', '#ffe075', '#006084', '#bde3dc', '#006964', '#70c7ad', '#89774d', '#f2c257'],
+        chartArea: {
+          left: 50,
+          bottom: 120,
+          width: "79%",
+          height: "74%"
+        },
+        vAxis: {
+          format: '#,###.00',
+          baseline: 0
+        },
+        hAxis: {
+          slantedText: true,
+          slantedTextAngle: 90
+        },
+        animation: {
+          duration: 1000,
+          easing: 'out',
+          startup: false
+        },
+      }
+    });
+
+    dashboardBar.bind(programmaticFilterBar, chartBar);
+    dashboardBar.draw(dataBarInitial);
+
+  }
+
+
+</script>
+
+</html>
