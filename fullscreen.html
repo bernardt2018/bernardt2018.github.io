@@ -7,11 +7,14 @@
     <script type="text/javascript" src="jquery.fullPage.js"></script>
 
     <script type="text/javascript">
-
-       $('body').on('click', '*', function() {
-        screenfull.request();
-    }); 
-        
+    
+        $(document).ready(function(){
+        $('#go-full').click(function(){
+            if (document.fullscreenEnabled) {
+                requestFullscreen($('#my-full-site')[0]);
+            }
+        });
+    });
         
     </script>
 
@@ -24,6 +27,8 @@
 </head>
 
 <body>
+    <button id="go-full">Go Fullscreen</button>
+    
     <div id="fullpage">
         <div class="section">Section 1</div>
         <div class="section">
