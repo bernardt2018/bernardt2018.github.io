@@ -1,40 +1,88 @@
-<!DOCTYPE html>
-<html>
+
+<!doctype html>
+<html lang="en" itemscope itemtype="http://schema.org/Product">
 <head>
-    
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/screenfull.js/1.0.4/screenfull.min.js"></script>
-<script>
-    
-        $(document).ready(function(){
-        $('#go-full').click(function(){
-            if (document.fullscreenEnabled) {
-                requestFullscreen($('#fullpage')[0]);
-            }
-        });
-    });
-        
-    </script>
 
-    <style>
-        .section{
-            font-size: 6em;
-            text-align: center;
-        }
-    </style>
+<title>screenfull.js demo</title>
+<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+<script type="text/javascript">
+//<![CDATA[
+window.__cfRocketOptions = {byc:0,p:0,petok:"2c7d5115aac9895d0f351e110564ad421e403034-1526228074-1800"};
+//]]>
+</script>
+<script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/935cb224/cloudflare-static/rocket.min.js"></script>
+<link href="bootstrap.css" rel="stylesheet">
 </head>
-
 <body>
-    <button id="go-full">Go Fullscreen</button>
-    
-    <div id="fullpage">
-        <div class="section">Section 1</div>
-        <div class="section">
-            <div class="slide">Section 2 Slide 1</div>
-            <div class="slide">Section 2 Slide 2</div>
-            <div class="slide">Section 2 Slide 3</div>
-        </div>
-        <div class="section">Section 3</div>
-    </div>            
-</body> 
+<section id="container" class="container">
+<header>
+<h1>View images and videos fullscreen with screenfull.js</h1>
+</header>
+<hr>
+<section>
+<p>Click the image to make it fullscreen</p>
+<img width="300" height="140" id="demo-img" src="https://www.w3resource.com/web-development-tools/firebug-opitons.png">
+</section>
+<hr>
+<section>
+<p>Click the video to make it fullscreen</p>
+<video id="demo-video" width="300" height="225" poster="video.png" controls>
+<source src="http://video.nationalgeographic.com/video/animals/mammals-animals/cats/deadliest-cheetah-speed/">
+</video>
+<small>Press Esc to exit</small>
+</section>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script src="src/screenfull.js"></script>
+<script>
+	$(function() {
+
+		$('#supported').text( 'Supported: ' + !!screenfull );
+
+		if ( !screenfull ) {
+			return false;
+		}
+
+		$('#request').click(function() {
+			screenfull.request( $('#container')[0] );
+			// Does not require jQuery, can be used like this too:
+			// screenfull.request( document.getElementById('container') );
+		});
+
+		$('#exit').click(function() {
+			screenfull.exit();
+		});
+
+		$('#toggle').click(function() {
+			screenfull.toggle( $('#container')[0] );
+		});
+
+		$('#request2').click(function() {
+			screenfull.request();
+		});
+
+		$('#demo-img').click(function() {
+			screenfull.toggle( this );
+		})
+
+		$('#demo-video').click(function() {
+			screenfull.toggle( this );
+		})
+
+		screenfull.onchange = function( e ) {
+			$('#status').text( 'Is fullscreen: ' + screenfull.isFullscreen );
+			var elem = screenfull.element;
+			if ( elem ) {
+				$('#element').text( 'Element: ' + elem.localName + ( elem.id ? '#' + elem.id : '' ) );
+			}
+		};
+
+		// Trigger the onchange() to set the initial values
+		screenfull.onchange();
+
+	});
+	</script>
+</body>
 </html>
