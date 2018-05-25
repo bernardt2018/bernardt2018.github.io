@@ -1,7 +1,212 @@
 <html>
   <style>
 
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
 
+.LiveProducts {
+  font-size: 12px;
+}
+
+.filter .google-visualization-controls-categoryfilter-selected li {
+  background-color: #C0C0C0;
+  border: 2px solid white;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  position: relative;
+  right: 0px;
+}
+
+.filter .goog-link-button {
+  cursor: pointer;
+  float: left;
+  margin-right: 5px;
+  color: #555555;
+  font-size: 12px;
+}
+
+.filter .goog-combobox input {
+  background-color: #fff;
+  border: 0;
+  border-right: 1px solid #b5b6b5;
+  color: #000;
+  font: normal small arial, sans-serif;
+  margin: 0;
+  padding: 0 0 0 2px;
+  vertical-align: bottom;
+  width: 100px;
+}
+
+.goog-menu-vertical {
+  overflow: scroll;
+  max-height: 250px
+}
+
+body {
+  font-family: Arial;
+}
+
+/* Style the tab */
+
+.charttab {
+  overflow: hidden;
+  border: 1px solid #ccc !important;
+  background-color: #f1f1f1 !important;
+}
+
+/* Style the buttons inside the tab */
+
+.charttab input {
+  background-color: #f1f1f1 !important;
+  float: left !important;
+  border: none !important;
+  outline: none !important;
+  cursor: pointer !important;
+  padding: 7px 8px !important;
+  transition: 0.3s !important;
+  font-size: 17px !important;
+  color: #666 !important;
+}
+
+/* Change background color of buttons on hover */
+
+.charttab input:hover {
+  background-color: #ddd !important;
+}
+
+/* Create an active/current tablink class */
+
+.charttab input.active {
+  background-color: #666 !important;
+  color: white !important;
+}
+
+/* Style the tab content */
+
+.charttabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+
+/* Customize the label (the container) */
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 23px;
+  padding-right: 20px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  float: left;
+}
+
+/* Hide the browser's default checkbox */
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #bebebe;
+}
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+
+.container input:checked~.checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+
+.container .checkmark:after {
+  left: 5px;
+  top: 3px;
+  width: 5px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+.column {
+  float: left;
+  width: 48%;
+  padding: 5px;
+  height: 300px;
+}
+
+/* Clear floats after image containers */
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+    
   </style>
 
   <head>
@@ -9,18 +214,27 @@
   </head>
 
   <body>
-    <p> testv3 </p>
-    <div id="DrawdownChart">
 
-      <div id="programmatic_dashboard_divLine" style="border: 1px solid #ccc">
-        <table class="columns" style="height: 30px">
+    <div id="AssetClassChart">
+
+      <div id="programmatic_dashboard_divBar" style="border: 1px solid #ccc">
+        <table class="columns" style="height: 80px">
           <tr>
             <td>
-              <div id="programmatic_control_divLine" style="position:absolute; right:15px; top: 0px; z-index: 20;"></div>
+              <div id="programmatic_control_divBar" style="position:absolute; right:15px; top: 40px; z-index: 20;"></div>
             </td>
           </tr>
         </table>
-        <div id="programmatic_chart_divLine" style="width: 100%; height: 500px; "></div>
+        <div id="programmatic_chart_divBar" style="width: 100%; height: 500px; "></div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <div id="programmatic_chart_divTheme" style="height:100%;"></div>
+        </div>
+        <div class="column">
+          <div id="programmatic_chart_Assumptions" style="height:100%;"></div>
+        </div>
       </div>
 
     </div>
@@ -32,51 +246,91 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
   <script type="text/javascript">
 
-
-  // Load the Visualization API and the corechart package.
+      // Load the Visualization API and the corechart package.
   google.charts.load('current', {
     'packages': ['corechart', 'controls'],
   });
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(Init2);
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.charts.setOnLoadCallback(Init2);
 
-function Init2() {
+  function Init2() {
 
-    var DataLine = [
-      ["Day", "Excess Return", "Trigger 1", "Trigger 2", "theme"],
-      ["2017/04/12", 100, 150, 140, 'TPS'],
-      ["2017/04/13", 110, 150, 140, 'TPS'],
-      ["2017/04/14", 160, 150, 140, 'TPS'],
-      ["2017/04/17", 120, 150, 140, 'TPS'],
-      ["2017/04/18", 110, 150, 140, 'TPS'],
-      ["2017/04/19", 131, 150, 140, 'TPS'],
-      ["2017/04/20", 137, 150, 140, 'TPS'],
-      ["2017/04/21", 139, 150, 140, 'TPS'],
-      ["2017/04/24", 150, 150, 140, 'TPS']
+    //Portfolio level limiits
+    var DataABar = [
+      ["Day", "Excess Return", "Trigger 1", "Trigger 2"],
+      ["2017/04/12", 100, 150, 140],
+      ["2017/04/13", 110, 150, 140],
+      ["2017/04/14", 160, 150, 140],
+      ["2017/04/17", 120, 150, 140],
+      ["2017/04/18", 110, 150, 140],
+      ["2017/04/19", 131, 150, 140],
+      ["2017/04/20", 137, 150, 140],
+      ["2017/04/21", 139, 150, 140],
+      ["2017/04/24", 150, 150, 140]
     ];
 
-    var dataLineInitial = google.visualization.arrayToDataTable(DataLine); //YTD = 0
+    //theme level limiits
+    var DataThemeLevel = [
+      ["Theme", "perform", "vol"],
+      ["ThemeA", 100, 150],
+      ["ThemeB", 110, 150],
+      ["ThemeC", 160, 150],
+      ["ThemeD", 120, 150]
+    ];
 
-    dataLineInitial.insertColumn(0, 'date', dataLineInitial.getColumnLabel(0));
+    //fund level limiits [a]
+    var DataCBar = [
+      ["Day", "asset", "stock selection", "Trigger 1", "Trigger 2"],
+      ["2017/04/12", 100, 150, 140],
+      ["2017/04/13", 110, 150, 140],
+      ["2017/04/14", 160, 150, 140],
+      ["2017/04/17", 120, 150, 140],
+      ["2017/04/18", 110, 150, 140],
+      ["2017/04/19", 131, 150, 140],
+      ["2017/04/20", 137, 150, 140],
+      ["2017/04/21", 139, 150, 140],
+      ["2017/04/24", 150, 150, 140]
+    ];
+
+    //fund level limiits [b]
+    var DataDBar = [
+      ["Day", "asset", "performance", '12mBMKperformance', "Trigger 1", "Trigger 2"],
+      ["2017/04/12", 100, 150, 140],
+      ["2017/04/13", 110, 150, 140],
+      ["2017/04/14", 160, 150, 140],
+      ["2017/04/17", 120, 150, 140],
+      ["2017/04/18", 110, 150, 140],
+      ["2017/04/19", 131, 150, 140],
+      ["2017/04/20", 137, 150, 140],
+      ["2017/04/21", 139, 150, 140],
+      ["2017/04/24", 150, 150, 140]
+    ];
+
+    //fund level limiits [B]
+
+    var dataBarInitial = google.visualization.arrayToDataTable(DataABar); //YTD = 0
+    var datatableTheme = google.visualization.arrayToDataTable(DataThemeLevel);
+
+    dataBarInitial.insertColumn(0, 'date', dataBarInitial.getColumnLabel(0));
     // copy values from column 1 (old column 0) to column 0, converted to numbers
-    for (var i = 0; i < dataLineInitial.getNumberOfRows(); i++) {
+    for (var i = 0; i < dataBarInitial.getNumberOfRows(); i++) {
 
-      val = dataLineInitial.getValue(i, 1);
+      val = dataBarInitial.getValue(i, 1);
       //document.write(new Date(val));
 
-      dataLineInitial.setValue(i, 0, new Date(val));
+      dataBarInitial.setValue(i, 0, new Date(val));
     }
     // remove column 1 (the old column 0)
-    dataLineInitial.removeColumn(1);
+    dataBarInitial.removeColumn(1);
 
-    var dashboardLine = new google.visualization.Dashboard(
-      document.getElementById('programmatic_dashboard_divLine'));
+    var dashboardBar = new google.visualization.Dashboard(
+      document.getElementById('programmatic_dashboard_divBar'));
 
-    var programmaticFilterLineChart = new google.visualization.ControlWrapper({
+    var programmaticFilterBar = new google.visualization.ControlWrapper({
       'controlType': 'CategoryFilter',
-      'containerId': 'programmatic_control_divLine',
+      'containerId': 'programmatic_control_divBar',
       'options': {
-        'filterColumnIndex': 4,
+        'filterColumnIndex': 0,
         'ui': {
           'labelStacking': 'vertical',
           'label': '',
@@ -89,13 +343,11 @@ function Init2() {
       }
     });
 
-    var chartLine = new google.visualization.ChartWrapper({
+    var chartBar = new google.visualization.ChartWrapper({
       'chartType': 'LineChart',
-      'containerId': 'programmatic_chart_divLine',
+      'containerId': 'programmatic_chart_divBar',
       'options': {
         'pieSliceText': 'label',
-        'pointSize': 8,
-        'pointShape': 'square',
         'fontName': 'Gill Sans',
         'series': {
           1: {
@@ -111,11 +363,11 @@ function Init2() {
             enableInteractivity: false
           }
         },
-        'colors': ['blue', 'orange', 'red'],
+        'colors': ['#838c83', 'orange', 'red'],
         chartArea: {
           left: 50,
           bottom: 120,
-          width: "75%",
+          width: "69%",
           height: "74%"
         },
         vAxis: {
@@ -123,8 +375,8 @@ function Init2() {
           baseline: 0
         },
         hAxis: {
-          slantedText: false,
-          slantedTextAngle: 45,
+          slantedText: true,
+          slantedTextAngle: 90,
           format: 'dd MMM yyyy'
           //type: 'category'
         },
@@ -136,23 +388,45 @@ function Init2() {
       }
     });
 
-    chartLine.setView({
-      'columns': [0, 1, 2, 3]
-    })
-
-    dashboardLine.bind(programmaticFilterLineChart, chartLine);
-    dashboardLine.draw(dataLineInitial);
-
-    $(window).resize(function() {
-      dashboardLine.draw(dataLineInitial);
+    var ThemeChart = new google.visualization.ChartWrapper({
+      'chartType': 'BarChart',
+      'containerId': 'programmatic_chart_divTheme',
+      'options': {
+        'pieSliceText': 'label',
+        'fontName': 'Gill Sans',
+        chartArea: {
+          left: 50,
+          bottom: 120,
+          width: "69%",
+          height: "74%"
+        },
+        vAxis: {
+          format: '#,###.00',
+          baseline: 0
+        },
+        hAxis: {
+          slantedText: true,
+          slantedTextAngle: 90,
+          format: 'dd MMM yyyy'
+          //type: 'category'
+        },
+        animation: {
+          duration: 1000,
+          easing: 'out',
+          startup: false
+        },
+      }
     });
 
 
- // })
-}
+    dashboardBar.bind(programmaticFilterBar, chartBar);
+    dashboardBar.draw(dataBarInitial);
+    ThemeChart.draw(datatableTheme)
+  }
 
 
-</script>
+  </script>
 
+  
+  
 </html>
-
