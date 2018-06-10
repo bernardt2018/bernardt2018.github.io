@@ -1,0 +1,438 @@
+<style>
+
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+
+.LiveProducts {
+  font-size: 12px;
+}
+
+.filter .google-visualization-controls-categoryfilter-selected li {
+  background-color: #C0C0C0;
+  border: 2px solid white;
+  color: #ffffff;
+  padding: 5px;
+  font-size: 12px;
+  color: rgb(0, 0, 0);
+  position: relative;
+  right: 0px;
+}
+
+.filter .goog-link-button {
+  cursor: pointer;
+  float: left;
+  margin-right: 5px;
+  color: #555555;
+  font-size: 12px;
+}
+
+.filter .goog-combobox input {
+  background-color: #fff;
+  border: 0;
+  border-right: 1px solid #b5b6b5;
+  color: #000;
+  font: normal small arial, sans-serif;
+  margin: 0;
+  padding: 0 0 0 2px;
+  vertical-align: bottom;
+  width: 80px;
+}
+
+.goog-menu-vertical {
+  overflow: scroll;
+  max-height: 250px
+}
+
+.button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0px 0px;
+  cursor: pointer;
+}
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+
+.column {
+  float: left;
+  width: 48%;
+  padding: 5px;
+  height: 400px;
+}
+
+/* Clear floats after image containers */
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+</style>
+
+
+<body>
+
+  <div id="StressTestChart">
+
+    <div id="programmatic_dashboard_divStress" style="border: 1px solid #ccc">
+      <table class="columns" style="height: 10px">
+        <td>
+          <p> Select:
+            <input type="button" value="1M" id="Bubbleb1" class="button" style="margin: 0px 0px;" />
+            <input type="button" value="YTD" id="Bubbleb2" class="button" style="margin: 0px 0px;" />
+            <input type="button" value="2017" id="Bubbleb3" class="button" style="margin: 0px 0px;" />
+          </p>
+        </td>
+
+
+      </table>
+
+      <div class="row">
+        <div class="column">
+          <input type="button" value="Back" id="BackAA" />
+          <div id="programmatic_chart_AA" style="height:100%;"></div>
+        </div>
+        <div class="column">
+          <input type="button" value="Back" id="BackSS" />
+          <div id="programmatic_chart_SS" style="height:100%;"></div>
+        </div>
+      </div>
+
+
+    </div>
+
+</body>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
+<script type="text/javascript">
+
+// Load the Visualization API and the corechart package.
+google.charts.load('current', {
+  'packages': ['corechart', 'controls'],
+
+});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(Init2);
+
+function Init2() {
+
+
+  var Data = [
+    ["category", "dataType", "Porfolio", "Value"],
+    ["AA", "Total", "Equity", 90],
+    ["AA", "Total", "Alts", -110],
+    ["AA", "Total", "Bonds", 120],
+    ["AA", "Total", "Total", -20],
+    ["AA", "Equity", "US Equity", -1800],
+    ["AA", "Equity", "UK Equity", -1300],
+    ["AA", "Equity", "EU Equity", 1600],
+    ["AA", "Bonds", "US Bonds", -1800],
+    ["AA", "Bonds", "UK Bonds", -1300],
+    ["AA", "Bonds", "EU Bonds", 1600],
+    ["AA", "Alts", "HF Type A", -1800],
+    ["AA", "Alts", "HF Type B", -1300],
+    ["AA", "Alts", "HF Type C", 1600],
+    ["SS", "Total", "Equity", -18],
+    ["SS", "Total", "Alts", 13],
+    ["SS", "Total", "Bonds", 16],
+     ["SS", "Total", "Total", 10],
+    ["SS", "Equity", "US Equity", -18],
+    ["SS", "US Equity", "US Fund A", 18],
+    ["SS", "US Equity", "US Fund B", -28],
+    ["SS", "US Equity", "US Fund C", -38],
+    ["SS", "US Equity", "US Fund D", 32],
+    ["SS", "US Equity", "US Fund E", 24],
+    ["SS", "Equity", "UK Equity", -13],
+    ["SS", "Equity", "EU Equity", 16],
+    ["SS", "Bonds", "US Bonds", -18],
+    ["SS", "Bonds", "UK Bonds", -13],
+    ["SS", "Bonds", "EU Bonds", 16],
+    ["SS", "Alts", "HF A", -18],
+    ["SS", "Alts", "HF B", -13],
+    ["SS", "Alts", "HF C", 16]
+  ];
+
+
+
+
+  // Create the data tables.
+  var DataTable = google.visualization.arrayToDataTable(Data);
+
+  var DataViewAA = new google.visualization.DataView(DataTable);
+  var DataViewSS = new google.visualization.DataView(DataTable);
+
+
+  // this does the green if postive red if negative formatting
+  DataViewAA.setColumns([
+    // reference first column by index
+    2,3,    {
+      calc: "stringify",
+      sourceColumn: 3,
+      type: "string",
+      role: "annotation"
+    },
+  ]);
+
+  DataViewSS.setColumns([
+    // reference first column by index
+    2,
+    // variance
+    {
+      calc: function(data, row) {
+        return data.getValue(row, 3);
+      },
+      type: 'number',
+      label: 'Y'
+    },
+    // variance color
+    {
+      calc: function(data, row) {
+        var val = data.getValue(row, 3);
+        if (val >= 0) {
+          return 'green';
+        }
+        return 'red';
+      },
+      type: 'string',
+      role: 'style'
+    },
+    {
+      calc: "stringify",
+      sourceColumn: 3,
+      type: "string",
+      role: "annotation"
+    },
+  ]);
+
+  var Attributionoptions = {
+    'pieSliceText': 'label',
+    'legend': 'none',
+    'fontName': 'Gill Sans',
+    'annotations': {
+      'alwaysOutside': true
+    },
+    chartArea: {
+      //left: 50,
+      //bottom: 120,
+      width: "70%",
+      height: "86%"
+    },
+    vAxis: {
+      format: '####.00',
+      baseline: 0
+    },
+    hAxis: {
+      slantedText: true,
+      slantedTextAngle: 90
+    },
+    animation: {
+      duration: 1000,
+      easing: 'out',
+      startup: false
+    },
+  }
+
+
+  var chartAA = new google.visualization.ChartWrapper({
+    'chartType': 'BarChart',
+    'containerId': 'programmatic_chart_AA',
+    'dataTable': DataViewAA,
+    'options': Attributionoptions,
+  });
+
+  var chartSS = new google.visualization.ChartWrapper({
+    'chartType': 'BarChart',
+    'containerId': 'programmatic_chart_SS',
+    'dataTable': DataViewSS,
+    'options': Attributionoptions,
+  });
+
+  var AARows = DataTable.getFilteredRows([{
+    column: 0,
+    value: 'AA'
+  }, {
+    column: 1,
+    value: 'Total'
+  }])
+
+  var SSRows = DataTable.getFilteredRows([{
+      column: 0,
+      value: 'SS',
+    }, {
+      column: 1,
+      value: 'Total'
+    }
+
+  ])
+
+  
+  
+    var container = document.getElementById('programmatic_chart_AA');
+
+    // move annotations
+    var observer = new MutationObserver(function() {
+     $.each($('div[id="programmatic_chart_AA"] text[text-anchor="start"]'), function(index, label) {
+        
+        
+        alert($(label).text())
+        
+        var labelValue = parseFloat($(label).text());
+        // only negative -- and -- not on tooltip
+        
+        if ((labelValue < 0)) {
+          var bounds = label.getBBox();
+          var chartLayout = chartAA.getChartLayoutInterface();
+         
+          $(label).attr('x', chartLayout.getXLocation(labelValue) - bounds.width - 800);
+        }
+      });
+    });
+    observer.observe(container, {
+      childList: true,
+      subtree: true,
+      })
+  
+  DataViewAA.setRows(AARows)
+  DataViewSS.setRows(SSRows)
+
+  chartAA.setOption('title', 'Asset Allocation')
+  chartAA.draw()
+
+  chartSS.setOption('title', 'Stock selection')
+  chartSS.draw()
+
+  var AALevel = 0; // 0 = total, 1 = asset class top, 2 = asset class bottom, 3 = actual names
+
+  function AASelectHandler() {
+
+    var selectedItem = chartAA.getChart().getSelection()[0];
+    var RowInChart = selectedItem.row
+    alert(AALevel)
+     if (AALevel < 1) {
+    var SelectedAsset = DataTable.getValue(AARows[RowInChart], 2)
+ AALevel ++
+    AARows = DataTable.getFilteredRows([{ //finds the relevant components
+      column: 0,
+      value: "AA"
+    }, {
+      column: 1,
+      value: SelectedAsset
+    }])
+
+    DataViewAA.setRows(AARows)
+
+    chartAA.setOption('title', 'Asset Allocation: ' + SelectedAsset)
+    chartAA.draw()
+    }
+    chartAA.getChart().setSelection() //nulls out selection
+
+  }
+
+  var SSLevelTrack = ["Total"]
+  var SSlevel = 0
+ 
+  function SSSelectHandler() {
+     
+    
+   // alert(SSlevel)
+      var selectedItem = chartSS.getChart().getSelection()[0];
+     
+      var RowInChart = selectedItem.row
+    if (SSlevel < 2) {
+      var SelectedAsset = DataTable.getValue(SSRows[RowInChart], 2)
+
+
+      SSLevelTrack.push(SelectedAsset) //keeps track of our far in drill down we are
+      SSlevel ++
+
+      SSRows = DataTable.getFilteredRows([{ //finds the relevant components
+        column: 0,
+        value: "SS"
+      }, {
+        column: 1,
+        value: SelectedAsset
+      }])
+
+      DataViewSS.setRows(SSRows)
+
+      chartSS.setOption('title', 'Stock Selection: ' + SelectedAsset)
+      chartSS.draw()
+      
+    }
+    
+    chartSS.getChart().setSelection() //nulls out selection
+    
+  }
+
+
+  // bar chart selection listener
+  google.visualization.events.addListener(chartAA, 'select', AASelectHandler);
+  google.visualization.events.addListener(chartSS, 'select', SSSelectHandler);
+
+  var BackAAbutton = document.getElementById("BackAA");
+  var BackSSbutton = document.getElementById("BackSS");
+  //AA button click (only one level for AA)
+  BackAAbutton.onclick = function() {
+    var SelectedAsset = "Total"
+    AARows = DataTable.getFilteredRows([{ //finds the relevant components
+      column: 0,
+      value: "AA"
+    }, {
+      column: 1,
+      value: SelectedAsset
+    }])
+
+    DataViewAA.setRows(AARows)
+    chartAA.setOption('title', 'Asset Allocation: ' + SelectedAsset)
+    chartAA.draw()
+    chartAA.getChart().setSelection() //nulls out selection
+  }
+
+  BackSSbutton.onclick = function() {
+
+    SSlevel --
+
+    if (SSlevel < 0) {
+      SSlevel = 0
+    }
+    SSRows = DataTable.getFilteredRows([{ //finds the relevant components
+      column: 0,
+      value: "SS"
+    }, {
+      column: 1,
+      value: SSLevelTrack[SSlevel]
+    }])
+
+    DataViewSS.setRows(SSRows)
+    chartSS.setOption('title', 'Stock Selection: ' + SSLevelTrack[SSlevel])
+    chartSS.draw()
+    chartSS.getChart().setSelection() //nulls out selection
+  }
+
+
+
+
+}
+
+
+</script>
