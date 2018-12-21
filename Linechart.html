@@ -66,6 +66,8 @@
 				//Create line
 				svg.append("path")
 					.datum(dataset)
+				        .transition()
+					.duration(1000)
 					.attr("class", "line")
 					.attr("d", line);
 
