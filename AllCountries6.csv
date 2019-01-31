@@ -1,370 +1,382 @@
-Country,Horizon,Return,Asset Class
-Bahrain,MTD,-2.22,Bond
-Bahrain,YTD,-4.7,Bond
-Bahrain,OneYear,-11.2,Bond
-Israel,MTD,-1.89,Bond
-Israel,YTD,-4.07,Bond
-Israel,OneYear,-8.8,Bond
-Kuwait,MTD,-1.58,Bond
-Kuwait,YTD,-5.04,Bond
-Kuwait,OneYear,-12.06,Bond
-Morocco,MTD,-1.36,Bond
-Morocco,YTD,-3.78,Bond
-Morocco,OneYear,-4.24,Bond
-Oman,MTD,-3.06,Bond
-Oman,YTD,-5.9,Bond
-Oman,OneYear,-13.91,Bond
-Qatar,MTD,-1.5,Bond
-Qatar,YTD,-4.69,Bond
-Qatar,OneYear,-13.06,Bond
-Saudi Arabia,MTD,-1.88,Bond
-Saudi Arabia,YTD,-6.31,Bond
-Saudi Arabia,OneYear,-12.63,Bond
-South Africa,MTD,-1.13,Bond
-South Africa,YTD,0.28,Bond
-South Africa,OneYear,-4.53,Bond
-United Arab Emirates,MTD,-1.61,Bond
-United Arab Emirates,YTD,-4.45,Bond
-United Arab Emirates,OneYear,-10.31,Bond
-Australia,MTD,-2.03,Bond
-Australia,YTD,-4.13,Bond
-Australia,OneYear,-8.3,Bond
-China,MTD,-1.63,Bond
-China,YTD,-4.5,Bond
-China,OneYear,-10.83,Bond
-Hong Kong,MTD,-1.38,Bond
-Hong Kong,YTD,-3.97,Bond
-Hong Kong,OneYear,-10.63,Bond
-Indonesia,MTD,-1.56,Bond
-Indonesia,YTD,-5.92,Bond
-Indonesia,OneYear,-8.39,Bond
-Japan,MTD,-1.26,Bond
-Japan,YTD,2.43,Bond
-Japan,OneYear,-10.56,Bond
-Macau,MTD,-1.56,Bond
-Macau,YTD,-3.27,Bond
-Macau,OneYear,-10.97,Bond
-Malaysia,MTD,-0.08,Bond
-Malaysia,YTD,1.06,Bond
-Malaysia,OneYear,1.33,Bond
-New Zealand,MTD,-1.14,Bond
-New Zealand,YTD,-1.95,Bond
-New Zealand,OneYear,-4.81,Bond
-Philippines,MTD,-0.49,Bond
-Philippines,YTD,-5.73,Bond
-Philippines,OneYear,-12.59,Bond
-Singapore,MTD,-0.58,Bond
-Singapore,YTD,-3.17,Bond
-Singapore,OneYear,-7.78,Bond
-South Korea,MTD,0.34,Bond
-South Korea,YTD,-3.55,Bond
-South Korea,OneYear,-8.9,Bond
-Taiwan,MTD,-1.42,Bond
-Taiwan,YTD,-5.36,Bond
-Taiwan,OneYear,-11.96,Bond
-Thailand,MTD,-1.41,Bond
-Thailand,YTD,0.17,Bond
-Thailand,OneYear,0.17,Bond
-India,MTD,-2.03,Bond
-India,YTD,-5.18,Bond
-India,OneYear,-11.01,Bond
-Kazakhstan,MTD,-2.06,Bond
-Kazakhstan,YTD,-6.14,Bond
-Kazakhstan,OneYear,-7.93,Bond
-Bulgaria,MTD,-0.65,Bond
-Bulgaria,YTD,-2.58,Bond
-Bulgaria,OneYear,6.65,Bond
-Czech Republic,MTD,-0.65,Bond
-Czech Republic,YTD,-1.53,Bond
-Czech Republic,OneYear,3.8,Bond
-Estonia,MTD,-0.75,Bond
-Estonia,YTD,-0.65,Bond
-Estonia,OneYear,4.59,Bond
-Hungary,MTD,-0.1,Bond
-Hungary,YTD,-3.07,Bond
-Hungary,OneYear,2.15,Bond
-Latvia,MTD,-0.6,Bond
-Latvia,YTD,-2.61,Bond
-Latvia,OneYear,1.2,Bond
-Lithuania,MTD,-0.93,Bond
-Lithuania,YTD,-3.39,Bond
-Lithuania,OneYear,-3.9,Bond
-Poland,MTD,-0.81,Bond
-Poland,YTD,-1.18,Bond
-Poland,OneYear,5.27,Bond
-Romania,MTD,-0.96,Bond
-Romania,YTD,-2.65,Bond
-Romania,OneYear,0.91,Bond
-Russia,MTD,-2.85,Bond
-Russia,YTD,-0.72,Bond
-Russia,OneYear,-10.15,Bond
-Slovakia,MTD,-0.01,Bond
-Slovakia,YTD,-1.35,Bond
-Slovakia,OneYear,2.2,Bond
-Slovenia,MTD,1.86,Bond
-Slovenia,YTD,-1.35,Bond
-Slovenia,OneYear,3.07,Bond
-Turkey,MTD,-2.64,Bond
-Turkey,YTD,-4.42,Bond
-Turkey,OneYear,-8.22,Bond
-Bermuda,MTD,-1.28,Bond
-Bermuda,YTD,-4.14,Bond
-Bermuda,OneYear,-7.52,Bond
-Canada,MTD,-1.52,Bond
-Canada,YTD,-5.7,Bond
-Canada,OneYear,-8.49,Bond
-Cayman Islands,MTD,-1.38,Bond
-Cayman Islands,YTD,-3.25,Bond
-Cayman Islands,OneYear,-6.76,Bond
-Mexico,MTD,0.7,Bond
-Mexico,YTD,-0.16,Bond
-Mexico,OneYear,-5.31,Bond
-Trinidad & Tobago,MTD,-1.53,Bond
-Trinidad & Tobago,YTD,-3.94,Bond
-Trinidad & Tobago,OneYear,-7.93,Bond
-United States,MTD,-1.11,Bond
-United States,YTD,-4.87,Bond
-United States,OneYear,-12.3,Bond
-Brazil,MTD,-2.48,Bond
-Brazil,YTD,-4.9,Bond
-Brazil,OneYear,-3.29,Bond
-Chile,MTD,-1.43,Bond
-Chile,YTD,-4.89,Bond
-Chile,OneYear,-8.5,Bond
-Colombia,MTD,-1.03,Bond
-Colombia,YTD,-5.21,Bond
-Colombia,OneYear,-8.3,Bond
-Panama,MTD,-1.83,Bond
-Panama,YTD,-5.99,Bond
-Panama,OneYear,-9.88,Bond
-Peru,MTD,-1.72,Bond
-Peru,YTD,-6.07,Bond
-Peru,OneYear,-7.25,Bond
-Uruguay,MTD,-2.06,Bond
-Uruguay,YTD,-7.55,Bond
-Uruguay,OneYear,-7.27,Bond
-Austria,MTD,-0.12,Bond
-Austria,YTD,-1.25,Bond
-Austria,OneYear,0.41,Bond
-Belgium,MTD,0.05,Bond
-Belgium,YTD,-1.66,Bond
-Belgium,OneYear,0.26,Bond
-Denmark,MTD,-0.14,Bond
-Denmark,YTD,-1.55,Bond
-Denmark,OneYear,0.75,Bond
-Finland,MTD,-0.24,Bond
-Finland,YTD,-1.4,Bond
-Finland,OneYear,-0.48,Bond
-France,MTD,-0.1,Bond
-France,YTD,-1.08,Bond
-France,OneYear,2.94,Bond
-Germany,MTD,-0.34,Bond
-Germany,YTD,-1.58,Bond
-Germany,OneYear,-1.03,Bond
-Guernsey,MTD,-0.26,Bond
-Guernsey,YTD,-2.27,Bond
-Guernsey,OneYear,-6.51,Bond
-Iceland,MTD,-1.01,Bond
-Iceland,YTD,-0.94,Bond
-Iceland,OneYear,3.01,Bond
-Ireland,MTD,-0.13,Bond
-Ireland,YTD,-1,Bond
-Ireland,OneYear,2.77,Bond
-Italy,MTD,0.61,Bond
-Italy,YTD,0.84,Bond
-Italy,OneYear,6.4,Bond
-Jersey,MTD,4.33,Bond
-Jersey,YTD,1.63,Bond
-Jersey,OneYear,4.34,Bond
-Liechtenstein,MTD,-3.04,Bond
-Liechtenstein,YTD,-2.53,Bond
-Liechtenstein,OneYear,-9.21,Bond
-Luxembourg,MTD,-0.73,Bond
-Luxembourg,YTD,-1.94,Bond
-Luxembourg,OneYear,0.04,Bond
-Malta,MTD,0.03,Bond
-Malta,YTD,-0.14,Bond
-Malta,OneYear,3.72,Bond
-Netherlands,MTD,-0.39,Bond
-Netherlands,YTD,-1.89,Bond
-Netherlands,OneYear,-1.42,Bond
-Norway,MTD,-0.97,Bond
-Norway,YTD,-1.65,Bond
-Norway,OneYear,-2.96,Bond
-Portugal,MTD,1.15,Bond
-Portugal,YTD,0.94,Bond
-Portugal,OneYear,5.25,Bond
-Spain,MTD,1.13,Bond
-Spain,YTD,1.45,Bond
-Spain,OneYear,5.62,Bond
-Sweden,MTD,-1.75,Bond
-Sweden,YTD,-3.71,Bond
-Sweden,OneYear,-4.54,Bond
-Switzerland,MTD,-1.98,Bond
-Switzerland,YTD,-3.22,Bond
-Switzerland,OneYear,-7.96,Bond
-United Kingdom,MTD,1.12,Bond
-United Kingdom,YTD,-0.96,Bond
-United Kingdom,OneYear,-2.25,Bond
-Egypt,MTD,-4.61,Equity
-Egypt,YTD,7.64,Equity
-Egypt,OneYear,-5.42,Equity
-Israel,MTD,0.46,Equity
-Israel,YTD,-3.73,Equity
-Israel,OneYear,-16.34,Equity
-Qatar,MTD,1.59,Equity
-Qatar,YTD,-4.47,Equity
-Qatar,OneYear,-26.28,Equity
-South Africa,MTD,-2.13,Equity
-South Africa,YTD,-9.37,Equity
-South Africa,OneYear,9.04,Equity
-United Arab Emirates,MTD,-0.39,Equity
-United Arab Emirates,YTD,-8.3,Equity
-United Arab Emirates,OneYear,-13.22,Equity
-Zambia,MTD,-7.24,Equity
-Zambia,YTD,-10.54,Equity
-Zambia,OneYear,10.12,Equity
-Australia,MTD,0.77,Equity
-Australia,YTD,-8.09,Equity
-Australia,OneYear,-7.85,Equity
-China,MTD,-3.08,Equity
-China,YTD,-5.79,Equity
-China,OneYear,21.27,Equity
-Hong Kong,MTD,-1.41,Equity
-Hong Kong,YTD,-4.87,Equity
-Hong Kong,OneYear,9.86,Equity
-Indonesia,MTD,0.01,Equity
-Indonesia,YTD,-9.31,Equity
-Indonesia,OneYear,0.55,Equity
-Japan,MTD,-1.58,Equity
-Japan,YTD,-4.39,Equity
-Japan,OneYear,5.56,Equity
-Macau,MTD,1.32,Equity
-Macau,YTD,4.08,Equity
-Macau,OneYear,6.59,Equity
-Malaysia,MTD,-2.09,Equity
-Malaysia,YTD,2.89,Equity
-Malaysia,OneYear,4.75,Equity
-New Zealand,MTD,4.07,Equity
-New Zealand,YTD,-1.58,Equity
-New Zealand,OneYear,-7.55,Equity
-Philippines,MTD,-4.25,Equity
-Philippines,YTD,-14.29,Equity
-Philippines,OneYear,-6.05,Equity
-Singapore,MTD,-0.08,Equity
-Singapore,YTD,-1.28,Equity
-Singapore,OneYear,7.45,Equity
-South Korea,MTD,-3.14,Equity
-South Korea,YTD,-7.1,Equity
-South Korea,OneYear,11.11,Equity
-Taiwan,MTD,-3.11,Equity
-Taiwan,YTD,-0.32,Equity
-Taiwan,OneYear,10.87,Equity
-Thailand,MTD,-6.08,Equity
-Thailand,YTD,-8.07,Equity
-Thailand,OneYear,14.28,Equity
-India,MTD,-0.91,Equity
-India,YTD,-9.15,Equity
-India,OneYear,-0.87,Equity
-Pakistan,MTD,-4.55,Equity
-Pakistan,YTD,3.53,Equity
-Pakistan,OneYear,-35.78,Equity
-Czech Republic,MTD,2.62,Equity
-Czech Republic,YTD,5.38,Equity
-Czech Republic,OneYear,26.85,Equity
-Hungary,MTD,-2.12,Equity
-Hungary,YTD,2.38,Equity
-Hungary,OneYear,46.44,Equity
-Poland,MTD,2.44,Equity
-Poland,YTD,-9.18,Equity
-Poland,OneYear,13.42,Equity
-Russia,MTD,-13.8,Equity
-Russia,YTD,-7.09,Equity
-Russia,OneYear,-0.62,Equity
-Turkey,MTD,-9.09,Equity
-Turkey,YTD,-12.11,Equity
-Turkey,OneYear,2.3,Equity
-Bermuda,MTD,-0.56,Equity
-Bermuda,YTD,23.62,Equity
-Bermuda,OneYear,27.7,Equity
-Canada,MTD,-0.04,Equity
-Canada,YTD,-10.54,Equity
-Canada,OneYear,-5.9,Equity
-Mexico,MTD,3.86,Equity
-Mexico,YTD,1.03,Equity
-Mexico,OneYear,-9.1,Equity
-United States,MTD,-0.65,Equity
-United States,YTD,-4.65,Equity
-United States,OneYear,2.53,Equity
-Argentina,MTD,-11.37,Equity
-Argentina,YTD,-3.13,Equity
-Argentina,OneYear,3.83,Equity
-Brazil,MTD,-8.77,Equity
-Brazil,YTD,-1.78,Equity
-Brazil,OneYear,2.37,Equity
-Chile,MTD,0.07,Equity
-Chile,YTD,0.57,Equity
-Chile,OneYear,10.57,Equity
-Colombia,MTD,5.45,Equity
-Colombia,YTD,8.51,Equity
-Colombia,OneYear,14.52,Equity
-Peru,MTD,1.27,Equity
-Peru,YTD,6.5,Equity
-Peru,OneYear,37.96,Equity
-Austria,MTD,0.29,Equity
-Austria,YTD,-4.44,Equity
-Austria,OneYear,32.58,Equity
-Belgium,MTD,-3.46,Equity
-Belgium,YTD,-5.83,Equity
-Belgium,OneYear,-0.24,Equity
-Denmark,MTD,-2.1,Equity
-Denmark,YTD,-8.02,Equity
-Denmark,OneYear,11.69,Equity
-Eurozone,MTD,0,Equity
-Eurozone,YTD,0,Equity
-Eurozone,OneYear,-0.67,Equity
-Finland,MTD,-0.05,Equity
-Finland,YTD,6.13,Equity
-Finland,OneYear,13.95,Equity
-France,MTD,1.26,Equity
-France,YTD,-1.95,Equity
-France,OneYear,11.84,Equity
-Germany,MTD,0.67,Equity
-Germany,YTD,-6.38,Equity
-Germany,OneYear,5,Equity
-Greece,MTD,11.31,Equity
-Greece,YTD,0.22,Equity
-Greece,OneYear,10.77,Equity
-Ireland,MTD,0.62,Equity
-Ireland,YTD,-8.33,Equity
-Ireland,OneYear,-1.87,Equity
-Italy,MTD,2.09,Equity
-Italy,YTD,2.45,Equity
-Italy,OneYear,18.47,Equity
-Jersey,MTD,-4.05,Equity
-Jersey,YTD,-21.96,Equity
-Jersey,OneYear,-23.3,Equity
-Luxembourg,MTD,2.46,Equity
-Luxembourg,YTD,-4.4,Equity
-Luxembourg,OneYear,-4.75,Equity
-Netherlands,MTD,2.68,Equity
-Netherlands,YTD,-1.86,Equity
-Netherlands,OneYear,13.44,Equity
-Norway,MTD,-0.78,Equity
-Norway,YTD,0.03,Equity
-Norway,OneYear,20.33,Equity
-Portugal,MTD,-1.93,Equity
-Portugal,YTD,-4.07,Equity
-Portugal,OneYear,-0.97,Equity
-Spain,MTD,0.51,Equity
-Spain,YTD,-5.24,Equity
-Spain,OneYear,-1.48,Equity
-Sweden,MTD,-2.85,Equity
-Sweden,YTD,-7.53,Equity
-Sweden,OneYear,-3.38,Equity
-Switzerland,MTD,-1.63,Equity
-Switzerland,YTD,-8.18,Equity
-Switzerland,OneYear,-1.4,Equity
-United Kingdom,MTD,2.02,Equity
-United Kingdom,YTD,-5.4,Equity
-United Kingdom,OneYear,0.37,Equity
+Country,Horizon,Return (%),Asset Class,"{role: 'tooltip', p: {html: 'true'}}"
+Australia,1M,1.31564777,Bond,<b>hi<b/>
+Australia,YTD,2.001510793,Bond,<b>hi<b/>
+Australia,12M,2.001510793,Bond,<b>hi<b/>
+Austria,1M,0.744384805,Bond,null
+Austria,YTD,2.449347229,Bond,null
+Austria,12M,2.449347229,Bond,null
+Bahrain,1M,0.220481795,Bond,null
+Bahrain,YTD,-1.663817102,Bond,null
+Bahrain,12M,-1.663817102,Bond,null
+Belgium,1M,0.188608344,Bond,null
+Belgium,YTD,0.767517165,Bond,null
+Belgium,12M,0.767517165,Bond,null
+Bermuda,1M,0.024306967,Bond,null
+Bermuda,YTD,-3.149770385,Bond,null
+Bermuda,12M,-3.149770385,Bond,null
+Brazil,1M,1.140161618,Bond,null
+Brazil,YTD,-2.127877118,Bond,null
+Brazil,12M,-2.127877118,Bond,null
+Canada,1M,1.269885497,Bond,null
+Canada,YTD,-0.055445006,Bond,null
+Canada,12M,-0.055445006,Bond,null
+Cayman Islands,1M,0.006331462,Bond,null
+Cayman Islands,YTD,-0.934777803,Bond,null
+Cayman Islands,12M,-0.934777803,Bond,null
+Chile,1M,1.46398515,Bond,null
+Chile,YTD,-3.153544422,Bond,null
+Chile,12M,-3.153544422,Bond,null
+China,1M,1.198401672,Bond,null
+China,YTD,-0.936595517,Bond,null
+China,12M,-0.936595517,Bond,null
+Colombia,1M,1.579886711,Bond,null
+Colombia,YTD,-3.800048681,Bond,null
+Colombia,12M,-3.800048681,Bond,null
+Croatia,1M,0,Bond,null
+Croatia,YTD,0,Bond,null
+Croatia,12M,0,Bond,null
+Cyprus,1M,1.280098786,Bond,null
+Cyprus,YTD,1.352338476,Bond,null
+Cyprus,12M,1.352338476,Bond,null
+Czech Republic,1M,0.666723373,Bond,null
+Czech Republic,YTD,-0.36500103,Bond,null
+Czech Republic,12M,-0.36500103,Bond,null
+Denmark,1M,0.568321727,Bond,null
+Denmark,YTD,2.459099595,Bond,null
+Denmark,12M,2.459099595,Bond,null
+El Salvador,1M,0,Bond,null
+El Salvador,YTD,0,Bond,null
+El Salvador,12M,0,Bond,null
+Estonia,1M,0.044580836,Bond,null
+Estonia,YTD,0.285750053,Bond,null
+Estonia,12M,0.285750053,Bond,null
+Finland,1M,0.500453079,Bond,null
+Finland,YTD,1.937001364,Bond,null
+Finland,12M,1.937001364,Bond,null
+France,1M,0.190971969,Bond,null
+France,YTD,1.423996291,Bond,null
+France,12M,1.423996291,Bond,null
+Germany,1M,0.60805302,Bond,null
+Germany,YTD,1.918049196,Bond,null
+Germany,12M,1.918049196,Bond,null
+Greece,1M,-0.062894426,Bond,null
+Greece,YTD,-0.168905089,Bond,null
+Greece,12M,-0.168905089,Bond,null
+Hong Kong,1M,1.119443513,Bond,null
+Hong Kong,YTD,-0.211371169,Bond,null
+Hong Kong,12M,-0.211371169,Bond,null
+Hungary,1M,1.385619376,Bond,null
+Hungary,YTD,-0.255423801,Bond,null
+Hungary,12M,-0.255423801,Bond,null
+Ireland,1M,0.298951672,Bond,null
+Ireland,YTD,1.085178587,Bond,null
+Ireland,12M,1.085178587,Bond,null
+Israel,1M,0.574311461,Bond,null
+Israel,YTD,-0.465040546,Bond,null
+Israel,12M,-0.465040546,Bond,null
+Italy,1M,2.921292699,Bond,null
+Italy,YTD,-0.502642383,Bond,null
+Italy,12M,-0.502642383,Bond,null
+Japan,1M,0.88586345,Bond,null
+Japan,YTD,1.821409995,Bond,null
+Japan,12M,1.821409995,Bond,null
+Jersey,1M,1.706749496,Bond,null
+Jersey,YTD,0.064827914,Bond,null
+Jersey,12M,0.064827914,Bond,null
+Kazakhstan,1M,2.575219127,Bond,null
+Kazakhstan,YTD,-3.199224236,Bond,null
+Kazakhstan,12M,-3.199224236,Bond,null
+Lithuania,1M,0.327545572,Bond,null
+Lithuania,YTD,-0.027889903,Bond,null
+Lithuania,12M,-0.027889903,Bond,null
+Luxemburg,1M,0.185812352,Bond,null
+Luxemburg,YTD,0.887403309,Bond,null
+Luxemburg,12M,0.887403309,Bond,null
+Malaysia,1M,0.674129583,Bond,null
+Malaysia,YTD,0.815790602,Bond,null
+Malaysia,12M,0.815790602,Bond,null
+Mexico,1M,1.988899071,Bond,null
+Mexico,YTD,-5.543818964,Bond,null
+Mexico,12M,-5.543818964,Bond,null
+Netherlands,1M,0.755964711,Bond,null
+Netherlands,YTD,1.598577975,Bond,null
+Netherlands,12M,1.598577975,Bond,null
+New Zealand,1M,0.869462721,Bond,null
+New Zealand,YTD,2.332831891,Bond,null
+New Zealand,12M,2.332831891,Bond,null
+Norway,1M,0.566355238,Bond,null
+Norway,YTD,0.734505769,Bond,null
+Norway,12M,0.734505769,Bond,null
+Philippines,1M,1.824825129,Bond,null
+Philippines,YTD,-2.47410688,Bond,null
+Philippines,12M,-2.47410688,Bond,null
+Poland,1M,1.016838669,Bond,null
+Poland,YTD,2.780029928,Bond,null
+Poland,12M,2.780029928,Bond,null
+Portugal,1M,0.896733277,Bond,null
+Portugal,YTD,3.594329793,Bond,null
+Portugal,12M,3.594329793,Bond,null
+Qatar,1M,1.667975635,Bond,null
+Qatar,YTD,1.475296824,Bond,null
+Qatar,12M,1.475296824,Bond,null
+Romania,1M,0.606504503,Bond,null
+Romania,YTD,-1.861947383,Bond,null
+Romania,12M,-1.861947383,Bond,null
+Russia,1M,0.118405499,Bond,null
+Russia,YTD,-3.566887209,Bond,null
+Russia,12M,-3.566887209,Bond,null
+Singapore,1M,1.772687406,Bond,null
+Singapore,YTD,0.991339833,Bond,null
+Singapore,12M,0.991339833,Bond,null
+Slovakia,1M,0.519798488,Bond,null
+Slovakia,YTD,2.409841251,Bond,null
+Slovakia,12M,2.409841251,Bond,null
+Slovenia,1M,0.880331733,Bond,null
+Slovenia,YTD,1.504830648,Bond,null
+Slovenia,12M,1.504830648,Bond,null
+South Africa,1M,0.586808146,Bond,null
+South Africa,YTD,-0.974064072,Bond,null
+South Africa,12M,-0.974064072,Bond,null
+South Korea,1M,1.060821751,Bond,null
+South Korea,YTD,4.655653672,Bond,null
+South Korea,12M,4.655653672,Bond,null
+Spain,1M,0.761069839,Bond,null
+Spain,YTD,2.949049052,Bond,null
+Spain,12M,2.949049052,Bond,null
+Sweden,1M,0.287779504,Bond,null
+Sweden,YTD,1.427381274,Bond,null
+Sweden,12M,1.427381274,Bond,null
+Switzerland,1M,1.066209089,Bond,null
+Switzerland,YTD,0.424571908,Bond,null
+Switzerland,12M,0.424571908,Bond,null
+Taiwan,1M,1.604523799,Bond,null
+Taiwan,YTD,-0.97216641,Bond,null
+Taiwan,12M,-0.97216641,Bond,null
+Thailand,1M,1.22453735,Bond,null
+Thailand,YTD,0.566985026,Bond,null
+Thailand,12M,0.566985026,Bond,null
+Tunisia,1M,0,Bond,null
+Tunisia,YTD,0,Bond,null
+Tunisia,12M,0,Bond,null
+United Kingdom,1M,1.471499583,Bond,null
+United Kingdom,YTD,-0.465556327,Bond,null
+United Kingdom,12M,-0.465556327,Bond,null
+United States,1M,1.692841773,Bond,null
+United States,YTD,-1.520185069,Bond,null
+United States,12M,-1.520185069,Bond,null
+Uruguay,1M,2.826633556,Bond,null
+Uruguay,YTD,-6.145061454,Bond,null
+Uruguay,12M,-6.145061454,Bond,null
+Venezuela,1M,0,Bond,null
+Venezuela,YTD,0,Bond,null
+Venezuela,12M,0,Bond,null
+Argentina,1M,-4.642909185,Equity,null
+Argentina,YTD,-47.67669782,Equity,null
+Argentina,12M,-47.67669782,Equity,null
+Australia,1M,-4.65557784,Equity,null
+Australia,YTD,-6.347196035,Equity,<b>hi<b/>
+Australia,12M,-6.347196035,Equity,<b>hi<b/>
+Austria,1M,-12.15646202,Equity,<b>hi<b/>
+Austria,YTD,-22.51825306,Equity,<b>hi<b/>
+Austria,12M,-22.51825306,Equity,<b>hi<b/>
+Bahrain,1M,-4.064616988,Equity,<b>hi<b/>
+Bahrain,YTD,7.084004824,Equity,<b>hi<b/>
+Bahrain,12M,7.084004824,Equity,<b>hi<b/>
+Bangladesh,1M,-1.439325066,Equity,<b>hi<b/>
+Bangladesh,YTD,-9.110054393,Equity,<b>hi<b/>
+Bangladesh,12M,-9.110054393,Equity,<b>hi<b/>
+Belgium,1M,-9.347179621,Equity,<b>hi<b/>
+Belgium,YTD,-21.53571228,Equity,<b>hi<b/>
+Belgium,12M,-21.53571228,Equity,<b>hi<b/>
+Brazil,1M,-2.315267427,Equity,<b>hi<b/>
+Brazil,YTD,6.055628009,Equity,<b>hi<b/>
+Brazil,12M,6.055628009,Equity,<b>hi<b/>
+Bulgaria,1M,-0.645867156,Equity,<b>hi<b/>
+Bulgaria,YTD,-15.26653222,Equity,<b>hi<b/>
+Bulgaria,12M,-15.26653222,Equity,<b>hi<b/>
+Canada,1M,-8.00754921,Equity,<b>hi<b/>
+Canada,YTD,-11.37328419,Equity,<b>hi<b/>
+Canada,12M,-11.37328419,Equity,<b>hi<b/>
+Chile,1M,-4.662949823,Equity,<b>hi<b/>
+Chile,YTD,-13.87362637,Equity,<b>hi<b/>
+Chile,12M,-13.87362637,Equity,<b>hi<b/>
+China,1M,-4.812124005,Equity,<b>hi<b/>
+China,YTD,-13.69984275,Equity,<b>hi<b/>
+China,12M,-13.69984275,Equity,<b>hi<b/>
+Colombia,1M,-4.463690873,Equity,<b>hi<b/>
+Colombia,YTD,-5.905511811,Equity,<b>hi<b/>
+Colombia,12M,-5.905511811,Equity,<b>hi<b/>
+Croatia,1M,-0.035703711,Equity,<b>hi<b/>
+Croatia,YTD,-3.536104739,Equity,<b>hi<b/>
+Croatia,12M,-3.536104739,Equity,<b>hi<b/>
+Czech Republic,1M,-3.227694623,Equity,<b>hi<b/>
+Czech Republic,YTD,3.844945937,Equity,<b>hi<b/>
+Czech Republic,12M,3.844945937,Equity,<b>hi<b/>
+Denmark,1M,-3.168235778,Equity,<b>hi<b/>
+Denmark,YTD,-9.591226181,Equity,<b>hi<b/>
+Denmark,12M,-9.591226181,Equity,<b>hi<b/>
+Egypt,1M,-0.723725614,Equity,<b>hi<b/>
+Egypt,YTD,-8.373877629,Equity,<b>hi<b/>
+Egypt,12M,-8.373877629,Equity,<b>hi<b/>
+Estonia,1M,-3.425804064,Equity,<b>hi<b/>
+Estonia,YTD,-8.733112055,Equity,<b>hi<b/>
+Estonia,12M,-8.733112055,Equity,<b>hi<b/>
+Finland,1M,-1.334561585,Equity,<b>hi<b/>
+Finland,YTD,3.868656825,Equity,<b>hi<b/>
+Finland,12M,3.868656825,Equity,<b>hi<b/>
+France,1M,-4.824470976,Equity,<b>hi<b/>
+France,YTD,-6.420978658,Equity,<b>hi<b/>
+France,12M,-6.420978658,Equity,<b>hi<b/>
+Germany,1M,-6.510993645,Equity,<b>hi<b/>
+Germany,YTD,-16.76992335,Equity,<b>hi<b/>
+Germany,12M,-16.76992335,Equity,<b>hi<b/>
+Greece,1M,-2.879706368,Equity,<b>hi<b/>
+Greece,YTD,-32.72680555,Equity,<b>hi<b/>
+Greece,12M,-32.72680555,Equity,<b>hi<b/>
+Hong Kong,1M,-0.024911284,Equity,<b>hi<b/>
+Hong Kong,YTD,-2.109917975,Equity,<b>hi<b/>
+Hong Kong,12M,-2.109917975,Equity,<b>hi<b/>
+Hungary,1M,0.122895416,Equity,<b>hi<b/>
+Hungary,YTD,-0.281517748,Equity,<b>hi<b/>
+Hungary,12M,-0.281517748,Equity,<b>hi<b/>
+India,1M,0.816326531,Equity,<b>hi<b/>
+India,YTD,-1.548016314,Equity,<b>hi<b/>
+India,12M,-1.548016314,Equity,<b>hi<b/>
+Indonesia,1M,0.334821429,Equity,<b>hi<b/>
+Indonesia,YTD,-3.020496224,Equity,<b>hi<b/>
+Indonesia,12M,-3.020496224,Equity,<b>hi<b/>
+Ireland,1M,-5.969422647,Equity,<b>hi<b/>
+Ireland,YTD,-20.3665438,Equity,<b>hi<b/>
+Ireland,12M,-20.3665438,Equity,<b>hi<b/>
+Israel,1M,-13.19291595,Equity,<b>hi<b/>
+Israel,YTD,-2.568765369,Equity,<b>hi<b/>
+Israel,12M,-2.568765369,Equity,<b>hi<b/>
+Italy,1M,-3.448069173,Equity,<b>hi<b/>
+Italy,YTD,-11.81255272,Equity,<b>hi<b/>
+Italy,12M,-11.81255272,Equity,<b>hi<b/>
+Japan,1M,-6.206026815,Equity,<b>hi<b/>
+Japan,YTD,-7.142857143,Equity,<b>hi<b/>
+Japan,12M,-7.142857143,Equity,<b>hi<b/>
+Jordan,1M,4.882623745,Equity,<b>hi<b/>
+Jordan,YTD,1.491197623,Equity,<b>hi<b/>
+Jordan,12M,1.491197623,Equity,<b>hi<b/>
+Kazakhstan,1M,1.517684003,Equity,<b>hi<b/>
+Kazakhstan,YTD,5.825805339,Equity,<b>hi<b/>
+Kazakhstan,12M,5.825805339,Equity,<b>hi<b/>
+Kenya,1M,-6.109585863,Equity,<b>hi<b/>
+Kenya,YTD,-6.672560249,Equity,<b>hi<b/>
+Kenya,12M,-6.672560249,Equity,<b>hi<b/>
+Korea,1M,-2.486187845,Equity,<b>hi<b/>
+Korea,YTD,-15.4491018,Equity,<b>hi<b/>
+Korea,12M,-15.4491018,Equity,<b>hi<b/>
+Kuwait,1M,0.036380723,Equity,<b>hi<b/>
+Kuwait,YTD,22.59573255,Equity,<b>hi<b/>
+Kuwait,12M,22.59573255,Equity,<b>hi<b/>
+Lebanon,1M,2.606635071,Equity,<b>hi<b/>
+Lebanon,YTD,-6.277056277,Equity,<b>hi<b/>
+Lebanon,12M,-6.277056277,Equity,<b>hi<b/>
+Lithuania,1M,-4.525639028,Equity,<b>hi<b/>
+Lithuania,YTD,-5.212538464,Equity,<b>hi<b/>
+Lithuania,12M,-5.212538464,Equity,<b>hi<b/>
+Malaysia,1M,1.21434623,Equity,<b>hi<b/>
+Malaysia,YTD,-0.194114323,Equity,<b>hi<b/>
+Malaysia,12M,-0.194114323,Equity,<b>hi<b/>
+Mauritius,1M,-1.248074949,Equity,<b>hi<b/>
+Mauritius,YTD,-13.85188088,Equity,<b>hi<b/>
+Mauritius,12M,-13.85188088,Equity,<b>hi<b/>
+Mexico,1M,2.142724089,Equity,<b>hi<b/>
+Mexico,YTD,-10.02782283,Equity,<b>hi<b/>
+Mexico,12M,-10.02782283,Equity,<b>hi<b/>
+Morocco,1M,1.190295551,Equity,<b>hi<b/>
+Morocco,YTD,-1.195160095,Equity,<b>hi<b/>
+Morocco,12M,-1.195160095,Equity,<b>hi<b/>
+Netherlands,1M,-6.297494522,Equity,<b>hi<b/>
+Netherlands,YTD,-7.732134844,Equity,<b>hi<b/>
+Netherlands,12M,-7.732134844,Equity,<b>hi<b/>
+New Zealand,1M,-1.492132318,Equity,<b>hi<b/>
+New Zealand,YTD,2.508791895,Equity,<b>hi<b/>
+New Zealand,12M,2.508791895,Equity,<b>hi<b/>
+Nigeria,1M,1.605206074,Equity,<b>hi<b/>
+Nigeria,YTD,-8.55134713,Equity,<b>hi<b/>
+Nigeria,12M,-8.55134713,Equity,<b>hi<b/>
+Norway,1M,-6.670982082,Equity,<b>hi<b/>
+Norway,YTD,-1.873123658,Equity,<b>hi<b/>
+Norway,12M,-1.873123658,Equity,<b>hi<b/>
+Oman,1M,-2.622322814,Equity,<b>hi<b/>
+Oman,YTD,5.039355271,Equity,<b>hi<b/>
+Oman,12M,5.039355271,Equity,<b>hi<b/>
+Pakistan,1M,-12.82330207,Equity,<b>hi<b/>
+Pakistan,YTD,-30.14536694,Equity,<b>hi<b/>
+Pakistan,12M,-30.14536694,Equity,<b>hi<b/>
+Peru,1M,0.11725202,Equity,<b>hi<b/>
+Peru,YTD,7.875697327,Equity,<b>hi<b/>
+Peru,12M,7.875697327,Equity,<b>hi<b/>
+Philippines,1M,1.856490349,Equity,<b>hi<b/>
+Philippines,YTD,-10.9172444,Equity,<b>hi<b/>
+Philippines,12M,-10.9172444,Equity,<b>hi<b/>
+Poland,1M,-0.755761216,Equity,<b>hi<b/>
+Poland,YTD,-7.04907519,Equity,<b>hi<b/>
+Poland,12M,-7.04907519,Equity,<b>hi<b/>
+Portugal,1M,-1.771544827,Equity,<b>hi<b/>
+Portugal,YTD,-4.475638754,Equity,<b>hi<b/>
+Portugal,12M,-4.475638754,Equity,<b>hi<b/>
+Qatar,1M,-0.647765891,Equity,<b>hi<b/>
+Qatar,YTD,37.90502383,Equity,<b>hi<b/>
+Qatar,12M,37.90502383,Equity,<b>hi<b/>
+Romania,1M,-16.55074171,Equity,<b>hi<b/>
+Romania,YTD,8.607711558,Equity,<b>hi<b/>
+Romania,12M,8.607711558,Equity,<b>hi<b/>
+Russia,1M,-4.597274021,Equity,<b>hi<b/>
+Russia,YTD,6.436529194,Equity,<b>hi<b/>
+Russia,12M,6.436529194,Equity,<b>hi<b/>
+Serbia,1M,4.078759528,Equity,<b>hi<b/>
+Serbia,YTD,9.8722652,Equity,<b>hi<b/>
+Serbia,12M,9.8722652,Equity,<b>hi<b/>
+Singapore,1M,-0.712797835,Equity,<b>hi<b/>
+Singapore,YTD,-3.737011375,Equity,<b>hi<b/>
+Singapore,12M,-3.737011375,Equity,<b>hi<b/>
+Slovenia,1M,4.85851575,Equity,<b>hi<b/>
+Slovenia,YTD,8.03080308,Equity,<b>hi<b/>
+Slovenia,12M,8.03080308,Equity,<b>hi<b/>
+South Africa,1M,-4.351759593,Equity,<b>hi<b/>
+South Africa,YTD,-19.60808492,Equity,<b>hi<b/>
+South Africa,12M,-19.60808492,Equity,<b>hi<b/>
+Spain,1M,-4.068264342,Equity,<b>hi<b/>
+Spain,YTD,-10.44783236,Equity,<b>hi<b/>
+Spain,12M,-10.44783236,Equity,<b>hi<b/>
+Sri Lanka,1M,-0.966101695,Equity,<b>hi<b/>
+Sri Lanka,YTD,-4.697439243,Equity,<b>hi<b/>
+Sri Lanka,12M,-4.697439243,Equity,<b>hi<b/>
+Sweden,1M,-3.338425551,Equity,<b>hi<b/>
+Sweden,YTD,-7.147475846,Equity,<b>hi<b/>
+Sweden,12M,-7.147475846,Equity,<b>hi<b/>
+Switzerland,1M,-5.369665274,Equity,<b>hi<b/>
+Switzerland,YTD,-2.497612286,Equity,<b>hi<b/>
+Switzerland,12M,-2.497612286,Equity,<b>hi<b/>
+Taiwan,1M,-1.171710803,Equity,<b>hi<b/>
+Taiwan,YTD,-2.453065035,Equity,<b>hi<b/>
+Taiwan,12M,-2.453065035,Equity,<b>hi<b/>
+Thailand,1M,-1.996842717,Equity,<b>hi<b/>
+Thailand,YTD,0.631327494,Equity,<b>hi<b/>
+Thailand,12M,0.631327494,Equity,<b>hi<b/>
+Tunisia,1M,-1.549691751,Equity,<b>hi<b/>
+Tunisia,YTD,20.67764285,Equity,<b>hi<b/>
+Tunisia,12M,20.67764285,Equity,<b>hi<b/>
+Turkey,1M,-6.062886346,Equity,<b>hi<b/>
+Turkey,YTD,-37.39117552,Equity,<b>hi<b/>
+Turkey,12M,-37.39117552,Equity,<b>hi<b/>
+Ukraine,1M,-3.307364398,Equity,<b>hi<b/>
+Ukraine,YTD,8.529945554,Equity,<b>hi<b/>
+Ukraine,12M,8.529945554,Equity,<b>hi<b/>
+United Arab Emirates,1M,0.53777308,Equity,<b>hi<b/>
+United Arab Emirates,YTD,-2.003708634,Equity,<b>hi<b/>
+United Arab Emirates,12M,-2.003708634,Equity,<b>hi<b/>
+United Kingdom,1M,-4.39276584,Equity,<b>hi<b/>
+United Kingdom,YTD,-8.763641964,Equity,<b>hi<b/>
+United Kingdom,12M,-8.763641964,Equity,<b>hi<b/>
+United States,1M,-7.946521205,Equity,<b>hi<b/>
+United States,YTD,1.433297423,Equity,<b>hi<b/>
+United States,12M,1.433297423,Equity,<b>hi<b/>
+Vietnam,1M,-6.060606061,Equity,<b>hi<b/>
+Vietnam,YTD,-8.823529412,Equity,<b>hi<b/>
+Vietnam,12M,-8.823529412,Equity,<b>hi<b/>
