@@ -1,382 +1,382 @@
 Country,Horizon,Return (%),Asset Class,Code
-Australia,1M,1.31564777,Bond,AU
-Australia,YTD,2.001510793,Bond,AU
-Australia,12M,2.001510793,Bond,AU
-Austria,1M,0.744384805,Bond,AT
-Austria,YTD,2.449347229,Bond,AT
-Austria,12M,2.449347229,Bond,AT
-Bahrain,1M,0.220481795,Bond,BH
-Bahrain,YTD,-1.663817102,Bond,BH
-Bahrain,12M,-1.663817102,Bond,BH
-Belgium,1M,0.188608344,Bond,BE
-Belgium,YTD,0.767517165,Bond,BE
-Belgium,12M,0.767517165,Bond,BE
-Bermuda,1M,0.024306967,Bond,BM
-Bermuda,YTD,-3.149770385,Bond,BM
-Bermuda,12M,-3.149770385,Bond,BM
-Brazil,1M,1.140161618,Bond,BR
-Brazil,YTD,-2.127877118,Bond,BR
-Brazil,12M,-2.127877118,Bond,BR
-Canada,1M,1.269885497,Bond,CA
-Canada,YTD,-0.055445006,Bond,CA
-Canada,12M,-0.055445006,Bond,CA
-Cayman Islands,1M,0.006331462,Bond,KY
-Cayman Islands,YTD,-0.934777803,Bond,KY
-Cayman Islands,12M,-0.934777803,Bond,KY
-Chile,1M,1.46398515,Bond,CL
-Chile,YTD,-3.153544422,Bond,CL
-Chile,12M,-3.153544422,Bond,CL
-China,1M,1.198401672,Bond,CN
-China,YTD,-0.936595517,Bond,CN
-China,12M,-0.936595517,Bond,CN
-Colombia,1M,1.579886711,Bond,CO
-Colombia,YTD,-3.800048681,Bond,CO
-Colombia,12M,-3.800048681,Bond,CO
+Australia,1M,1.677327782,Bond,AU
+Australia,YTD,3.488077001,Bond,AU
+Australia,12M,5.275839575,Bond,AU
+Austria,1M,1.962873296,Bond,AT
+Austria,YTD,2.855818204,Bond,AT
+Austria,12M,5.033309384,Bond,AT
+Bahrain,1M,1.322988016,Bond,BH
+Bahrain,YTD,3.03800256,Bond,BH
+Bahrain,12M,2.797323259,Bond,BH
+Belgium,1M,2.207266048,Bond,BE
+Belgium,YTD,3.948291319,Bond,BE
+Belgium,12M,4.226581944,Bond,BE
+Bermuda,1M,2.282058865,Bond,BM
+Bermuda,YTD,3.90579971,Bond,BM
+Bermuda,12M,2.68509374,Bond,BM
+Brazil,1M,1.900911479,Bond,BR
+Brazil,YTD,3.428370313,Bond,BR
+Brazil,12M,3.417025215,Bond,BR
+Canada,1M,2.051755422,Bond,CA
+Canada,YTD,3.476032296,Bond,CA
+Canada,12M,4.114333257,Bond,CA
+Cayman Islands,1M,0,Bond,KY
+Cayman Islands,YTD,0,Bond,KY
+Cayman Islands,12M,0.155158348,Bond,KY
+Chile,1M,1.997913759,Bond,CL
+Chile,YTD,5.255213885,Bond,CL
+Chile,12M,4.298942987,Bond,CL
+China,1M,1.694143753,Bond,CN
+China,YTD,3.464239791,Bond,CN
+China,12M,3.961442306,Bond,CN
+Colombia,1M,3.007877549,Bond,CO
+Colombia,YTD,7.186698814,Bond,CO
+Colombia,12M,5.759631041,Bond,CO
 Croatia,1M,0,Bond,HR
 Croatia,YTD,0,Bond,HR
 Croatia,12M,0,Bond,HR
-Cyprus,1M,1.280098786,Bond,CY
-Cyprus,YTD,1.352338476,Bond,CY
-Cyprus,12M,1.352338476,Bond,CY
-Czech Republic,1M,0.666723373,Bond,CZ
-Czech Republic,YTD,-0.36500103,Bond,CZ
-Czech Republic,12M,-0.36500103,Bond,CZ
-Denmark,1M,0.568321727,Bond,DK
-Denmark,YTD,2.459099595,Bond,DK
-Denmark,12M,2.459099595,Bond,DK
+Cyprus,1M,1.892290699,Bond,CY
+Cyprus,YTD,4.574634012,Bond,CY
+Cyprus,12M,5.957703512,Bond,CY
+Czech Republic,1M,0.654399374,Bond,CZ
+Czech Republic,YTD,0.847177062,Bond,CZ
+Czech Republic,12M,1.112578948,Bond,CZ
+Denmark,1M,1.588362745,Bond,DK
+Denmark,YTD,2.665041373,Bond,DK
+Denmark,12M,5.058172063,Bond,DK
 El Salvador,1M,0,Bond,SV
 El Salvador,YTD,0,Bond,SV
 El Salvador,12M,0,Bond,SV
-Estonia,1M,0.044580836,Bond,EE
-Estonia,YTD,0.285750053,Bond,EE
-Estonia,12M,0.285750053,Bond,EE
-Finland,1M,0.500453079,Bond,FI
-Finland,YTD,1.937001364,Bond,FI
-Finland,12M,1.937001364,Bond,FI
-France,1M,0.190971969,Bond,FR
-France,YTD,1.423996291,Bond,FR
-France,12M,1.423996291,Bond,FR
-Germany,1M,0.60805302,Bond,DE
-Germany,YTD,1.918049196,Bond,DE
-Germany,12M,1.918049196,Bond,DE
-Greece,1M,-0.062894426,Bond,GR
-Greece,YTD,-0.168905089,Bond,GR
-Greece,12M,-0.168905089,Bond,GR
-Hong Kong,1M,1.119443513,Bond,HK
-Hong Kong,YTD,-0.211371169,Bond,HK
-Hong Kong,12M,-0.211371169,Bond,HK
-Hungary,1M,1.385619376,Bond,HU
-Hungary,YTD,-0.255423801,Bond,HU
-Hungary,12M,-0.255423801,Bond,HU
-Ireland,1M,0.298951672,Bond,IE
-Ireland,YTD,1.085178587,Bond,IE
-Ireland,12M,1.085178587,Bond,IE
-Israel,1M,0.574311461,Bond,IL
-Israel,YTD,-0.465040546,Bond,IL
-Israel,12M,-0.465040546,Bond,IL
-Italy,1M,2.921292699,Bond,IT
-Italy,YTD,-0.502642383,Bond,IT
-Italy,12M,-0.502642383,Bond,IT
-Japan,1M,0.88586345,Bond,JP
-Japan,YTD,1.821409995,Bond,JP
-Japan,12M,1.821409995,Bond,JP
-Jersey,1M,1.706749496,Bond,JE
-Jersey,YTD,0.064827914,Bond,JE
-Jersey,12M,0.064827914,Bond,JE
-Kazakhstan,1M,2.575219127,Bond,KZ
-Kazakhstan,YTD,-3.199224236,Bond,KZ
-Kazakhstan,12M,-3.199224236,Bond,KZ
-Lithuania,1M,0.327545572,Bond,LT
-Lithuania,YTD,-0.027889903,Bond,LT
-Lithuania,12M,-0.027889903,Bond,LT
-Luxemburg,1M,0.185812352,Bond,LU
-Luxemburg,YTD,0.887403309,Bond,LU
-Luxemburg,12M,0.887403309,Bond,LU
-Malaysia,1M,0.674129583,Bond,MY
-Malaysia,YTD,0.815790602,Bond,MY
-Malaysia,12M,0.815790602,Bond,MY
-Mexico,1M,1.988899071,Bond,MX
-Mexico,YTD,-5.543818964,Bond,MX
-Mexico,12M,-5.543818964,Bond,MX
-Netherlands,1M,0.755964711,Bond,NL
-Netherlands,YTD,1.598577975,Bond,NL
-Netherlands,12M,1.598577975,Bond,NL
-New Zealand,1M,0.869462721,Bond,NZ
-New Zealand,YTD,2.332831891,Bond,NZ
-New Zealand,12M,2.332831891,Bond,NZ
-Norway,1M,0.566355238,Bond,NO
-Norway,YTD,0.734505769,Bond,NO
-Norway,12M,0.734505769,Bond,NO
-Philippines,1M,1.824825129,Bond,PH
-Philippines,YTD,-2.47410688,Bond,PH
-Philippines,12M,-2.47410688,Bond,PH
-Poland,1M,1.016838669,Bond,PL
-Poland,YTD,2.780029928,Bond,PL
-Poland,12M,2.780029928,Bond,PL
-Portugal,1M,0.896733277,Bond,PT
-Portugal,YTD,3.594329793,Bond,PT
-Portugal,12M,3.594329793,Bond,PT
-Qatar,1M,1.667975635,Bond,QA
-Qatar,YTD,1.475296824,Bond,QA
-Qatar,12M,1.475296824,Bond,QA
-Romania,1M,0.606504503,Bond,RO
-Romania,YTD,-1.861947383,Bond,RO
-Romania,12M,-1.861947383,Bond,RO
-Russia,1M,0.118405499,Bond,RU
-Russia,YTD,-3.566887209,Bond,RU
-Russia,12M,-3.566887209,Bond,RU
-Singapore,1M,1.772687406,Bond,SG
-Singapore,YTD,0.991339833,Bond,SG
-Singapore,12M,0.991339833,Bond,SG
-Slovakia,1M,0.519798488,Bond,SK
-Slovakia,YTD,2.409841251,Bond,SK
-Slovakia,12M,2.409841251,Bond,SK
-Slovenia,1M,0.880331733,Bond,SI
-Slovenia,YTD,1.504830648,Bond,SI
-Slovenia,12M,1.504830648,Bond,SI
-South Africa,1M,0.586808146,Bond,ZA
-South Africa,YTD,-0.974064072,Bond,ZA
-South Africa,12M,-0.974064072,Bond,ZA
-South Korea,1M,1.060821751,Bond,KR
-South Korea,YTD,4.655653672,Bond,KR
-South Korea,12M,4.655653672,Bond,KR
-Spain,1M,0.761069839,Bond,ES
-Spain,YTD,2.949049052,Bond,ES
-Spain,12M,2.949049052,Bond,ES
-Sweden,1M,0.287779504,Bond,SE
-Sweden,YTD,1.427381274,Bond,SE
-Sweden,12M,1.427381274,Bond,SE
-Switzerland,1M,1.066209089,Bond,CH
-Switzerland,YTD,0.424571908,Bond,CH
-Switzerland,12M,0.424571908,Bond,CH
-Taiwan,1M,1.604523799,Bond,TW
-Taiwan,YTD,-0.97216641,Bond,TW
-Taiwan,12M,-0.97216641,Bond,TW
-Thailand,1M,1.22453735,Bond,TH
-Thailand,YTD,0.566985026,Bond,TH
-Thailand,12M,0.566985026,Bond,TH
+Estonia,1M,1.127187476,Bond,EE
+Estonia,YTD,1.172309909,Bond,EE
+Estonia,12M,0.618064348,Bond,EE
+Finland,1M,1.282933846,Bond,FI
+Finland,YTD,2.042447067,Bond,FI
+Finland,12M,3.798611009,Bond,FI
+France,1M,1.941932727,Bond,FR
+France,YTD,3.251379537,Bond,FR
+France,12M,4.267456178,Bond,FR
+Germany,1M,1.443823321,Bond,DE
+Germany,YTD,2.37530942,Bond,DE
+Germany,12M,4.236643716,Bond,DE
+Greece,1M,0.978629425,Bond,GR
+Greece,YTD,2.06213942,Bond,GR
+Greece,12M,1.857659344,Bond,GR
+Hong Kong,1M,1.563447656,Bond,HK
+Hong Kong,YTD,2.864584932,Bond,HK
+Hong Kong,12M,3.436821143,Bond,HK
+Hungary,1M,1.298201324,Bond,HU
+Hungary,YTD,2.702420873,Bond,HU
+Hungary,12M,3.246648046,Bond,HU
+Ireland,1M,1.780885925,Bond,IE
+Ireland,YTD,3.330988175,Bond,IE
+Ireland,12M,4.050382633,Bond,IE
+Israel,1M,1.291415676,Bond,IL
+Israel,YTD,3.572239561,Bond,IL
+Israel,12M,2.975646878,Bond,IL
+Italy,1M,1.998579939,Bond,IT
+Italy,YTD,2.227621936,Bond,IT
+Italy,12M,-0.322648753,Bond,IT
+Japan,1M,0.881760608,Bond,JP
+Japan,YTD,1.720603356,Bond,JP
+Japan,12M,2.941549293,Bond,JP
+Jersey,1M,3.667483934,Bond,JE
+Jersey,YTD,4.725420936,Bond,JE
+Jersey,12M,4.048847413,Bond,JE
+Kazakhstan,1M,1.263419962,Bond,KZ
+Kazakhstan,YTD,6.074032665,Bond,KZ
+Kazakhstan,12M,6.303885636,Bond,KZ
+Lithuania,1M,1.163046634,Bond,LT
+Lithuania,YTD,2.384326812,Bond,LT
+Lithuania,12M,3.603996384,Bond,LT
+Luxemburg,1M,1.274844953,Bond,LU
+Luxemburg,YTD,2.714357694,Bond,LU
+Luxemburg,12M,3.883457274,Bond,LU
+Malaysia,1M,1.382107974,Bond,MY
+Malaysia,YTD,2.661032007,Bond,MY
+Malaysia,12M,3.323205504,Bond,MY
+Mexico,1M,2.021214635,Bond,MX
+Mexico,YTD,5.162126117,Bond,MX
+Mexico,12M,0.171254516,Bond,MX
+Netherlands,1M,1.677449374,Bond,NL
+Netherlands,YTD,2.833659803,Bond,NL
+Netherlands,12M,4.609309477,Bond,NL
+New Zealand,1M,1.393486551,Bond,NZ
+New Zealand,YTD,2.588899863,Bond,NZ
+New Zealand,12M,4.992731612,Bond,NZ
+Norway,1M,0.9617285,Bond,NO
+Norway,YTD,1.810550616,Bond,NO
+Norway,12M,3.012748002,Bond,NO
+Philippines,1M,2.28291016,Bond,PH
+Philippines,YTD,4.993809465,Bond,PH
+Philippines,12M,5.211941684,Bond,PH
+Poland,1M,0.509679711,Bond,PL
+Poland,YTD,0.983906117,Bond,PL
+Poland,12M,3.120663673,Bond,PL
+Portugal,1M,1.331289396,Bond,PT
+Portugal,YTD,3.815990891,Bond,PT
+Portugal,12M,5.119481001,Bond,PT
+Qatar,1M,0.992850758,Bond,QA
+Qatar,YTD,2.650797459,Bond,QA
+Qatar,12M,5.781441333,Bond,QA
+Romania,1M,1.701438178,Bond,RO
+Romania,YTD,3.593080177,Bond,RO
+Romania,12M,2.463828201,Bond,RO
+Russia,1M,0.464007224,Bond,RU
+Russia,YTD,2.11959228,Bond,RU
+Russia,12M,-3.927845419,Bond,RU
+Singapore,1M,1.040242504,Bond,SG
+Singapore,YTD,0.928523806,Bond,SG
+Singapore,12M,3.097769508,Bond,SG
+Slovakia,1M,1.757036686,Bond,SK
+Slovakia,YTD,2.514697334,Bond,SK
+Slovakia,12M,4.778824714,Bond,SK
+Slovenia,1M,2.181156769,Bond,SI
+Slovenia,YTD,3.605582798,Bond,SI
+Slovenia,12M,4.93731709,Bond,SI
+South Africa,1M,1.987786362,Bond,ZA
+South Africa,YTD,5.607876331,Bond,ZA
+South Africa,12M,3.301593791,Bond,ZA
+South Korea,1M,1.434253608,Bond,KR
+South Korea,YTD,1.294338572,Bond,KR
+South Korea,12M,6.616574455,Bond,KR
+Spain,1M,1.408834018,Bond,ES
+Spain,YTD,3.174683134,Bond,ES
+Spain,12M,3.439773609,Bond,ES
+Sweden,1M,0.691887211,Bond,SE
+Sweden,YTD,1.422730115,Bond,SE
+Sweden,12M,2.628423285,Bond,SE
+Switzerland,1M,1.448670892,Bond,CH
+Switzerland,YTD,2.905261268,Bond,CH
+Switzerland,12M,4.334506059,Bond,CH
+Taiwan,1M,1.454769005,Bond,TW
+Taiwan,YTD,2.182120941,Bond,TW
+Taiwan,12M,3.387733213,Bond,TW
+Thailand,1M,0.632254375,Bond,TH
+Thailand,YTD,0.970028163,Bond,TH
+Thailand,12M,1.689006296,Bond,TH
 Tunisia,1M,0,Bond,TN
 Tunisia,YTD,0,Bond,TN
 Tunisia,12M,0,Bond,TN
-United Kingdom,1M,1.471499583,Bond,GB
-United Kingdom,YTD,-0.465556327,Bond,GB
-United Kingdom,12M,-0.465556327,Bond,GB
-United States,1M,1.692841773,Bond,US
-United States,YTD,-1.520185069,Bond,US
-United States,12M,-1.520185069,Bond,US
-Uruguay,1M,2.826633556,Bond,UY
-Uruguay,YTD,-6.145061454,Bond,UY
-Uruguay,12M,-6.145061454,Bond,UY
+United Kingdom,1M,2.913712307,Bond,GB
+United Kingdom,YTD,3.652195549,Bond,GB
+United Kingdom,12M,3.763586576,Bond,GB
+United States,1M,1.709414118,Bond,US
+United States,YTD,2.678568246,Bond,US
+United States,12M,2.890740572,Bond,US
+Uruguay,1M,3.230862105,Bond,UY
+Uruguay,YTD,7.316906366,Bond,UY
+Uruguay,12M,5.808263352,Bond,UY
 Venezuela,1M,0,Bond,VE
 Venezuela,YTD,0,Bond,VE
 Venezuela,12M,0,Bond,VE
-Argentina,1M,-4.642909185,Equity,AR
-Argentina,YTD,-47.67669782,Equity,AR
-Argentina,12M,-47.67669782,Equity,AR
-Australia,1M,-4.65557784,Equity,AU
-Australia,YTD,-6.347196035,Equity,AU
-Australia,12M,-6.347196035,Equity,AU
-Austria,1M,-12.15646202,Equity,AT
-Austria,YTD,-22.51825306,Equity,AT
-Austria,12M,-22.51825306,Equity,AT
-Bahrain,1M,-4.064616988,Equity,BH
-Bahrain,YTD,7.084004824,Equity,BH
-Bahrain,12M,7.084004824,Equity,BH
-Bangladesh,1M,-1.439325066,Equity,BD
-Bangladesh,YTD,-9.110054393,Equity,BD
-Bangladesh,12M,-9.110054393,Equity,BD
-Belgium,1M,-9.347179621,Equity,BE
-Belgium,YTD,-21.53571228,Equity,BE
-Belgium,12M,-21.53571228,Equity,BE
-Brazil,1M,-2.315267427,Equity,BR
-Brazil,YTD,6.055628009,Equity,BR
-Brazil,12M,6.055628009,Equity,BR
-Bulgaria,1M,-0.645867156,Equity,BG
-Bulgaria,YTD,-15.26653222,Equity,BG
-Bulgaria,12M,-15.26653222,Equity,BG
-Canada,1M,-8.00754921,Equity,CA
-Canada,YTD,-11.37328419,Equity,CA
-Canada,12M,-11.37328419,Equity,CA
-Chile,1M,-4.662949823,Equity,CL
-Chile,YTD,-13.87362637,Equity,CL
-Chile,12M,-13.87362637,Equity,CL
-China,1M,-4.812124005,Equity,CN
-China,YTD,-13.69984275,Equity,CN
-China,12M,-13.69984275,Equity,CN
-Colombia,1M,-4.463690873,Equity,CO
-Colombia,YTD,-5.905511811,Equity,CO
-Colombia,12M,-5.905511811,Equity,CO
-Croatia,1M,-0.035703711,Equity,HR
-Croatia,YTD,-3.536104739,Equity,HR
-Croatia,12M,-3.536104739,Equity,HR
-Czech Republic,1M,-3.227694623,Equity,CZ
-Czech Republic,YTD,3.844945937,Equity,CZ
-Czech Republic,12M,3.844945937,Equity,CZ
-Denmark,1M,-3.168235778,Equity,DK
-Denmark,YTD,-9.591226181,Equity,DK
-Denmark,12M,-9.591226181,Equity,DK
-Egypt,1M,-0.723725614,Equity,EG
-Egypt,YTD,-8.373877629,Equity,EG
-Egypt,12M,-8.373877629,Equity,EG
-Estonia,1M,-3.425804064,Equity,EE
-Estonia,YTD,-8.733112055,Equity,EE
-Estonia,12M,-8.733112055,Equity,EE
-Finland,1M,-1.334561585,Equity,FI
-Finland,YTD,3.868656825,Equity,FI
-Finland,12M,3.868656825,Equity,FI
-France,1M,-4.824470976,Equity,FR
-France,YTD,-6.420978658,Equity,FR
-France,12M,-6.420978658,Equity,FR
-Germany,1M,-6.510993645,Equity,DE
-Germany,YTD,-16.76992335,Equity,DE
-Germany,12M,-16.76992335,Equity,DE
-Greece,1M,-2.879706368,Equity,GR
-Greece,YTD,-32.72680555,Equity,GR
-Greece,12M,-32.72680555,Equity,GR
-Hong Kong,1M,-0.024911284,Equity,HK
-Hong Kong,YTD,-2.109917975,Equity,HK
-Hong Kong,12M,-2.109917975,Equity,HK
-Hungary,1M,0.122895416,Equity,HU
-Hungary,YTD,-0.281517748,Equity,HU
-Hungary,12M,-0.281517748,Equity,HU
-India,1M,0.816326531,Equity,IN
-India,YTD,-1.548016314,Equity,IN
-India,12M,-1.548016314,Equity,IN
-Indonesia,1M,0.334821429,Equity,ID
-Indonesia,YTD,-3.020496224,Equity,ID
-Indonesia,12M,-3.020496224,Equity,ID
-Ireland,1M,-5.969422647,Equity,IE
-Ireland,YTD,-20.3665438,Equity,IE
-Ireland,12M,-20.3665438,Equity,IE
-Israel,1M,-13.19291595,Equity,IL
-Israel,YTD,-2.568765369,Equity,IL
-Israel,12M,-2.568765369,Equity,IL
-Italy,1M,-3.448069173,Equity,IT
-Italy,YTD,-11.81255272,Equity,IT
-Italy,12M,-11.81255272,Equity,IT
-Japan,1M,-6.206026815,Equity,JP
-Japan,YTD,-7.142857143,Equity,JP
-Japan,12M,-7.142857143,Equity,JP
-Jordan,1M,4.882623745,Equity,JO
-Jordan,YTD,1.491197623,Equity,JO
-Jordan,12M,1.491197623,Equity,JO
-Kazakhstan,1M,1.517684003,Equity,KZ
-Kazakhstan,YTD,5.825805339,Equity,KZ
-Kazakhstan,12M,5.825805339,Equity,KZ
-Kenya,1M,-6.109585863,Equity,KE
-Kenya,YTD,-6.672560249,Equity,KE
-Kenya,12M,-6.672560249,Equity,KE
-Korea,1M,-2.486187845,Equity,KR
-Korea,YTD,-15.4491018,Equity,KR
-Korea,12M,-15.4491018,Equity,KR
-Kuwait,1M,0.036380723,Equity,KW
-Kuwait,YTD,22.59573255,Equity,KW
-Kuwait,12M,22.59573255,Equity,KW
-Lebanon,1M,2.606635071,Equity,LB
-Lebanon,YTD,-6.277056277,Equity,LB
-Lebanon,12M,-6.277056277,Equity,LB
-Lithuania,1M,-4.525639028,Equity,LT
-Lithuania,YTD,-5.212538464,Equity,LT
-Lithuania,12M,-5.212538464,Equity,LT
-Malaysia,1M,1.21434623,Equity,MY
-Malaysia,YTD,-0.194114323,Equity,MY
-Malaysia,12M,-0.194114323,Equity,MY
-Mauritius,1M,-1.248074949,Equity,MU
-Mauritius,YTD,-13.85188088,Equity,MU
-Mauritius,12M,-13.85188088,Equity,MU
-Mexico,1M,2.142724089,Equity,MX
-Mexico,YTD,-10.02782283,Equity,MX
-Mexico,12M,-10.02782283,Equity,MX
-Morocco,1M,1.190295551,Equity,MA
-Morocco,YTD,-1.195160095,Equity,MA
-Morocco,12M,-1.195160095,Equity,MA
-Netherlands,1M,-6.297494522,Equity,NL
-Netherlands,YTD,-7.732134844,Equity,NL
-Netherlands,12M,-7.732134844,Equity,NL
-New Zealand,1M,-1.492132318,Equity,NZ
-New Zealand,YTD,2.508791895,Equity,NZ
-New Zealand,12M,2.508791895,Equity,NZ
-Nigeria,1M,1.605206074,Equity,NG
-Nigeria,YTD,-8.55134713,Equity,NG
-Nigeria,12M,-8.55134713,Equity,NG
-Norway,1M,-6.670982082,Equity,NO
-Norway,YTD,-1.873123658,Equity,NO
-Norway,12M,-1.873123658,Equity,NO
-Oman,1M,-2.622322814,Equity,OM
-Oman,YTD,5.039355271,Equity,OM
-Oman,12M,5.039355271,Equity,OM
-Pakistan,1M,-12.82330207,Equity,PK
-Pakistan,YTD,-30.14536694,Equity,PK
-Pakistan,12M,-30.14536694,Equity,PK
-Peru,1M,0.11725202,Equity,PE
-Peru,YTD,7.875697327,Equity,PE
-Peru,12M,7.875697327,Equity,PE
-Philippines,1M,1.856490349,Equity,PH
-Philippines,YTD,-10.9172444,Equity,PH
-Philippines,12M,-10.9172444,Equity,PH
-Poland,1M,-0.755761216,Equity,PL
-Poland,YTD,-7.04907519,Equity,PL
-Poland,12M,-7.04907519,Equity,PL
-Portugal,1M,-1.771544827,Equity,PT
-Portugal,YTD,-4.475638754,Equity,PT
-Portugal,12M,-4.475638754,Equity,PT
-Qatar,1M,-0.647765891,Equity,QA
-Qatar,YTD,37.90502383,Equity,QA
-Qatar,12M,37.90502383,Equity,QA
-Romania,1M,-16.55074171,Equity,RO
-Romania,YTD,8.607711558,Equity,RO
-Romania,12M,8.607711558,Equity,RO
-Russia,1M,-4.597274021,Equity,RU
-Russia,YTD,6.436529194,Equity,RU
-Russia,12M,6.436529194,Equity,RU
-Serbia,1M,4.078759528,Equity,RS
-Serbia,YTD,9.8722652,Equity,RS
-Serbia,12M,9.8722652,Equity,RS
-Singapore,1M,-0.712797835,Equity,SG
-Singapore,YTD,-3.737011375,Equity,SG
-Singapore,12M,-3.737011375,Equity,SG
-Slovenia,1M,4.85851575,Equity,SI
-Slovenia,YTD,8.03080308,Equity,SI
-Slovenia,12M,8.03080308,Equity,SI
-South Africa,1M,-4.351759593,Equity,ZA
-South Africa,YTD,-19.60808492,Equity,ZA
-South Africa,12M,-19.60808492,Equity,ZA
-Spain,1M,-4.068264342,Equity,ES
-Spain,YTD,-10.44783236,Equity,ES
-Spain,12M,-10.44783236,Equity,ES
-Sri Lanka,1M,-0.966101695,Equity,LK
-Sri Lanka,YTD,-4.697439243,Equity,LK
-Sri Lanka,12M,-4.697439243,Equity,LK
-Sweden,1M,-3.338425551,Equity,SE
-Sweden,YTD,-7.147475846,Equity,SE
-Sweden,12M,-7.147475846,Equity,SE
-Switzerland,1M,-5.369665274,Equity,CH
-Switzerland,YTD,-2.497612286,Equity,CH
-Switzerland,12M,-2.497612286,Equity,CH
-Taiwan,1M,-1.171710803,Equity,TW
-Taiwan,YTD,-2.453065035,Equity,TW
-Taiwan,12M,-2.453065035,Equity,TW
-Thailand,1M,-1.996842717,Equity,TH
-Thailand,YTD,0.631327494,Equity,TH
-Thailand,12M,0.631327494,Equity,TH
-Tunisia,1M,-1.549691751,Equity,TN
-Tunisia,YTD,20.67764285,Equity,TN
-Tunisia,12M,20.67764285,Equity,TN
-Turkey,1M,-6.062886346,Equity,TR
-Turkey,YTD,-37.39117552,Equity,TR
-Turkey,12M,-37.39117552,Equity,TR
-Ukraine,1M,-3.307364398,Equity,UA
-Ukraine,YTD,8.529945554,Equity,UA
-Ukraine,12M,8.529945554,Equity,UA
-United Arab Emirates,1M,0.53777308,Equity,AE
-United Arab Emirates,YTD,-2.003708634,Equity,AE
-United Arab Emirates,12M,-2.003708634,Equity,AE
-United Kingdom,1M,-4.39276584,Equity,GB
-United Kingdom,YTD,-8.763641964,Equity,GB
-United Kingdom,12M,-8.763641964,Equity,GB
-United States,1M,-7.946521205,Equity,US
-United States,YTD,1.433297423,Equity,US
-United States,12M,1.433297423,Equity,US
-Vietnam,1M,-6.060606061,Equity,VN
-Vietnam,YTD,-8.823529412,Equity,VN
-Vietnam,12M,-8.823529412,Equity,VN
+Argentina,1M,-8.350065514,Equity,AR
+Argentina,YTD,-2.008601919,Equity,AR
+Argentina,12M,-44.2444825,Equity,AR
+Australia,1M,2.999069931,Equity,AU
+Australia,YTD,8.377137629,Equity,AU
+Australia,12M,12.86292356,Equity,AU
+Austria,1M,0.472200938,Equity,AT
+Austria,YTD,5.641775364,Equity,AT
+Austria,12M,-16.88141609,Equity,AT
+Bahrain,1M,7.544842701,Equity,BH
+Bahrain,YTD,22.60014161,Equity,BH
+Bahrain,12M,31.69532502,Equity,BH
+Bangladesh,1M,0.588115287,Equity,BD
+Bangladesh,YTD,5.085032264,Equity,BD
+Bangladesh,12M,3.679184402,Equity,BD
+Belgium,1M,8.012375135,Equity,BE
+Belgium,YTD,13.66850742,Equity,BE
+Belgium,12M,-7.844761794,Equity,BE
+Brazil,1M,-3.677595219,Equity,BR
+Brazil,YTD,5.102628487,Equity,BR
+Brazil,12M,6.184701949,Equity,BR
+Bulgaria,1M,-5.953056176,Equity,BG
+Bulgaria,YTD,-8.115309792,Equity,BG
+Bulgaria,12M,-14.77066428,Equity,BG
+Canada,1M,1.010555679,Equity,CA
+Canada,YTD,13.14833619,Equity,CA
+Canada,12M,13.99430735,Equity,CA
+Chile,1M,-4.490157045,Equity,CL
+Chile,YTD,1.367451141,Equity,CL
+Chile,12M,-8.342177882,Equity,CL
+China,1M,4.071057622,Equity,CN
+China,YTD,15.38967886,Equity,CN
+China,12M,2.217517083,Equity,CN
+Colombia,1M,5.298013245,Equity,CO
+Colombia,YTD,21.45833333,Equity,CO
+Colombia,12M,13.27720207,Equity,CO
+Croatia,1M,3.220290426,Equity,HR
+Croatia,YTD,0.25390642,Equity,HR
+Croatia,12M,-0.469617314,Equity,HR
+Czech Republic,1M,-1.344142479,Equity,CZ
+Czech Republic,YTD,1.054126151,Equity,CZ
+Czech Republic,12M,3.444175292,Equity,CZ
+Denmark,1M,6.048029255,Equity,DK
+Denmark,YTD,10.26546421,Equity,DK
+Denmark,12M,4.911410233,Equity,DK
+Egypt,1M,2.091150654,Equity,EG
+Egypt,YTD,14.19059822,Equity,EG
+Egypt,12M,-2.083293059,Equity,EG
+Estonia,1M,0.351663926,Equity,EE
+Estonia,YTD,-1.576736682,Equity,EE
+Estonia,12M,0.179438029,Equity,EE
+Finland,1M,0.1515866,Equity,FI
+Finland,YTD,5.472395746,Equity,FI
+Finland,12M,6.328808605,Equity,FI
+France,1M,3.35384266,Equity,FR
+France,YTD,9.037763445,Equity,FR
+France,12M,5.386576225,Equity,FR
+Germany,1M,1.241715365,Equity,DE
+Germany,YTD,4.12214762,Equity,DE
+Germany,12M,-5.161589138,Equity,DE
+Greece,1M,3.632343353,Equity,GR
+Greece,YTD,10.77207442,Equity,GR
+Greece,12M,-18.92317473,Equity,GR
+Hong Kong,1M,3.442410902,Equity,HK
+Hong Kong,YTD,13.43450545,Equity,HK
+Hong Kong,12M,17.44022683,Equity,HK
+Hungary,1M,3.329660913,Equity,HU
+Hungary,YTD,3.405610682,Equity,HU
+Hungary,12M,9.765929779,Equity,HU
+India,1M,11.87207724,Equity,IN
+India,YTD,4.642302808,Equity,IN
+India,12M,15.52001662,Equity,IN
+Indonesia,1M,0.770077008,Equity,ID
+Indonesia,YTD,2.805836139,Equity,ID
+Indonesia,12M,12.25490196,Equity,ID
+Ireland,1M,3.682575957,Equity,IE
+Ireland,YTD,8.846326565,Equity,IE
+Ireland,12M,-3.737565251,Equity,IE
+Israel,1M,0.721052347,Equity,IL
+Israel,YTD,9.35817562,Equity,IL
+Israel,12M,17.72499494,Equity,IL
+Italy,1M,5.23344715,Equity,IT
+Italy,YTD,11.62561262,Equity,IT
+Italy,12M,-2.270714062,Equity,IT
+Japan,1M,1.800372491,Equity,JP
+Japan,YTD,4.681515109,Equity,JP
+Japan,12M,0.847341807,Equity,JP
+Jordan,1M,0.856318006,Equity,JO
+Jordan,YTD,-0.124767406,Equity,JO
+Jordan,12M,-2.188041823,Equity,JO
+Kazakhstan,1M,2.105930594,Equity,KZ
+Kazakhstan,YTD,5.858403326,Equity,KZ
+Kazakhstan,12M,-2.298117989,Equity,KZ
+Kenya,1M,5.532823985,Equity,KE
+Kenya,YTD,17.18467291,Equity,KE
+Kenya,12M,-3.627405595,Equity,KE
+Korea,1M,-2.949061662,Equity,KR
+Korea,YTD,2.115655853,Equity,KR
+Korea,12M,-8.005082592,Equity,KR
+Kuwait,1M,11.25443089,Equity,KW
+Kuwait,YTD,9.64772855,Equity,KW
+Kuwait,12M,32.02430067,Equity,KW
+Lebanon,1M,7.291666667,Equity,LB
+Lebanon,YTD,-5.069124424,Equity,LB
+Lebanon,12M,-9.649122807,Equity,LB
+Lithuania,1M,4.674595481,Equity,LT
+Lithuania,YTD,5.721944096,Equity,LT
+Lithuania,12M,-7.414448361,Equity,LT
+Malaysia,1M,-1.186636897,Equity,MY
+Malaysia,YTD,-2.039628473,Equity,MY
+Malaysia,12M,-5.593894553,Equity,MY
+Mauritius,1M,-2.579261954,Equity,MU
+Mauritius,YTD,-3.09864616,Equity,MU
+Mauritius,12M,18.34109384,Equity,MU
+Mexico,1M,1.279190053,Equity,MX
+Mexico,YTD,2.857150001,Equity,MX
+Mexico,12M,-3.867832906,Equity,MX
+Morocco,1M,-2.197977365,Equity,MA
+Morocco,YTD,-7.37852027,Equity,MA
+Morocco,12M,-10.68338051,Equity,MA
+Netherlands,1M,3.741010756,Equity,NL
+Netherlands,YTD,11.33892373,Equity,NL
+Netherlands,12M,5.343438916,Equity,NL
+New Zealand,1M,8.567212178,Equity,NZ
+New Zealand,YTD,14.10123493,Equity,NZ
+New Zealand,12M,27.00087243,Equity,NZ
+Nigeria,1M,-0.303687636,Equity,NG
+Nigeria,YTD,-1.415701416,Equity,NG
+Nigeria,12M,-11.27413127,Equity,NG
+Norway,1M,-0.230863088,Equity,NO
+Norway,YTD,5.229781348,Equity,NO
+Norway,12M,4.316711643,Equity,NO
+Oman,1M,7.870725414,Equity,OM
+Oman,YTD,-2.568452033,Equity,OM
+Oman,12M,14.86491759,Equity,OM
+Pakistan,1M,1.098646588,Equity,PK
+Pakistan,YTD,6.352283743,Equity,PK
+Pakistan,12M,-29.86787906,Equity,PK
+Peru,1M,2.960438761,Equity,PE
+Peru,YTD,8.409760282,Equity,PE
+Peru,12M,12.5048845,Equity,PE
+Philippines,1M,2.744391589,Equity,PH
+Philippines,YTD,5.174897712,Equity,PH
+Philippines,12M,10.71276918,Equity,PH
+Poland,1M,0.331074767,Equity,PL
+Poland,YTD,-3.000879586,Equity,PL
+Poland,12M,2.313304923,Equity,PL
+Portugal,1M,4.36725536,Equity,PT
+Portugal,YTD,9.062253743,Equity,PT
+Portugal,12M,4.736323335,Equity,PT
+Qatar,1M,-0.399548974,Equity,QA
+Qatar,YTD,-5.952394222,Equity,QA
+Qatar,12M,32.3625059,Equity,QA
+Romania,1M,7.603659844,Equity,RO
+Romania,YTD,3.100702777,Equity,RO
+Romania,12M,-3.186540635,Equity,RO
+Russia,1M,2.919261607,Equity,RU
+Russia,YTD,9.989947994,Equity,RU
+Russia,12M,13.38024001,Equity,RU
+Serbia,1M,8.070749906,Equity,RS
+Serbia,YTD,-23.95171552,Equity,RS
+Serbia,12M,-18.93701085,Equity,RS
+Singapore,1M,1.912450541,Equity,SG
+Singapore,YTD,4.113945432,Equity,SG
+Singapore,12M,2.857530854,Equity,SG
+Slovenia,1M,1.64021164,Equity,SI
+Slovenia,YTD,-2.635580335,Equity,SI
+Slovenia,12M,5.260273973,Equity,SI
+South Africa,1M,-0.278765201,Equity,ZA
+South Africa,YTD,2.115064084,Equity,ZA
+South Africa,12M,-10.60828828,Equity,ZA
+Spain,1M,1.53876633,Equity,ES
+Spain,YTD,4.65990715,Equity,ES
+Spain,12M,-0.667189843,Equity,ES
+Sri Lanka,1M,3.14697609,Equity,LK
+Sri Lanka,YTD,2.265992679,Equity,LK
+Sri Lanka,12M,-4.818299805,Equity,LK
+Sweden,1M,2.826464272,Equity,SE
+Sweden,YTD,6.461252087,Equity,SE
+Sweden,12M,4.802073201,Equity,SE
+Switzerland,1M,5.146732676,Equity,CH
+Switzerland,YTD,10.36634339,Equity,CH
+Switzerland,12M,16.75517654,Equity,CH
+Taiwan,1M,4.681295716,Equity,TW
+Taiwan,YTD,6.089166578,Equity,TW
+Taiwan,12M,2.901751322,Equity,TW
+Thailand,1M,-0.657139041,Equity,TH
+Thailand,YTD,4.669293555,Equity,TH
+Thailand,12M,0.635925746,Equity,TH
+Tunisia,1M,0.252481556,Equity,TN
+Tunisia,YTD,-5.612878906,Equity,TN
+Tunisia,12M,-5.36710871,Equity,TN
+Turkey,1M,-12.91106058,Equity,TR
+Turkey,YTD,-5.619760444,Equity,TR
+Turkey,12M,-33.3071703,Equity,TR
+Ukraine,1M,0.784195446,Equity,UA
+Ukraine,YTD,1.180923543,Equity,UA
+Ukraine,12M,0.164868106,Equity,UA
+United Arab Emirates,1M,3.78953499,Equity,AE
+United Arab Emirates,YTD,6.774136335,Equity,AE
+United Arab Emirates,12M,11.19906868,Equity,AE
+United Kingdom,1M,2.855927919,Equity,GB
+United Kingdom,YTD,9.24737116,Equity,GB
+United Kingdom,12M,7.883254464,Equity,GB
+United States,1M,3.973074896,Equity,US
+United States,YTD,11.856652,Equity,US
+United States,12M,20.10256612,Equity,US
+Vietnam,1M,0,Equity,VN
+Vietnam,YTD,9.375,Equity,VN
+Vietnam,12M,-7.894736842,Equity,VN
