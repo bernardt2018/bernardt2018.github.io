@@ -1,0 +1,58 @@
+Day,Proposition,Portfolio,ARC/IA,BMK,ShortName
+1M,TPS GBP Defensive,3.7%,2.6%,3.5%,TPS Def
+1M,TPS GBP Balanced,2.8%,2.1%,3.6%,TPS Bal
+1M,TPS GBP Growth,3.0%,3.9%,3.2%,TPS Gro
+1M,CMAF UK Defensive,2.5%,3.3%,3.6%,CMAF UK Def
+1M,CMAF UK Balanced,3.1%,3.6%,2.8%,CMAF UK Bal
+1M,CMAF UK Growth,2.7%,2.3%,2.4%,CMAF UK Gro
+1M,CMAF UK Equity Growth,2.7%,2.6%,3.9%,CMAF UK Eq Gro
+1M,PPF Lower Risk,3.9%,2.4%,3.7%,PPF Lwr Rsk
+1M,PPF Lower / Medium Risk,3.9%,2.5%,3.7%,PPF Lwr/Med Rsk
+1M,PPF Medium Risk,2.6%,2.1%,3.4%,PPF Med Risk
+1M,PPF Medium / Higher Risk,2.0%,2.4%,2.5%,PPF Med/Higher Rsk
+1M,PPF Higher Risk,2.7%,3.4%,3.3%,PPF Higher Rsk
+1M,CMAF Global Defensive,2.5%,3.2%,3.4%,CMAF Global Def
+1M,CMAF Global Balanced,2.7%,2.7%,2.1%,CMAF Global Bal
+1M,CMAF Global Growth,3.9%,3.3%,3.1%,CMAF Global Gro
+YTD,TPS GBP Defensive,3.8%,2.3%,2.9%,TPS Def
+YTD,TPS GBP Balanced,3.0%,2.1%,3.8%,TPS Bal
+YTD,TPS GBP Growth,3.3%,3.1%,3.3%,TPS Gro
+YTD,CMAF UK Defensive,3.8%,3.0%,2.2%,CMAF UK Def
+YTD,CMAF UK Balanced,2.6%,3.5%,2.3%,CMAF UK Bal
+YTD,CMAF UK Growth,2.6%,3.2%,2.7%,CMAF UK Gro
+YTD,CMAF UK Equity Growth,2.5%,2.3%,3.0%,CMAF UK Eq Gro
+YTD,PPF Lower Risk,2.5%,3.3%,2.9%,PPF Lwr Rsk
+YTD,PPF Lower / Medium Risk,2.6%,3.4%,3.9%,PPF Lwr/Med Rsk
+YTD,PPF Medium Risk,3.0%,2.7%,3.3%,PPF Med Risk
+YTD,PPF Medium / Higher Risk,3.4%,2.2%,3.6%,PPF Med/Higher Rsk
+YTD,PPF Higher Risk,4.0%,2.2%,4.0%,PPF Higher Rsk
+YTD,CMAF Global Defensive,2.5%,3.7%,3.7%,CMAF Global Def
+YTD,CMAF Global Balanced,2.5%,2.4%,3.2%,CMAF Global Bal
+YTD,CMAF Global Growth,2.5%,2.9%,3.8%,CMAF Global Gro
+3yr,TPS GBP Defensive,3.8%,2.5%,2.7%,TPS Def
+3yr,TPS GBP Balanced,2.9%,2.0%,3.8%,TPS Bal
+3yr,TPS GBP Growth,2.9%,2.9%,3.1%,TPS Gro
+3yr,CMAF UK Defensive,3.9%,2.7%,3.4%,CMAF UK Def
+3yr,CMAF UK Balanced,2.3%,3.3%,3.2%,CMAF UK Bal
+3yr,CMAF UK Growth,2.1%,3.3%,2.4%,CMAF UK Gro
+3yr,CMAF UK Equity Growth,3.1%,3.3%,3.2%,CMAF UK Eq Gro
+3yr,PPF Lower Risk,3.1%,2.7%,2.4%,PPF Lwr Rsk
+3yr,PPF Lower / Medium Risk,3.0%,3.0%,2.6%,PPF Lwr/Med Rsk
+3yr,PPF Medium Risk,3.3%,2.7%,2.7%,PPF Med Risk
+3yr,PPF Medium / Higher Risk,2.5%,2.2%,3.3%,PPF Med/Higher Rsk
+3yr,PPF Higher Risk,3.2%,2.4%,3.3%,PPF Higher Rsk
+3yr,CMAF Global Defensive,2.8%,2.3%,3.4%,CMAF Global Def
+3yr,CMAF Global Balanced,2.4%,2.4%,3.8%,CMAF Global Bal
+3yr,CMAF Global Growth,2.1%,2.4%,2.5%,CMAF Global Gro
+1M,OPES GBP Wealth Preservation,2.5%,2.4%,3.6%,OPES GBP WP
+1M,OPES GBP Wealth Enhancement (MT),2.5%,2.8%,3.9%,OPES GBP WEMT
+1M,OPES GBP Wealth Enhancement (LT),3.7%,2.2%,3.3%,OPES GBP WELT
+1M,OPES GBP Wealth Generation,3.3%,2.2%,3.7%,OPES GBP WG
+YTD,OPES GBP Wealth Preservation,2.2%,2.9%,2.5%,OPES GBP WP
+YTD,OPES GBP Wealth Enhancement (MT),2.7%,2.7%,2.9%,OPES GBP WEMT
+YTD,OPES GBP Wealth Enhancement (LT),3.2%,3.4%,3.8%,OPES GBP WELT
+YTD,OPES GBP Wealth Generation,3.8%,3.0%,3.4%,OPES GBP WG
+3yr,OPES GBP Wealth Preservation,3.5%,3.1%,2.7%,OPES GBP WP
+3yr,OPES GBP Wealth Enhancement (MT),3.2%,2.6%,2.8%,OPES GBP WEMT
+3yr,OPES GBP Wealth Enhancement (LT),3.1%,3.3%,3.6%,OPES GBP WELT
+3yr,OPES GBP Wealth Generation,2.0%,2.5%,2.0%,OPES GBP WG
