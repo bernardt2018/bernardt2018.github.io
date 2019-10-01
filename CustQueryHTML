@@ -1,10 +1,4 @@
-
-
 <style>
-.form-group {
-  margin-bottom: 1px !important;
-}
-
 
 .filter .google-visualization-controls-categoryfilter-selected li {
   background-color: #C0C0C0;
@@ -16,13 +10,7 @@
   position: relative;
 }
 
-.filter .goog-link-button {
-  cursor: pointer;
-  float: left;
-  margin-right: 5px;
-  color: #555555;
-  font-size: 12px;
-}
+
 
 .filter .goog-combobox input {
   background-color: #fff;
@@ -32,7 +20,7 @@
   font: normal small arial, sans-serif;
   margin: 0;
   padding: 0 0 0 2px;
-  vertical-align: bottom;
+  vertical-align: middle;
   width: 125px !important;
 }
 
@@ -52,6 +40,12 @@ select {
   display: none;
 }
 
+
+
+button.ui-datepicker-close {
+  display: none;
+}
+
 .googleHeaderCell {
   background-color: #e8f4ff;
   font: normal small arial, sans-serif;
@@ -66,35 +60,58 @@ legend {
 }
 
 
-</style>
 
+</style>
 
 <head>
   <title>jQuery UI Datepicker - Select a Date Range</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 </head>
 
-  <div class="containerCUST" style="width: 100%;">
-<div style="width: 100%; border: 1px solid #ccc;">
-    <div class="form-group row" style="padding: 5px;">
-      <div class="form-group col-md-3">
-        <label for="startDate"><h4>Start: </h4></label>
-        <input type="text" class="date-picker" id="startDate" placeholder="Enter start month">
-      </div>
-      <div class="form-group col-md-3">
-        <label for="dateEnd"><h4>End: </h4></label>
-        <input type="text" class="date-picker" id="dateEnd" placeholder="Enter end month">
-      </div>
-    </div>
-    <div class="form-group row" style="padding: 5px;">
-      <label for="programmatic_control_divQuery" class="col-sm-2 col-form-label"><h4>Product(s)</h4></label>
+<body>
+  <div class="container" style="width: 92%;">
+    <h2>Custom Performance Query</h2>
+    <div class="form-group row">
+      <label for="programmatic_control_divQuery" class="col-sm-2 col-form-label">
+        <h4>Product(s)</h4>
+      </label>
       <div class="col-sm-10">
-        <div id="programmatic_control_divQuery"></div>
+        <div id="programmatic_control_divQuery" style="vertical-align: bottom;"></div>
       </div>
     </div>
-    <fieldset class="form-group" style="padding: 5px;">
+    <div class="form-group row">
+      <legend class="col-sm-2 col-form-label">
+        <h4>Date select</h4>
+      </legend>
+      <div class="form-group col-md-3">
+        <label for="startDate">
+     
+        </label>
+        <input type="text" class="date-picker" id="startDate" placeholder="Enter Start Month">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="dateEnd">
+         
+        </label>
+        <input type="text" class="date-picker" id="dateEnd" placeholder="Enter End Month">
+      </div>
+      <div class="form-group col-md-3">
+        <label for="dateEnd">
+        
+        </label>
+        <input type="button" value="YTD" id="YTDBttn">
+        <input type="button" value="12M" id="12MBttn">
+        <input type="button" value="Max" id="MaxBttn">
+      </div>
+    </div>
+    <fieldset class="form-group">
       <div class="row">
         <legend class="col-sm-2 col-form-label">
           <h4>Display Returns</h4>
@@ -103,44 +120,46 @@ legend {
           <div class="form-check">
             <input class="checkbox-freq" id="monthcheck" type="checkbox">
             <label class="form-check-label" for="monthcheck">
-            Monthly Freq
-          </label>
+              Monthly Freq
+            </label>
           </div>
           <div class="form-check">
             <input class="checkbox-freq" id="yearcheck" type="checkbox">
             <label class="form-check-label" for="yearcheck">
-            Annual Freq
-          </label>
+              Annual Freq
+            </label>
           </div>
           <div class="form-check">
             <input class="checkbox-freq" id="periodicCheck" type="checkbox" checked>
             <label class="form-check-label" for="yearcheck">
-            None
-          </label>
+              None
+            </label>
           </div>
         </div>
       </div>
-    </fieldset>   
-    <div class="form-group row" style="padding: 5px;">
+    </fieldset>
+    <div class="form-group row">
       <div class="col-sm-10">
         <button type="button" class="btn btn-primary" id="submitQRY">Submit</button>
       </div>
     </div>
-</div>
-<div style="height:10px"></div>
     <div id="programmatic_dashboard_divQuery" style="border: 1px solid #ccc">
-    <div class="row">
-      <div>
-        <div id="totaltable_div">
-          <p style="font:  14px gill sans;  text-align: center;height:400px;"> Please Enter Parameters </p>
+      <div class="row">
+        <div>
+          <div id="totaltable_div">
+            <p style="font:  14px gill sans;  text-align: center;height:400px;"> Please Enter Parameters </p>
+          </div>
+        </div>
+        <div>
+          <div id="table_divPerf" style="height:80%;"></div>
         </div>
       </div>
-      <div>
-        <div id="table_divPerf" style="height:80%;"></div>
-      </div>
     </div>
+    <p id="ErrorMsgTxt" style="color: red"> </p>
+    <a id="btnSwitch" href="#">Show chart</a>
+    <a> </a>
+    <a id="Export" href="#">Download as csv (Chrome only)</a>
   </div>
-  <p id="ErrorMsgTxt" style = "color: red"> </p>
-  <a id="btnSwitch" href="#">Show chart</a>
-  <a id="Export" href="#">Download as csv (Chrome only)</a>
-  </div>
+
+</body>
+<script type="text/javascript"></script>
