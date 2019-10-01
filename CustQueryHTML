@@ -1,5 +1,9 @@
 <style>
 
+.form-group {
+  margin-bottom: 1px !important;
+}
+
 .filter .google-visualization-controls-categoryfilter-selected li {
   background-color: #C0C0C0;
   border: 2px solid white;
@@ -8,6 +12,14 @@
   font-size: 12px;
   color: rgb(0, 0, 0);
   position: relative;
+}
+
+.filter .goog-link-button {
+  cursor: pointer;
+  float: left;
+  margin-right: 5px;
+  color: #555555;
+  font-size: 12px;
 }
 
 
@@ -68,15 +80,10 @@ legend {
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
 </head>
 
 <body>
-  <div class="container" style="width: 92%;">
+  <div class="container" style="width: 100%;">
     <h2>Custom Performance Query</h2>
     <div class="form-group row">
       <label for="programmatic_control_divQuery" class="col-sm-2 col-form-label">
@@ -157,7 +164,6 @@ legend {
     </div>
     <p id="ErrorMsgTxt" style="color: red"> </p>
     <a id="btnSwitch" href="#">Show chart</a>
-    <a> </a>
     <a id="Export" href="#">Download as csv (Chrome only)</a>
   </div>
 
