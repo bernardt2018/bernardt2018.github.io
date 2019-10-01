@@ -1,12 +1,3 @@
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.2/screenfull.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-<script type="text/javascript">	
-
 // Load the Visualization API and the corechart package.
 google.charts.load('current', {
   'packages': ['corechart', 'geochart', 'controls', 'table'],
@@ -817,6 +808,7 @@ function Init2() {
             $('.checkbox-freq').not(this).prop('checked', false);
           })
 
+
           //have to use own includes function due to incompaitibility with IE
           function includesAlt(container, value) {
             var returnValue = false;
@@ -864,7 +856,7 @@ function Init2() {
           var optionsTotal = {
             headerCell: 'noHeader',
             showRowNumber: false,
-            width: '96%',
+            width: '100%',
             height: '80%',
             allowHtml: true,
             cssClassNames: {
@@ -875,20 +867,40 @@ function Init2() {
           var optionsPeriodicTable = {
             headerCell: 'noHeader',
             showRowNumber: false,
-            width: '96%',
+            width: '100%',
             height: '300px',
             allowHtml: true,
             cssClassNames: {
               headerCell: 'googleHeaderCell'
-            }
+            },
+            chartArea: {
+              left: 30,
+              right: 30,
+            },
           }
+
+          var PortDataStartRows = []
+          var PortDataStartDates = []
+          var PortNameArray = []
+          var LastDate = new Date() // new blank date, latest date is set after data load
+          var Last12MDate = new Date() // new blank date, 12 month before data end set after data load
+
 
           var DataA = $.csv.toArrays(csvStringCust, {
             onParseValue: $.csv.hooks.castToScalar
           });
 
+          // latest available date
+          var LastDateString = DataA[DataA.length - 1][0] //pulls out date on last row
+          var year = LastDateString.substring(LastDateString.length - 4, LastDateString.length)
+          var day = LastDateString.substring(0, 2)
+          var month = LastDateString.substring(3, 5) - 1
+          LastDate = new Date(year, month, day)
+
+          //12 months before latest available date
+          Last12MDate = new Date(LastDate.getFullYear() - 1, LastDate.getMonth(), LastDate.getDate())
+
           //need to find the starting row positons of data. Assumes not uniform
-          var PortDataStartRows = []
           for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
 
             //returns a column of data for a given portfolio
@@ -902,7 +914,8 @@ function Init2() {
               ColRow++;
             }
             while (DataCol[ColRow] == null);
-            PortDataStartRows.push(ColRow)
+            PortDataStartRows.push(ColRow) //first row of data for each portfolio
+            PortDataStartDates.push(DataA[ColRow][0]) //date of first data for each portfolio
 
           }
           var totaltable = new google.visualization.Table(document.getElementById('totaltable_div'));
@@ -924,13 +937,11 @@ function Init2() {
 
           //formats the periodic tableredu
           var formatterPercent = new google.visualization.NumberFormat({
-            pattern: '#,###0.0%',
+            pattern: '#,###%',
             negativeColor: 'red'
           });
 
-
           //creates array of portfolio names
-          var PortNameArray = []
           var TempArray = []
           TempArray[0] = 'no'
           TempArray[1] = 'name'
@@ -996,7 +1007,6 @@ function Init2() {
             PeriodicTableChartDrawn = true // do stuff when the chart is done drawing
           });
 
-
           programmaticFilterBar.draw()
 
           $('#submitQRY').on('click', function() { ///goes once create table button is clicked
@@ -1019,7 +1029,7 @@ function Init2() {
             var DateStrtTemp = $('#startDate').val() //retreives	dates from date pickers
             var DateEndTemp = $('#dateEnd').val()
             var StartParts = DateStrtTemp.split("/");
-            var StartMonth = StartParts[0] - 1
+            var StartMonth = StartParts[0] - 1 //TEMP///////////////////////////////////////////
             var StartYear = StartParts[1]
             var EndParts = DateEndTemp.split("/");
             var EndMonth = EndParts[0] - 1
@@ -1043,13 +1053,13 @@ function Init2() {
               }
             }
 
-            //checks whether the entered end date is too late so is undefined
+            //checks whether the entered start and end date is too late or too early so is undefined
             if (typeof EndRow === "undefined") {
               alert("Please enter earlier end date");
-              //  $("#table_divPerf").empty()
-              //  $("#table_divPerf").append( "<p>Please enter earlier end date</p>" );
             }
-
+            if (typeof StartRow === "undefined") {
+              alert("Please enter later start date");
+            }
 
             //moves start row down if first available row is > date row
             for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
@@ -1067,26 +1077,23 @@ function Init2() {
             var ActStartparts = DataA[StartRow][0].split("/");
             var ActStartDate = new Date(ActStartparts[2], ActStartparts[1] - 1, ActStartparts[0])
 
-
-
             var ActEndparts = DataA[EndRow][0].split("/");
             var ActEndDate = new Date(ActEndparts[2], ActEndparts[1] - 1, ActEndparts[0])
 
-
+            $('#startDate').datepicker('setDate', new Date(ActStartDate.getFullYear(), ActStartDate.getMonth(), 1))
 
 
             var StartString = MonthArray[ActStartDate.getMonth()] + " " + ActStartDate.getFullYear()
             var EndString = MonthArray[ActEndDate.getMonth()] + " " + ActEndDate.getFullYear()
 
-            $("#ErrorMsgTxt").text('Data range: end of ' + StartString + " to end of " + EndString);
+            $("#ErrorMsgTxt").text('Data range: ' + StartString + " to " + EndString);
 
             //loops accross each of the portfolios in the array and does the return calculation
             var p1Port = []
             var p2Port = []
             var ReturnPort = []
             var PortsWInsufficentData = [] //list of portfolios without enough data
-           ReturnPort[0] = ['Portfolio', 'Cumultative Return: ', 'Annualised Return:']
-
+            ReturnPort[0] = ['Portfolio', 'Cumultative Return: ', 'Annualised Return:'] /// + DataA[StartRow][0] + " to: " + DataA[EndRow][0]]
             var outCounter = 1
             for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
 
@@ -1095,14 +1102,14 @@ function Init2() {
               //checks if portfolio is in the portfolios to show list. If not, data not searched for.
               if (includesAlt(PortfoliosToShow, PortLabel) == 1) {
                 var TempArray = []
-                var  NoPeriods = (EndRow - StartRow)//+1 // number of months
+
                 p1Port[PortNo - 1] = DataA[StartRow][PortNo] //price 1
                 p2Port[PortNo - 1] = DataA[EndRow][PortNo] // price 2
 
+                var NoPeriods = EndRow - StartRow // number of months
                 TempArray[0] = PortLabel //label
                 TempArray[1] = p2Port[PortNo - 1] / p1Port[PortNo - 1] - 1 //return
-                TempArray[2] = Math.pow((p2Port[PortNo - 1] / p1Port[PortNo - 1]),(12/NoPeriods)) - 1 //return
-        
+                TempArray[2] = Math.pow((p2Port[PortNo - 1] / p1Port[PortNo - 1]), (12 / NoPeriods)) - 1 //return
 
                 ReturnPort[outCounter] = TempArray
                 outCounter = outCounter + 1
@@ -1220,7 +1227,6 @@ function Init2() {
                         return acc //do notthing if the index = 0 (i.e. the header row)
                       }
                     }, initValue);
-
                     CleanedSubsetArray[CleanOutRow].push(sum - 1)
                   }
                   CleanOutRow++
@@ -1245,7 +1251,6 @@ function Init2() {
                 formatterPercent.format(PeriodicData, i); // Apply formatter to second column
                 // PeriodicDataWidths.push(PeriodicData.getProperty(0, 0, 'style', 'width:80px'));
               }
-
 
               PeriodicData.setColumnProperty(0, 'type', 'string')
               PeriodicData.setProperty(0, 0, 'style', 'width:80px');
@@ -1324,60 +1329,90 @@ function Init2() {
               LabelString = LabelString + TotalData.getColumnLabel(i) + ","
             }
             var str1 = LabelString + ",\n"
+
+            // var str1 = "Date,Prop,Level,Return(%),\n" //CSV headers followed by /n which is a new line
             var res = str1.concat(csvFormattedDataTable);
+
+            // var totalString = []
+            //for (i = 1; i < TotalData.getNumberOfColumns(); i++) {
+            //totalString = "\n" + TotalData.getValue(0, 0) + ",,," + TotalData.getValue(0, 1) + "" 
+            //}
+            //writes the total to the CSV
+            //var res2 = res.concat(totalString); //concatenates last two CSV strings together
             var encodedUri = 'data:application/csv;charset=utf-8,' + encodeURIComponent(res);
             this.href = encodedUri;
             this.download = 'table-data.csv';
             this.target = '_blank';
           });
 
-          var UICustTabletab = document.getElementById("ui-id-5");
+          $('.date-picker').datepicker({
+            dateFormat: "mm/yy",
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            maxDate: "-1d",
+            onClose: function(dateText, inst) {
+              var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+              var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+              $(this).datepicker('setDate', new Date(year, month, 1)).trigger('change');
+              $('.date-picker').focusout() //Added to remove focus from datepicker input box on selecting dat
+            },
+            beforeShow: function(input, inst) {
+              inst.dpDiv.addClass('month_year_datepicker')
+
+              //if the date is selected
+              var datestr = $(this).val() //current value of the datepicker
+              if (datestr.length > 0) {
+                year = datestr.substring(datestr.length - 4, datestr.length);
+                month = datestr.substring(0, 2);
+                $(this).datepicker('option', 'defaultDate', new Date(year, month - 1, 1));
+                $(this).datepicker('setDate', new Date(year, month - 1, 1));
+                $(".ui-datepicker-calendar").hide();
+              } else {
+                $(this).datepicker('option', 'defaultDate', LastDate);
+              }
+            },
+          })
+
+          //DEALS WITH DATE QUICK SELECT
+          $("#12MBttn").click(function() {
+            $("#startDate").datepicker('setDate', Last12MDate)
+            $("#dateEnd").datepicker('setDate', LastDate)
+          });
+
+          //on click of maximum button
+          $("#MaxBttn").click(function() {
+            var ActiveInceptionDates = []
+            var PortNo = []
+
+            //finds the inception dates for the selected portfolios, finds the maximum date accross multiple portfolios
+            if (PortfoliosToShow.length == 0) {
+              alert("Please select proposition(s)")
+            } else {
+              for (PortNo = 1; PortNo < PortNameArray.length; PortNo++) {
+                var PortLabel = PortNameArray[PortNo][1]
+                if (includesAlt(PortfoliosToShow, PortLabel) == 1) {
+                  var datestr = PortDataStartDates[PortNo]
+                  var year = datestr.substring(datestr.length - 4, datestr.length)
+                  var day = datestr.substring(0, 2)
+                  var month = datestr.substring(3, 5) - 1
+                  ActiveInceptionDates.push(new Date(year, month, day))
+                }
+              }
+              var maxDate = new Date(Math.max.apply(null, ActiveInceptionDates)); //takes the maximum of the several inception dates
+              $("#startDate").datepicker('setDate', maxDate) //sets the maximum start date
+              $("#dateEnd").datepicker('setDate', LastDate)
+            }
+          });
+
+          $("#YTDBttn").click(function() {
+            var CurrentDate = new Date()
+            $("#startDate").datepicker('setDate', new Date(CurrentDate.getFullYear() - 1, 11, 1))
+            $("#dateEnd").datepicker('setDate', LastDate)
+          });
 
         })
       })
     })
   })
 }
-
-
-$(function() {
-  $('.date-picker').datepicker({
-    dateFormat: "mm/yy",
-    changeMonth: true,
-    changeYear: true,
-    showButtonPanel: true,
-  //  maxDate: "-1d",
-    onClose: function(dateText, inst) {
-
-
-      function isDonePressed() {
-        return ($('#ui-datepicker-div').html().indexOf('ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all ui-state-hover') > -1);
-      }
-
-      if (isDonePressed()) {
-        var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-        var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-        $(this).datepicker('setDate', new Date(year, month, 1)).trigger('change');
-
-        $('.date-picker').focusout() //Added to remove focus from datepicker input box on selecting date
-      }
-    },
-    beforeShow: function(input, inst) {
-
-      inst.dpDiv.addClass('month_year_datepicker')
-
-      if ((datestr = $(this).val()).length > 0) {
-        year = datestr.substring(datestr.length - 4, datestr.length);
-        month = datestr.substring(0, 2);
-        $(this).datepicker('option', 'defaultDate', new Date(year, month - 1, 1));
-        $(this).datepicker('setDate', new Date(year, month - 1, 1));
-
-        $(".ui-datepicker-calendar").hide();
-      }
-    }
-  })
-});
-
-
-
-</script>
