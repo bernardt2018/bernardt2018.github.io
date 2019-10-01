@@ -1355,35 +1355,6 @@ function Init2() {
             this.target = '_blank';
           });
 
-          $('.date-picker').datepicker({
-            dateFormat: "mm/yy",
-            changeMonth: true,
-            changeYear: true,
-            showButtonPanel: true,
-            maxDate: "-1d",
-            onClose: function(dateText, inst) {
-              var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
-              var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
-              $(this).datepicker('setDate', new Date(year, month, 1)).trigger('change');
-              $('.date-picker').focusout() //Added to remove focus from datepicker input box on selecting dat
-            },
-            beforeShow: function(input, inst) {
-              inst.dpDiv.addClass('month_year_datepicker')
-
-              //if the date is selected
-              var datestr = $(this).val() //current value of the datepicker
-              if (datestr.length > 0) {
-                year = datestr.substring(datestr.length - 4, datestr.length);
-                month = datestr.substring(0, 2);
-                $(this).datepicker('option', 'defaultDate', new Date(year, month - 1, 1));
-                $(this).datepicker('setDate', new Date(year, month - 1, 1));
-                $(".ui-datepicker-calendar").hide();
-              } else {
-                $(this).datepicker('option', 'defaultDate', LastDate);
-              }
-            },
-          })
-
           //DEALS WITH DATE QUICK SELECT
           $("#12MBttn").click(function() {
             $("#startDate").datepicker('setDate', Last12MDate)
@@ -1426,4 +1397,36 @@ function Init2() {
     })
   })
 }
+
+$('.date-picker').datepicker({
+            dateFormat: "mm/yy",
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+            maxDate: "-1d",
+            onClose: function(dateText, inst) {
+              var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+              var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+              $(this).datepicker('setDate', new Date(year, month, 1)).trigger('change');
+              $('.date-picker').focusout() //Added to remove focus from datepicker input box on selecting dat
+            },
+            beforeShow: function(input, inst) {
+              inst.dpDiv.addClass('month_year_datepicker')
+
+              //if the date is selected
+              var datestr = $(this).val() //current value of the datepicker
+              if (datestr.length > 0) {
+                year = datestr.substring(datestr.length - 4, datestr.length);
+                month = datestr.substring(0, 2);
+                $(this).datepicker('option', 'defaultDate', new Date(year, month - 1, 1));
+                $(this).datepicker('setDate', new Date(year, month - 1, 1));
+                $(".ui-datepicker-calendar").hide();
+              } else {
+                $(this).datepicker('option', 'defaultDate', LastDate);
+              }
+            },
+          })
+
+
+
 </script>	
