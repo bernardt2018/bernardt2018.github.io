@@ -1,0 +1,1383 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/screenfull.js/3.3.2/screenfull.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">	
+
+// Load the Visualization API and the corechart package.
+google.charts.load('current', {
+  'packages': ['corechart', 'geochart', 'controls', 'table'],
+  'mapsApiKey': 'AIzaSyDMPu2LT4-hotd6TzQcSiHuQiiXPX6rtcM'
+});
+
+// Set a callback to run when the Google Visualization API is loaded.
+google.charts.setOnLoadCallback(Init2);
+
+function Init2() {
+  $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/AllCountries6.csv", function(csvString1) {
+
+    $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/MarketReturns.csv", function(csvString2) {
+
+      $.get("http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/RelativePerformance.csv", function(csvString3) {
+
+        $.get('http://intranet.wealth.rbsgrp.net/pands/investanalytics/Documents/CustomQry.csv', function(csvStringCust) {
+
+          var formatter = new google.visualization.NumberFormat();
+
+          // transform the CSV string into a 2-dimensional array
+          var RelativeData = $.csv.toArrays(csvString3, {
+            onParseValue: $.csv.hooks.castToScalar
+          });
+
+          var DataABar = $.csv.toArrays(csvString2, {
+            onParseValue: $.csv.hooks.castToScalar
+          });
+
+          var DataA = $.csv.toArrays(csvString1, {
+            onParseValue: $.csv.hooks.castToScalar
+          });
+
+          // Create the data table.
+          var dashboardBar = new google.visualization.Dashboard(
+            document.getElementById('programmatic_dashboard_divBar'));
+
+          var programmaticFilterBar = new google.visualization.ControlWrapper({
+            'controlType': 'CategoryFilter',
+            'containerId': 'programmatic_control_divBar',
+            'options': {
+              'filterColumnIndex': 0,
+              'ui': {
+                'labelStacking': 'vertical',
+                'label': '',
+                'caption': 'Select Asset Class',
+                'allowTyping': true,
+                'allowMultiple': true,
+                'cssClass': 'filter',
+                'sortValues': 'true'
+              }
+            }
+          });
+
+
+
+          var dataBar = google.visualization.arrayToDataTable(DataABar); //YTD = 0
+
+          var chartBar = new google.visualization.ChartWrapper({
+            'chartType': 'ColumnChart',
+            'containerId': 'programmatic_chart_divBar',
+            'options': {
+              'pieSliceText': 'label',
+              'fontName': 'Gill Sans',
+              'colors': ['#838c83', '#ffe075', '#006084', '#bde3dc', '#006964'],
+              chartArea: {
+                left: 50,
+                top: 50,
+                bottom: 200,
+                width: "80%",
+                height: "74%"
+              },
+              vAxis: {
+                format: '#.##',
+                baseline: 0,
+                title: "Return %"
+              },
+              tooltip: {
+                isHtml: true
+              },
+              hAxis: {
+                slantedText: true,
+                slantedTextAngle: 90
+              },
+              animation: {
+                duration: 1000,
+                easing: 'out',
+                startup: false
+              },
+            }
+          });
+
+          chartBar.setView({
+            'columns': [0, 1], // GBP initial
+          })
+
+
+          function GetAssetClassBarToolTip(dt, row) {
+            var Code = dt.getValue(row, 0);
+            var totalreturn = dt.getFormattedValue(row, 1);
+            return '<div style="width:120px"><p style="position:relative; bottom: 35px;">Return (%): ' + totalreturn + '</p></div>';
+          }
+
+
+
+          // starting columns and rows: for time horizon and CCY
+          var filterdataBar = new google.visualization.DataView(dataBar)
+          var aBar = dataBar.getFilteredRows([{
+            column: 1,
+            value: '1M'
+
+          }])
+          filterdataBar.setRows(aBar)
+          filterdataBar.setColumns([0, 2, 3, 4, 5, 6])
+          dashboardBar.bind(programmaticFilterBar, chartBar);
+
+          // MAP /// 
+          //sets default month to date)
+          var initState = {
+            selectedValues: []
+          };
+          initState.selectedValues.push('Equity');
+          var ActiveMapAsset = "Equity"
+          var ActiveTime = "1M"
+
+          var data = google.visualization.arrayToDataTable(DataA);
+
+          var programmaticFilterMap = new google.visualization.ControlWrapper({
+            'controlType': 'CategoryFilter',
+            'containerId': 'programmatic_control_Map',
+            'dataTable': data,
+            'options': {
+              'filterColumnIndex': 3,
+              'ui': {
+                'labelStacking': 'horizontal',
+                'label': '',
+                'allowTyping': false,
+                'caption': 'Choose Asset Class...',
+                'cssClass': 'filter',
+                'allowMultiple': false
+              }
+            },
+            state: initState // sets the initial map to equities
+          });
+
+          formatter.format(data, 2); // Apply formatter to second column
+
+          //creates the country tooltip
+          function GetFlagToolTip(dt, row) {
+            var Code = dt.getValue(row, 4);
+            var totalreturn = dt.getFormattedValue(row, 2);
+            return '<div style="width:120px"><img src="https://www.countryflags.io/' + Code + '/flat/64.png" style="position:relative; bottom: 20px;"></b><p style="position:relative; bottom: 35px;">Return (%): ' + totalreturn + '</p></div>';
+          }
+
+          // this filters the data to MTD. Leaves all other columns in place
+          var filterdata = new google.visualization.DataView(data)
+
+          var ChartRange = filterdata.getColumnRange(1) //gets the range of values in the column for formatting
+
+          var GeoChart = new google.visualization.ChartWrapper({
+            'chartType': 'GeoChart',
+            'containerId': 'programmatic_chart_divMap',
+            'dataTable': filterdata,
+            'options': {
+              backgroundColor: '#b1e3f9',
+              tooltip: {
+                isHtml: true
+              },
+              'legend': {
+                numberFormat: '#.##'
+              },
+              datalessRegionColor: 'white',
+              defaultColor: '#f5f5f5',
+              animation: {
+                duration: 1000,
+                easing: 'out',
+                startup: false
+              },
+            }
+          });
+
+          GeoChart.setView({
+            'columns': [0, 1, 3], // chart view is only the country names and returns
+          })
+
+          var Mapbutton1 = document.getElementById("b1Map");
+          var Mapbutton2 = document.getElementById("b2Map");
+          var Mapbutton3 = document.getElementById("b3Map");
+
+          //function runs on button click
+          function drawMapChart() {
+            //checks whether bonds or equitiues are selected
+            Mapbutton1.disabled = true; // Disabling the button while the chart is drawing.
+            Mapbutton2.disabled = true;
+            Mapbutton3.disabled = true;
+            google.visualization.events.addListener(GeoChart, 'ready',
+              function() {
+                Mapbutton1.disabled = false;
+                Mapbutton2.disabled = false;
+                Mapbutton3.disabled = false;
+              });
+            // changes the min/max on the legend
+            var a = data.getFilteredRows([{
+              column: 1,
+              value: ActiveTime
+            }, {
+              column: 3,
+              value: ActiveMapAsset
+            }])
+            filterdata.setRows(a)
+            filterdata.setColumns([0, 2, 3, {
+              type: 'string',
+              role: 'tooltip',
+              properties: {
+                html: true
+              },
+              calc: GetFlagToolTip,
+            }]) // data set is country label, returns, and asset class
+
+            ChartRange = filterdata.getColumnRange(1)
+
+            var ChartRangeMin = -0.02 //ChartRangeMin mus be less than -0.00001
+            if (ChartRange.min >= 0) {
+              ChartRangeMin = -0.0001
+            } else {
+              ChartRangeMin = ChartRange.min
+            }
+
+            GeoChart.setOptions({
+              'colorAxis': {
+                colors: ['red', '#ffd6d6', '#d6ffe6', 'green'],
+                values: [ChartRangeMin, -0.00001, 0.001, ChartRange.max]
+              },
+              backgroundColor: '#b1e3f9',
+              'legend': {
+                numberFormat: '#.##'
+              },
+              tooltip: {
+                isHtml: true
+              },
+              datalessRegionColor: 'white',
+              defaultColor: '#f5f5f5'
+            });
+            GeoChart.draw()
+            programmaticFilterMap.draw();
+          }
+
+          drawMapChart()
+
+          // when we change asset class we have to change the min and max for the map legend
+          google.visualization.events.addListener(programmaticFilterMap, 'statechange', function() {
+            var state = programmaticFilterMap.getState();
+
+            var ActiveMapAssetTemp = state.selectedValues; //sets active map asset (bonds or equity)
+            ActiveMapAsset = ActiveMapAssetTemp.toString()
+            drawMapChart(); //redraws the map
+
+          });
+
+
+          //code for the tabs
+          var charttab1var = document.getElementById("chartab1");
+          var charttab2var = document.getElementById("chartab2");
+
+          charttab1var.onclick = function() {
+            var charttabcontentvar = document.getElementById("AssetClassChart"); //hides bar content
+            charttabcontentvar.style.display = "none";
+
+            var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
+            tablinks[0].className = tablinks[0].className.replace(" active", "");
+            tablinks[1].className = tablinks[1].className.replace(" active", "");
+
+            document.getElementById("Map").style.display = "block"; //unhides bar content
+            document.getElementById("chartab1").className += " active"; // makes button two look activated
+            charttab2var.disabled = true;
+            charttab1var.disabled = true;
+            drawMapChart()
+            charttab2var.disabled = false;
+            charttab1var.disabled = false;
+          }
+
+          charttab2var.onclick = function() {
+            var charttabcontentvar = document.getElementById("Map"); //hides map content
+            charttabcontentvar.style.display = "none";
+
+            var tablinks = document.getElementsByClassName('charttablinks'); //unactivates map link
+            tablinks[0].className = tablinks[0].className.replace(" active", "");
+            tablinks[1].className = tablinks[1].className.replace(" active", "");
+
+            document.getElementById("AssetClassChart").style.display = "block"; //unhides bar content
+            document.getElementById("chartab2").className += " active"; // makes button two look activated
+            charttab2var.disabled = true;
+            charttab1var.disabled = true;
+            dashboardBar.draw(filterdataBar);
+            charttab2var.disabled = false;
+            charttab1var.disabled = false;
+          }
+
+          document.getElementsByClassName('charttablinks')[0].click() //activates tab 1
+
+          //Area covers button interactions
+          var button1 = document.getElementById("b1Bar");
+          var button2 = document.getElementById("b2Bar");
+          var button3 = document.getElementById("b3Bar");
+          var buttoncolour = "#555555"
+
+          //function runs on button click
+          function drawBarChart() {
+            // Disabling the button while the chart is drawing.
+            button1.disabled = true;
+            button2.disabled = true;
+            button3.disabled = true;
+            google.visualization.events.addListener(dashboardBar, 'ready',
+              function() {
+                button1.disabled = false;
+                button2.disabled = false;
+                button3.disabled = false;
+              });
+
+            dashboardBar.draw(filterdataBar);
+          }
+
+          //runs if the 1M button is clicked
+          button1.onclick = function() {
+            button1.style.background = buttoncolour
+            button1.style.color = "white";
+            button2.style.background = "#F5A623"
+            button3.style.background = "#F5A623"
+            filterdataBar.setRows(dataBar.getFilteredRows([{
+              column: 1,
+              value: '1M' // MTD is the starting filter
+            }]))
+            drawBarChart();
+            button1.disabled = true;
+          };
+
+          //runs if the YTD button is clicked
+          button2.onclick = function() {
+            button2.style.background = buttoncolour
+            button2.style.color = "white";
+            button1.style.background = "#F5A623"
+            button3.style.background = "#F5A623"
+            filterdataBar.setRows(dataBar.getFilteredRows([{
+              column: 1,
+              value: 'YTD' // yTD is the starting filter
+            }]))
+            drawBarChart();
+            button2.disabled = true;
+          };
+
+          // runs if YTD is clicked
+          button3.onclick = function() {
+            button3.style.background = buttoncolour
+            button3.style.color = "white";
+            button1.style.background = "#F5A623"
+            button2.style.background = "#F5A623"
+            filterdataBar.setRows(dataBar.getFilteredRows([{
+              column: 1,
+              value: '12M' // 12M 
+            }]))
+            drawBarChart();
+            button3.disabled = true;
+          };
+
+          // sets default button colours
+          button1.style.background = buttoncolour
+          button1.style.color = "white";
+          button2.style.background = "#F5A623"
+          button3.style.background = "#F5A623"
+
+          // creates tick box variables
+          var GBPCheckBox = document.getElementById("GBPCheck");
+          var USDCheckBox = document.getElementById("USDCheck");
+          var EURCheckBox = document.getElementById("EURCheck");
+          var CHFCheckBox = document.getElementById("CHFCheck");
+          var LCCheckBox = document.getElementById("LCCheck");
+
+          GBPCheckBox.checked = true //by default GBP is returns
+
+          //the function which is run if a tick box 
+          //references should refer to the view which has time (second column in Data) removed
+          function CheckWhatsTicked() {
+            var ColArray = [0]
+
+            if (USDCheckBox.checked) {
+              ColArray.push(2) //adds US colum reference to the collum re array if ticked
+            }
+            if (GBPCheckBox.checked) {
+              ColArray.push(1) //adds GBP colum reference to the collum re array if ticked
+            }
+            if (EURCheckBox.checked) {
+              ColArray.push(3) //adds EU colum reference to the collum re array if ticked
+            }
+            if (CHFCheckBox.checked) {
+              ColArray.push(4) //adds CHF colum reference to the collum re array if ticked
+            }
+            if (LCCheckBox.checked) {
+              ColArray.push(5) //adds LC colum reference to the collum re array if ticked
+            }
+            if (ColArray.length == 1) {
+              ColArray.push(1)
+            }
+            chartBar.setView({
+              'columns': ColArray,
+            })
+            drawBarChart();
+          }
+
+          // runs functions if USD tick box is changed
+          USDCheckBox.onchange = function() {
+            CheckWhatsTicked()
+          };
+          // runs functions if GBP tick box is changed
+          GBPCheckBox.onchange = function() {
+            CheckWhatsTicked()
+          };
+          // runs functions if EUR tick box is changed
+          EURCheckBox.onchange = function() {
+            CheckWhatsTicked()
+          };
+          // runs functions if CHF tick box is changed
+          CHFCheckBox.onchange = function() {
+            CheckWhatsTicked()
+          };
+          // runs functions if LC tick box is changed
+          LCCheckBox.onchange = function() {
+            CheckWhatsTicked()
+          };
+
+
+          //runs if the 1M button is clicked
+          Mapbutton1.onclick = function() {
+            Mapbutton1.style.background = buttoncolour
+            Mapbutton1.style.color = "white";
+            Mapbutton2.style.background = "#F5A623"
+            Mapbutton3.style.background = "#F5A623"
+            ActiveTime = "1M"
+            drawMapChart();
+            Mapbutton1.disabled = true;
+          };
+
+          //runs if the YTD button is clicked
+          Mapbutton2.onclick = function() {
+            Mapbutton2.style.background = buttoncolour
+            Mapbutton2.style.color = "white";
+            Mapbutton1.style.background = "#F5A623"
+            Mapbutton3.style.background = "#F5A623"
+            ActiveTime = "YTD"
+            drawMapChart();
+            Mapbutton2.disabled = true;
+          };
+
+          // runs if 12M is clicked
+          Mapbutton3.onclick = function() {
+            Mapbutton3.style.background = buttoncolour
+            Mapbutton3.style.color = "white";
+            Mapbutton1.style.background = "#F5A623"
+            Mapbutton2.style.background = "#F5A623"
+            ActiveTime = "12M"
+            drawMapChart();
+            Mapbutton3.disabled = true;
+          };
+
+          // sets default button colours
+          Mapbutton1.style.background = buttoncolour
+          Mapbutton1.style.color = "white";
+          Mapbutton2.style.background = "#F5A623"
+          Mapbutton3.style.background = "#F5A623"
+
+          // BUBBLE CHART
+          var dashboardBubble = new google.visualization.Dashboard(
+            document.getElementById('programmatic_dashboard_div'));
+
+          var programmaticFilterBubble = new google.visualization.ControlWrapper({
+            'controlType': 'CategoryFilter',
+            'containerId': 'programmatic_control_div',
+            'options': {
+              'filterColumnLabel': 'Group',
+              width: 100,
+              'ui': {
+                'labelStacking': 'vertical',
+                'selectedValuesLayout': ' aside',
+                'caption': 'Select Product',
+                'cssClass': 'filter',
+                'label': '',
+                'allowTyping': 'false'
+              }
+            }
+          });
+
+          var dataBubble = google.visualization.arrayToDataTable(RelativeData)
+          var filterdataBubble = new google.visualization.DataView(dataBubble)
+          var aBubble = dataBubble.getFilteredRows([{
+            column: 5,
+            value: 'MTD'
+          }])
+          filterdataBubble.setRows(aBubble)
+          filterdataBubble.setColumns([0, 1, 2, 3, 4]) // data set is ID, SAA, ARC,Group, AUM
+
+          //this sections adds 25% to maximum/minimum values in chart to ensure bubble fits in plot area
+          var Xmax = filterdataBubble.getColumnRange(1).max
+          var Xmin = filterdataBubble.getColumnRange(1).min
+          var Ymax = filterdataBubble.getColumnRange(2).max
+          var Ymin = filterdataBubble.getColumnRange(2).min
+
+          var PaddingConstant = 0.33
+          var HorizontalPaddingConstant = 0.075
+
+          //this has to be in the order of input data. Ensures color is the same
+          var ColorChoices = []
+          var seriesOrder = ['CMAF Global', 'CMAF UK', 'DPS', 'Opes GBP', 'PPF', 'TPS GBP']
+          var AllColors = ['#3366CC', '#DC3912', '#990099', '#FF9900', '#0099C6', '#109618']
+
+          var chartBubble = new google.visualization.ChartWrapper({
+            'chartType': 'BubbleChart',
+            'containerId': 'programmatic_chart_div',
+            'options': {
+              title: 'Performance Relative to Industry and Benchmark',
+              'fontName': 'Gill Sans',
+              hAxis: {
+                title: '(%) Relative to BMK',
+                minorGridlines: {
+                  color: 'transparent'
+                },
+                format: '#.##',
+                viewWindow: {
+                  min: (Math.floor(Xmin * 10) / 10) - HorizontalPaddingConstant,
+                  max: (Math.ceil(Xmax * 10) / 10) + HorizontalPaddingConstant,
+                  //viewWindowMode: 'explicit',
+                }
+              },
+              vAxis: {
+                title: '(%) Relative to Industry',
+                minorGridlines: {
+                  color: 'transparent'
+                },
+
+                format: '#.##',
+                viewWindow: {
+                  min: (Math.floor(Ymin * 10) / 10) - PaddingConstant,
+                  max: (Math.ceil(Ymax * 10) / 10) + PaddingConstant,
+                  //viewWindowMode: 'explicit',
+                }
+              },
+              bubble: {
+                textStyle: {
+                  fontSize: 11,
+                  bold: 'false',
+                  auraColor: 'none'
+                }
+              },
+              animation: {
+                duration: 1000,
+                easing: 'out',
+                "startup": false
+              },
+              chartArea: {
+                left: 60,
+                top: 50,
+                width: "82%",
+                height: "82%"
+              }
+            }
+          });
+
+
+          chartBubble.setOption('colors', AllColors) //sets default colours for chart
+
+          var button1Bubble = document.getElementById("Bubbleb1");
+          var button2Bubble = document.getElementById("Bubbleb2");
+          var button3Bubble = document.getElementById("Bubbleb3");
+
+          function drawChartBubble() {
+            button1Bubble.disabled = true; // Disabling the button while the chart is drawing.
+            button2Bubble.disabled = true;
+            button3Bubble.disabled = true;
+            google.visualization.events.addListener(chartBubble, 'ready',
+              function() {
+                button1Bubble.disabled = false;
+                button2Bubble.disabled = false;
+                button3Bubble.disabled = false;
+              });
+
+            // finds min max along each axis
+            Xmax = chartBubble.getDataTable().getColumnRange(1).max
+            Xmin = chartBubble.getDataTable().getColumnRange(1).min
+            Ymax = chartBubble.getDataTable().getColumnRange(2).max
+            Ymin = chartBubble.getDataTable().getColumnRange(2).min
+            //Math.floor(Xmin*10)/10) rounds down to nearest 0.10
+
+            var testmax = (Math.ceil(Xmax * 10) / 10) + HorizontalPaddingConstant
+            if (testmax < 0) { //makes sure xaxis max is a minimim of zero
+              testmax = 0
+            }
+
+            var testmin = (Math.floor(Xmin * 10) / 10) - HorizontalPaddingConstant
+            if (testmin > 0) { //makes sure xaxis min is zero if it would otherwise be greater than zero
+              testmin = 0
+            }
+
+            var testmaxVert = (Math.ceil(Ymax * 10) / 10) + PaddingConstant
+            if (testmaxVert < 0) { //makes sure xaxis max is a minimim of zero
+              testmaxVert = 0
+            }
+
+            var testminVert = (Math.floor(Ymin * 10) / 10) - PaddingConstant
+            if (testminVert > 0) { //makes sure vaxis mi is a zero if it is greater than zero orignally
+              testminVert = 0
+            }
+
+
+            chartBubble.setOption('hAxis.viewWindow', {
+              min: testmin,
+              max: testmax
+            })
+            chartBubble.setOption('vAxis.viewWindow', {
+              min: testminVert,
+              max: testmaxVert,
+            })
+            dashboardBubble.draw(filterdataBubble);
+          }
+          //MT
+          button1Bubble.onclick = function() {
+            button1Bubble.style.background = buttoncolour
+            button1Bubble.style.color = "white";
+            button2Bubble.style.background = "#F5A623"
+            button3Bubble.style.background = "#F5A623"
+            filterdataBubble.setRows(dataBubble.getFilteredRows([{
+              column: 5,
+              value: 'MTD' // yTD is the starting filter
+            }]))
+            drawChartBubble();
+            button1Bubble.disabled = true;
+          };
+          // YTD
+          button2Bubble.onclick = function() {
+            button2Bubble.style.background = buttoncolour
+            button2Bubble.style.color = "white";
+            button1Bubble.style.background = "#F5A623"
+            button3Bubble.style.background = "#F5A623"
+            filterdataBubble.setRows(dataBubble.getFilteredRows([{
+              column: 5,
+              value: 'YTD' // yTD is the starting filter
+            }]))
+            drawChartBubble();
+            button2Bubble.disabled = true;
+          };
+          //3yr
+          button3Bubble.onclick = function() {
+            button3Bubble.style.background = buttoncolour
+            button3Bubble.style.color = "white";
+            button1Bubble.style.background = "#F5A623"
+            button2Bubble.style.background = "#F5A623"
+            filterdataBubble.setRows(dataBubble.getFilteredRows([{
+              column: 5,
+              value: '3yr' // 3yris the starting filter
+            }]))
+            drawChartBubble();
+            button3Bubble.disabled = true;
+          };
+
+          // startup behaviour
+          button1Bubble.disabled = true;
+          button1Bubble.style.background = buttoncolour
+          button1Bubble.style.color = "white";
+          button2Bubble.style.background = "#F5A623"
+          button3Bubble.style.background = "#F5A623"
+          dashboardBubble.bind(programmaticFilterBubble, chartBubble);
+          dashboardBubble.draw(filterdataBubble);
+
+          // redraw on window resize
+          $(window).resize(function() {
+            dashboardBubble.draw(filterdataBubble);
+            drawMapChart()
+            dashboardBar.draw(filterdataBar);
+          });
+
+          // redraw on connected tab click
+          var UIMarketReturntab = document.getElementById("ui-id-2");
+          UIMarketReturntab.onclick = function() {
+            if (document.getElementById("Map").style.display == "block") {
+              drawMapChart();
+            } else {
+              dashboardBar.draw(filterdataBar);
+            }
+          }
+
+          var UIOverviewtab = document.getElementById("ui-id-1");
+          UIOverviewtab.onclick = function() {
+            dashboardBubble.draw(filterdataBubble);
+          }
+
+          // full screen mode Bubble
+          var chartContainer = $('#programmatic_chart_div').get(0);
+          var DashboardContainer = $('#programmatic_dashboard_div').get(0);
+          $('#button1').click(function() {
+            if (screenfull.enabled) {
+              screenfull.request(DashboardContainer);
+
+              screenfull.on('change', function() {
+                if (screenfull.isFullscreen) {
+                  chartContainer.className = 'chart-full';
+                  DashboardContainer.className = 'dash-full';
+                } else {
+                  chartContainer.className = 'chart-normal';
+                  DashboardContainer.className = 'dash-normal';
+                }
+                dashboardBubble.draw(filterdataBubble);
+              });
+            }
+          })
+
+
+          // full screen mode Map
+          var chartContainerMapInner = $('#programmatic_chart_divMap').get(0);
+          var chartContainerMap = $('#Outer').get(0);
+          var DashboardContainerMap = $('#programmatic_dashboard_div_Map').get(0);
+          $('#buttonFS').click(function() {
+            if (screenfull.enabled) {
+              screenfull.request(DashboardContainerMap);
+
+              screenfull.on('change', function() {
+                if (screenfull.isFullscreen) {
+                  chartContainerMap.className = 'Mapchart-full';
+                  DashboardContainerMap.className = 'dash-full';
+                  chartContainerMapInner.className = 'MapchartInner-full';
+                } else {
+                  chartContainerMap.className = 'Mapchart-normal';
+                  DashboardContainerMap.className = 'dash-normal';
+                  chartContainerMapInner.className = 'MapchartInner-normal';
+                }
+                drawMapChart();
+              });
+            }
+          })
+
+
+
+
+          // sets the min max of each axis after a selection change
+          google.visualization.events.addListener(programmaticFilterBubble, 'statechange', function() {
+            // finds min max along each axis
+            Xmax = chartBubble.getDataTable().getColumnRange(1).max
+            Xmin = chartBubble.getDataTable().getColumnRange(1).min
+            Ymax = chartBubble.getDataTable().getColumnRange(2).max
+            Ymin = chartBubble.getDataTable().getColumnRange(2).min
+
+
+            var testmax = (Math.ceil(Xmax * 10) / 10) + HorizontalPaddingConstant
+            if (testmax < 0) { //makes sure xaxis max is a minimim of zero
+              testmax = 0
+            }
+
+            var testmin = (Math.floor(Xmin * 10) / 10) - HorizontalPaddingConstant
+            if (testmin > 0) { //makes sure xaxis min is zero if it would otherwise be greater than zero
+              testmin = 0
+            }
+
+            var testmaxVert = (Math.ceil(Ymax * 10) / 10) + PaddingConstant
+            if (testmaxVert < 0) { //makes sure vaxis max is a minimim of zero
+              testmaxVert = 0
+            }
+
+            var testminVert = (Math.floor(Ymin * 10) / 10) - PaddingConstant
+            if (testminVert > 0) { //makes sure vaxis mi is a zero if it is greater than zero orignally
+              testminVert = 0
+            }
+
+            chartBubble.setOption('hAxis.viewWindow', { //Math.floor(Xmin*10)/10) rounds down to nearest 0.10               
+              min: testmin,
+              max: testmax,
+            })
+
+            chartBubble.setOption('vAxis.viewWindow', {
+              min: testminVert,
+              max: testmaxVert,
+            })
+
+            ColorChoices = []
+
+            var state = programmaticFilterBubble.getState();
+
+            //checks whether each series is active. applies a consistent color to each series e.g. PPF always '#0099C6'
+            if (state.selectedValues.length > 0) {
+
+              for (var zz = 0; zz < seriesOrder.length; zz++) {
+
+                for (var i = 0; i < state.selectedValues.length; i++) {
+
+                  if (seriesOrder[zz] == state.selectedValues[i]) {
+                    ColorChoices.push(AllColors[zz]) //checks if a series is active at all, then applies that series' colour
+                  }
+                }
+              }
+
+            } else {
+              ColorChoices = AllColors
+            }
+
+            chartBubble.setOption('colors', ColorChoices)
+            dashboardBubble.draw(filterdataBubble);
+
+          });
+
+
+          //////////////////////CUSTOM PERFORMANCE TABLE/////////////////////////////////////
+          $('.checkbox-freq').on('change', function() {
+            $('.checkbox-freq').not(this).prop('checked', false);
+          })
+
+          //have to use own includes function due to incompaitibility with IE
+          function includesAlt(container, value) {
+            var returnValue = false;
+            var pos = container.indexOf(value);
+            if (pos >= 0) {
+              returnValue = true;
+            }
+            return returnValue;
+          }
+
+
+          var MonthArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+          var showChartDisplay = 'Show  Chart';
+          var showChart = 'Table'; //default start 
+          var PeriodicData = []
+          var optionsIn = {
+            'legend': 'top',
+            'fontName': 'Gill Sans',
+            'font-size': '6px',
+            //'colors': ['#838c83', '#ffe075', '#006084', '#bde3dc', '#006964'],
+            chartArea: {
+              left: 35,
+              bottom: 50,
+              top: 30,
+              right: 0,
+            },
+            'height': 300,
+            vAxis: {
+              format: '#,###%', //'#,###.00'
+              // baseline: 0
+            },
+            animation: {
+              duration: 1000,
+              easing: 'out',
+              startup: true
+            },
+            hAxis: {
+              type: 'category'
+
+            },
+            'lineWidth': 2
+          }
+          var PeriodicTableChartDrawn = false
+          var PortfoliosToShow = []
+          var optionsTotal = {
+            headerCell: 'noHeader',
+            showRowNumber: false,
+            width: '96%',
+            height: '80%',
+            allowHtml: true,
+            cssClassNames: {
+              headerCell: 'googleHeaderCell'
+            }
+          }
+
+          var optionsPeriodicTable = {
+            headerCell: 'noHeader',
+            showRowNumber: false,
+            width: '96%',
+            height: '300px',
+            allowHtml: true,
+            cssClassNames: {
+              headerCell: 'googleHeaderCell'
+            }
+          }
+
+          var DataA = $.csv.toArrays(csvStringCust, {
+            onParseValue: $.csv.hooks.castToScalar
+          });
+
+          //need to find the starting row positons of data. Assumes not uniform
+          var PortDataStartRows = []
+          for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
+
+            //returns a column of data for a given portfolio
+            var DataCol = DataA.map(function(value, index) {
+              return value[PortNo];
+            });
+
+            //loops down the column and looks for first non null row (i.e start point of data)
+            var ColRow = 1;
+            do {
+              ColRow++;
+            }
+            while (DataCol[ColRow] == null);
+            PortDataStartRows.push(ColRow)
+
+          }
+          var totaltable = new google.visualization.Table(document.getElementById('totaltable_div'));
+          // var PeriodicTable = new google.visualization.Table(document.getElementById('table_divPerf'));
+
+          var TotalData = new google.visualization.DataTable();
+          var PeriodicData = new google.visualization.DataTable();
+          var PeriodicTableChart = new google.visualization.ChartWrapper({
+            'chartType': 'Table',
+            'containerId': 'table_divPerf',
+            'options': {
+              cssClassNames: {
+                headerCell: 'googleHeaderCell'
+              }
+
+
+            }
+          })
+
+          //formats the periodic tableredu
+          var formatterPercent = new google.visualization.NumberFormat({
+            pattern: '#,###0.0%',
+            negativeColor: 'red'
+          });
+
+
+          //creates array of portfolio names
+          var PortNameArray = []
+          var TempArray = []
+          TempArray[0] = 'no'
+          TempArray[1] = 'name'
+          PortNameArray.push(TempArray)
+
+          for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
+            TempArray = []
+            TempArray[0] = PortNo
+            TempArray[1] = DataA[0][PortNo]
+            PortNameArray.push(TempArray)
+          }
+
+          var PortNameTable = google.visualization.arrayToDataTable(PortNameArray)
+          var MonthDateformatter = new google.visualization.DateFormat({
+            pattern: 'MMM YYYY'
+          });
+          var YearDateformatter = new google.visualization.DateFormat({
+            pattern: 'YYYY'
+          });
+          var programmaticFilterBar = new google.visualization.ControlWrapper({
+            'controlType': 'CategoryFilter',
+            'containerId': 'programmatic_control_divQuery',
+            'dataTable': PortNameTable,
+            'options': {
+              'filterColumnIndex': 1,
+              'width': 420,
+              'ui': {
+                'label': '',
+                'caption': 'Select Product',
+                'allowTyping': true,
+                'allowMultiple': true,
+                'cssClass': 'filter',
+                'sortValues': 'true'
+              }
+            }
+          });
+
+          function PerfFilter() {
+
+            var state = programmaticFilterBar.getState();
+
+            PortfoliosToShow = []
+
+            if (state.selectedValues.length > 0) {
+
+              //loops through each of the selected values in filter
+              for (var i = 0; i < state.selectedValues.length; i++) {
+                PortfoliosToShow.push(state.selectedValues[i])
+              }
+            } else {
+
+              //shows all if none selected in dropdown
+              var PortNo;
+              for (PortNo = 1; PortNo < PortNameArray.length; PortNo++) {
+                PortfoliosToShow.push(PortNameArray[PortNo][1])
+              }
+            }
+
+          }
+
+          google.visualization.events.addListener(programmaticFilterBar, 'statechange', PerfFilter);
+          google.visualization.events.addListener(PeriodicTableChart, 'ready', function() {
+            PeriodicTableChartDrawn = true // do stuff when the chart is done drawing
+          });
+
+
+          programmaticFilterBar.draw()
+
+          $('#submitQRY').on('click', function() { ///goes once create table button is clicked
+
+            //gets status of freq and periodic tixk boxes
+            var MonthFreq = $("#monthcheck").is(':checked')
+            var YearFreq = $("#yearcheck").is(':checked')
+            var HidePeriodcrFreq = $("#periodicCheck").is(':checked')
+
+            if (PeriodicTableChartDrawn == true && HidePeriodcrFreq == true) {
+              // PeriodicTableChart.clearChart()
+              button.innerText = 'Show Chart';
+              drawChart('Table');
+
+              $("#table_divPerf").empty();
+              PeriodicTableChartDrawn = false
+            }
+
+
+            var DateStrtTemp = $('#startDate').val() //retreives	dates from date pickers
+            var DateEndTemp = $('#dateEnd').val()
+            var StartParts = DateStrtTemp.split("/");
+            var StartMonth = StartParts[0] - 1
+            var StartYear = StartParts[1]
+            var EndParts = DateEndTemp.split("/");
+            var EndMonth = EndParts[0] - 1
+            var EndYear = EndParts[1]
+            var i
+            var StartRow
+            var EndRow
+
+            //finds start and end row in the array
+            for (i = 1; i < DataA.length; i++) {
+
+              var parts = DataA[i][0].split("/");
+              var TestDate = new Date(parts[2], parts[1] - 1, parts[0])
+
+              if (TestDate.getMonth() == StartMonth && TestDate.getFullYear() == StartYear) {
+                var StartRow = i
+              }
+
+              if (TestDate.getMonth() == EndMonth && TestDate.getFullYear() == EndYear) {
+                var EndRow = i
+              }
+            }
+
+            //checks whether the entered end date is too late so is undefined
+            if (typeof EndRow === "undefined") {
+              alert("Please enter earlier end date");
+              //  $("#table_divPerf").empty()
+              //  $("#table_divPerf").append( "<p>Please enter earlier end date</p>" );
+            }
+
+
+            //moves start row down if first available row is > date row
+            for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
+              var PortLabel = DataA[0][PortNo]
+              var FirstAvailableDataRow = PortDataStartRows[PortNo - 1] //the first row of non null data for t
+              //checks for those included only 
+
+
+              if (FirstAvailableDataRow > StartRow && includesAlt(PortfoliosToShow, PortLabel) == 1) {
+                StartRow = FirstAvailableDataRow //resets the start row if not enough data for one of the funds'
+              }
+            }
+
+            //sets actual start and end dates (dute to data availability). displayed in the error string
+            var ActStartparts = DataA[StartRow][0].split("/");
+            var ActStartDate = new Date(ActStartparts[2], ActStartparts[1] - 1, ActStartparts[0])
+
+
+
+            var ActEndparts = DataA[EndRow][0].split("/");
+            var ActEndDate = new Date(ActEndparts[2], ActEndparts[1] - 1, ActEndparts[0])
+
+
+
+
+            var StartString = MonthArray[ActStartDate.getMonth()] + " " + ActStartDate.getFullYear()
+            var EndString = MonthArray[ActEndDate.getMonth()] + " " + ActEndDate.getFullYear()
+
+            $("#ErrorMsgTxt").text('Data range: end of ' + StartString + " to end of " + EndString);
+
+            //loops accross each of the portfolios in the array and does the return calculation
+            var p1Port = []
+            var p2Port = []
+            var ReturnPort = []
+            var PortsWInsufficentData = [] //list of portfolios without enough data
+           ReturnPort[0] = ['Portfolio', 'Cumultative Return: ', 'Annualised Return:']
+
+            var outCounter = 1
+            for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
+
+              var PortLabel = DataA[0][PortNo]
+
+              //checks if portfolio is in the portfolios to show list. If not, data not searched for.
+              if (includesAlt(PortfoliosToShow, PortLabel) == 1) {
+                var TempArray = []
+                var  NoPeriods = (EndRow - StartRow)//+1 // number of months
+                p1Port[PortNo - 1] = DataA[StartRow][PortNo] //price 1
+                p2Port[PortNo - 1] = DataA[EndRow][PortNo] // price 2
+
+                TempArray[0] = PortLabel //label
+                TempArray[1] = p2Port[PortNo - 1] / p1Port[PortNo - 1] - 1 //return
+                TempArray[2] = Math.pow((p2Port[PortNo - 1] / p1Port[PortNo - 1]),(12/NoPeriods)) - 1 //return
+        
+
+                ReturnPort[outCounter] = TempArray
+                outCounter = outCounter + 1
+
+                if (p1Port[PortNo - 1] == null || p1Port[PortNo - 1] == null) {
+                  PortsWInsufficentData.push(PortLabel)
+                }
+              }
+            }
+
+            //tansposes total return array so the column labels are portfolio names
+            var newArray = [];
+            for (var i = 0; i < 3; i++) {
+              newArray.push([]);
+            }
+            for (var i = 0; i < ReturnPort.length; i++) {
+              for (var j = 0; j < 3; j++) {
+                newArray[j].push(ReturnPort[i][j]);
+              }
+            }
+
+            var PriceSubset = []
+
+            if (HidePeriodcrFreq == false) {
+
+              //create blank array number of date rows high to store output 
+              var SubSetDataRow = StartRow + 1
+              for (var i = 0; i < EndRow - SubSetDataRow + 2; i++) {
+                PriceSubset.push([]);
+              }
+
+              //column headers in the periodic output array
+              PriceSubset[0].push(DataA[0][0]) //sets "date" header 
+              for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
+                var PortLabel = DataA[0][PortNo]
+                if (includesAlt(PortfoliosToShow, PortLabel) == 1) {
+                  PriceSubset[0].push(PortLabel) //sets label
+                }
+              }
+
+              //loops  dowwn each of the return dates for the requird portfolios
+              for (var i = 1; i < PriceSubset.length; i++) {
+
+                var datePre = DataA[SubSetDataRow][0].split('/');
+                var year = datePre[2];
+                var month = datePre[1] - 1; // subtract 1 to convert to javascript's 0-indexed months
+                var day = datePre[0]; //The day is the third split
+                var CleanDate = new Date(year, month, day);
+
+                PriceSubset[i].push(CleanDate)
+
+                //does return calculation for each portfolio
+                for (PortNo = 1; PortNo < DataA[0].length; PortNo++) {
+
+                  var PortLabel = DataA[0][PortNo] //active portfolio
+
+                  if (includesAlt(PortfoliosToShow, PortLabel) == 1) {
+                    var p1 = DataA[SubSetDataRow - 1][PortNo]
+                    var p2 = DataA[SubSetDataRow][PortNo]
+                    PriceSubset[i].push(p2 / p1 - 1) //return 
+                  }
+                }
+                SubSetDataRow++ //iterates output row
+              }
+
+              var CleanedSubsetArray = [] //converts period table to calendar year returns if that tick box is selected
+              var TargetYearArray = [] //creates an array of years between the start date and end date to sum over
+              for (i = 1; i < PriceSubset.length; i++) {
+                //var TrgtParts = PriceSubset[i][0].split("/");
+                var TrgtYear = PriceSubset[i][0].getFullYear()
+
+                if (includesAlt(TargetYearArray, TrgtYear) == false) {
+                  TargetYearArray.push(TrgtYear) //adds the year if it isn't already in the array
+                }
+              }
+
+              if (YearFreq == true) {
+
+                //builds output array into format
+                for (i = 0; i < TargetYearArray.length + 1; i++) {
+                  CleanedSubsetArray.push([]);
+                }
+
+                //sets headers for dae  and then enters date in first colum 
+                CleanedSubsetArray[0].push(DataA[0][0]) //sets "date" header 
+                for (PortNo = 1; PortNo < PriceSubset[0].length; PortNo++) {
+                  var PortLabel = PriceSubset[0][PortNo]
+                  CleanedSubsetArray[0].push(PortLabel) //sets label
+                }
+
+                var CleanOutRow = 1
+                //loops down each year between the start and end dates 
+                for (i = 1; i < CleanedSubsetArray.length; i++) {
+
+                  var TargetYear = TargetYearArray[i - 1]
+                  var EndYearDate = new Date(TargetYear, 5, 1)
+                  CleanedSubsetArray[i].push(EndYearDate) //writes the date
+
+                  for (PortNo = 1; PortNo < PriceSubset[0].length; PortNo++) {
+
+                    //sums up the return in a given calendar year
+                    var initValue = 1 //starts of the geometric return starts at 1 (1+0)*(1+x)
+                    var sum = PriceSubset.reduce(function LoopFunct(acc, val, idx) {
+                      //loop through each date in the DataA array and test whether is in target year
+
+                      if (idx > 0) { //start after the header row
+                        var DateYear = val[0].getFullYear();
+
+                        if (DateYear == TargetYear) {
+                          return acc * (1 + val[PortNo]) //geometrically linked returns
+                        } else {
+                          return acc
+                        }
+                      } else {
+                        return acc //do notthing if the index = 0 (i.e. the header row)
+                      }
+                    }, initValue);
+
+                    CleanedSubsetArray[CleanOutRow].push(sum - 1)
+                  }
+                  CleanOutRow++
+
+                }
+
+                PeriodicData = google.visualization.arrayToDataTable(CleanedSubsetArray);
+                YearDateformatter.format(PeriodicData, 0)
+
+              } else {
+
+                CleanedSubsetArray = PriceSubset
+                PeriodicData = google.visualization.arrayToDataTable(CleanedSubsetArray);
+                MonthDateformatter.format(PeriodicData, 0)
+
+              }
+
+
+              //format the non date columns as percentages
+              // var PeriodicDataWidths = []
+              for (i = 1; i < PeriodicData.getNumberOfColumns(); i++) {
+                formatterPercent.format(PeriodicData, i); // Apply formatter to second column
+                // PeriodicDataWidths.push(PeriodicData.getProperty(0, 0, 'style', 'width:80px'));
+              }
+
+
+              PeriodicData.setColumnProperty(0, 'type', 'string')
+              PeriodicData.setProperty(0, 0, 'style', 'width:80px');
+              PeriodicTableChart.setDataTable(PeriodicData)
+            }
+
+            TotalData = google.visualization.arrayToDataTable(newArray);
+
+            //format the non date columns as percentages
+            for (i = 1; i < TotalData.getNumberOfColumns(); i++) {
+              formatterPercent.format(TotalData, i); // Apply formatter to second column
+            }
+            TotalData.setProperty(0, 0, 'style', 'width:80px')
+
+            if (HidePeriodcrFreq == false) {
+
+              //dont reset the options if a chart is drawn (we want to keep chart options) 
+              if (showChart !== 'ColumnChart') {
+                PeriodicTableChart.setOptions(optionsPeriodicTable)
+              }
+
+              PeriodicTableChart.draw(); //draws periodic return table
+            }
+
+            totaltable.draw(TotalData, optionsTotal); // draws the total return  
+
+          });
+
+          var button = document.getElementById('btnSwitch');
+          button.addEventListener('click', switchChart, false);
+
+          function switchChart() {
+
+            if (showChart === 'Table') { //if currently table switch to coluomn
+              showChart = 'ColumnChart'
+              showChartDisplay = 'Show Table'
+            } else {
+              showChart = 'Table'
+              showChartDisplay = 'Show Chart'
+            }
+            button.innerText = showChartDisplay;
+            drawChart(showChart);
+          }
+
+          function getOptions(chartType) {
+            var options;
+
+            switch (chartType) {
+              case 'ColumnChart':
+                options = optionsIn
+                break;
+
+              case 'Table':
+                options = optionsPeriodicTable
+                break;
+
+              default:
+                options = {};
+            }
+
+            return options;
+          }
+
+          function drawChart(chartType) {
+            PeriodicTableChart.setChartType(chartType);
+            PeriodicTableChart.setOptions(getOptions(chartType));
+            PeriodicTableChart.draw();
+          }
+
+          $('#Export').click(function() {
+            var csvFormattedDataTable = google.visualization.dataTableToCsv(PeriodicData)
+
+            //creates CSV column headers
+            var LabelString = []
+            for (i = 0; i < TotalData.getNumberOfColumns(); i++) {
+              LabelString = LabelString + TotalData.getColumnLabel(i) + ","
+            }
+            var str1 = LabelString + ",\n"
+            var res = str1.concat(csvFormattedDataTable);
+            var encodedUri = 'data:application/csv;charset=utf-8,' + encodeURIComponent(res);
+            this.href = encodedUri;
+            this.download = 'table-data.csv';
+            this.target = '_blank';
+          });
+
+          var UICustTabletab = document.getElementById("ui-id-5");
+
+        })
+      })
+    })
+  })
+}
+
+
+$(function() {
+  $('.date-picker').datepicker({
+    dateFormat: "mm/yy",
+    changeMonth: true,
+    changeYear: true,
+    showButtonPanel: true,
+  //  maxDate: "-1d",
+    onClose: function(dateText, inst) {
+
+
+      function isDonePressed() {
+        return ($('#ui-datepicker-div').html().indexOf('ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all ui-state-hover') > -1);
+      }
+
+      if (isDonePressed()) {
+        var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+        var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+        $(this).datepicker('setDate', new Date(year, month, 1)).trigger('change');
+
+        $('.date-picker').focusout() //Added to remove focus from datepicker input box on selecting date
+      }
+    },
+    beforeShow: function(input, inst) {
+
+      inst.dpDiv.addClass('month_year_datepicker')
+
+      if ((datestr = $(this).val()).length > 0) {
+        year = datestr.substring(datestr.length - 4, datestr.length);
+        month = datestr.substring(0, 2);
+        $(this).datepicker('option', 'defaultDate', new Date(year, month - 1, 1));
+        $(this).datepicker('setDate', new Date(year, month - 1, 1));
+
+        $(".ui-datepicker-calendar").hide();
+      }
+    }
+  })
+});
+
+
+
+</script>
