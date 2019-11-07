@@ -1,0 +1,58 @@
+Day,Team,PortfolioPerf,BMKPerf,Crowns,ShortName
+1M,Team 1,3.7,2.6,3.5,TPS Def
+1M,Team 2,2.8,2.1,3.6,TPS Bal
+1M,Team 3,3,3.9,3.2,TPS Gro
+1M,Team 4,2.5,3.3,3.6,CMAF UK Def
+1M,Team 5,3.1,3.6,2.8,CMAF UK Bal
+1M,Team 6,2.7,2.3,2.4,CMAF UK Gro
+1M,Team 7,2.7,2.6,3.9,CMAF UK Eq Gro
+1M,Team 8,3.9,2.4,3.7,PPF Lwr Rsk
+1M,Team 9,3.9,2.5,3.7,PPF Lwr/Med Rsk
+1M,Team 10,2.6,2.1,3.4,PPF Med Risk
+1M,Team 11,2,2.4,2.5,PPF Med/Higher Rsk
+1M,Team 12,2.7,3.4,3.3,PPF Higher Rsk
+1M,Team 13,2.5,3.2,3.4,CMAF Global Def
+1M,Team 14,2.7,2.7,2.1,CMAF Global Bal
+1M,Team 15,3.9,3.3,3.1,CMAF Global Gro
+YTD,Team 16,3.8,2.3,2.9,TPS Def
+YTD,Team 17,3,2.1,3.8,TPS Bal
+YTD,Team 18,3.3,3.1,3.3,TPS Gro
+YTD,Team 19,3.8,3,2.2,CMAF UK Def
+YTD,Team 20,2.6,3.5,2.3,CMAF UK Bal
+YTD,Team 21,2.6,3.2,2.7,CMAF UK Gro
+YTD,Team 22,2.5,2.3,3,CMAF UK Eq Gro
+YTD,Team 23,2.5,3.3,2.9,PPF Lwr Rsk
+YTD,Team 24,2.6,3.4,3.9,PPF Lwr/Med Rsk
+YTD,Team 25,3,2.7,3.3,PPF Med Risk
+YTD,Team 26,3.4,2.2,3.6,PPF Med/Higher Rsk
+YTD,Team 27,4,2.2,4,PPF Higher Rsk
+YTD,Team 28,2.5,3.7,3.7,CMAF Global Def
+YTD,Team 29,2.5,2.4,3.2,CMAF Global Bal
+YTD,Team 30,2.5,2.9,3.8,CMAF Global Gro
+3yr,Team 31,3.8,2.5,2.7,TPS Def
+3yr,Team 32,2.9,2,3.8,TPS Bal
+3yr,Team 33,2.9,2.9,3.1,TPS Gro
+3yr,Team 34,3.9,2.7,3.4,CMAF UK Def
+3yr,Team 35,2.3,3.3,3.2,CMAF UK Bal
+3yr,Team 36,2.1,3.3,2.4,CMAF UK Gro
+3yr,Team 37,3.1,3.3,3.2,CMAF UK Eq Gro
+3yr,Team 38,3.1,2.7,2.4,PPF Lwr Rsk
+3yr,Team 39,3,3,2.6,PPF Lwr/Med Rsk
+3yr,Team 40,3.3,2.7,2.7,PPF Med Risk
+3yr,Team 41,2.5,2.2,3.3,PPF Med/Higher Rsk
+3yr,Team 42,3.2,2.4,3.3,PPF Higher Rsk
+3yr,Team 43,2.8,2.3,3.4,CMAF Global Def
+3yr,Team 44,2.4,2.4,3.8,CMAF Global Bal
+3yr,Team 45,2.1,2.4,2.5,CMAF Global Gro
+1M,Team 46,2.5,2.4,3.6,OPES GBP WP
+1M,Team 47,2.5,2.8,3.9,OPES GBP WEMT
+1M,Team 48,3.7,2.2,3.3,OPES GBP WELT
+1M,Team 49,3.3,2.2,3.7,OPES GBP WG
+YTD,Team 50,2.2,2.9,2.5,OPES GBP WP
+YTD,Team 51,2.7,2.7,2.9,OPES GBP WEMT
+YTD,Team 52,3.2,3.4,3.8,OPES GBP WELT
+YTD,Team 53,3.8,3,3.4,OPES GBP WG
+3yr,Team 54,3.5,3.1,2.7,OPES GBP WP
+3yr,Team 55,3.2,2.6,2.8,OPES GBP WEMT
+3yr,Team 56,3.1,3.3,3.6,OPES GBP WELT
+3yr,Team 57,2,2.5,2,OPES GBP WG
